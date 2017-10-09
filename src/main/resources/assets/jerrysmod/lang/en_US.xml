@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties version="1.0">
+	<comment>English Localization File</comment>
+	
+	<entry key="item.JerrySword.name">§aJerry Sword</entry>
+	<entry key="item.JerryPickaxe.name">§aJerry Pickaxe</entry>
+	<entry key="item.JerryShovel.name">§aJerry Shovel</entry>
+	<entry key="item.JerryAxe.name">§aJerry Axe</entry>
+	<entry key="item.JerryHoe.name">§aJerry Hoe</entry>
+	
+	<entry key="item.SlimeSword.name">§2Slime Sword</entry>
+	<entry key="item.SlimePickaxe.name">§2Slime Pickaxe</entry>
+	<entry key="item.SlimeShovel.name">§2Slime Shovel</entry>
+	<entry key="item.SlimeAxe.name">§2Slime Axe</entry>
+	<entry key="item.SlimeHoe.name">§2Slime Hoe</entry>
+	
+	<entry key="item.JerryHelmet.name">§aJerry Helmet</entry>
+	<entry key="item.JerryChestplate.name">§aJerry Chestplate</entry>
+	<entry key="item.JerryLeggings.name">§aJerry Leggings</entry>
+	<entry key="item.JerryBoots.name">§aJerry Boots</entry>
+	
+	<entry key="item.SlimeHelmet.name">§2Slime Helmet</entry>
+	<entry key="item.SlimeChestplate.name">§2Slime Chestplate</entry>
+	<entry key="item.SlimeLeggings.name">§2Slime Leggings</entry>
+	<entry key="item.SlimeBoots.name">§2Slime Boots</entry>
+	
+	<entry key="item.JerryGem.name">§aJerry Gem</entry>
+	<entry key="item.SlimeGem.name">§2Slime Gem</entry>
+	<entry key="item.SlimeChunk.name">§2Slime Chunk</entry>
+	<entry key="item.SlimeShard.name">§2Slime Shard</entry>
+	<entry key="item.SlimeStick.name">§2Slime Stick</entry>
+	<entry key="item.SlimeTamer.name">§2Slime Tamer</entry>
+	<entry key="item.SlimeHead.name">§2Slime Head</entry>
+	<entry key="item.Olive.name">§aOlive</entry>
+	<entry key="item.CaptainOfLight.name">§6Captain Of Light</entry>
+	<entry key="item.Bugs.name">Bugs</entry>
+	
+	<entry key="item.SlimeAndSteel.name">§2Slime And Steel</entry>
+	
+	<entry key="tile.SlimeGrass.name">§2Slime Grass</entry>
+	<entry key="tile.SlimeDirt.name">§2Slime Dirt</entry>
+	
+	<entry key="tile.SlimeOre.name">§2Slime Ore</entry>
+	<entry key="tile.SlimeStone.name">§2Slime Stone</entry>
+	<entry key="tile.OlivePlank.name">Olive Plank</entry>
+	<entry key="tile.OliveLog.name">Olive Log</entry>
+	<entry key="tile.OliveSapling.name">Olive Sapling</entry>
+	<entry key="tile.OliveLeaves.name">Olive Leaves</entry>
+	<entry key="tile.SlimeBlock.name">§2Slime Block</entry>
+	<entry key="tile.OliveStair.name">Olive Stairs</entry>
+	
+	<entry key="tile.Fire.name">Fire</entry>
+	<entry key="tile.SlimePortal.name">§2Slime Portal</entry>
+	
+</properties>
