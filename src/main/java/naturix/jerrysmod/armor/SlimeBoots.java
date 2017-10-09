@@ -11,13 +11,12 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SlimeHelmet extends ItemArmor 
+public class SlimeBoots extends ItemArmor 
 {
-
-	public SlimeHelmet()
+	public SlimeBoots()
 	{
-		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.HEAD);
-		ItemBase.registerItem("SlimeHelmet", this);
+		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.FEET);
+		ItemBase.registerItem("SlimeBoots", this);
 	}
 
 	@Override
@@ -29,14 +28,14 @@ public class SlimeHelmet extends ItemArmor
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
 	{
-		return "jerrysmod:textures/models/armor/slimearmor_layer_1.png";
+		return "jerrysmod:textures/models/armor/slimeboots.png";
 	}
 
 
 	@Override
 	public int getMaxDamage()
 	{
-		return 5500001;
+		return 6500001;
 	}
 
 

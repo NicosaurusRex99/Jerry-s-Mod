@@ -35,8 +35,8 @@ public class JerrysMod
 
     public static org.apache.logging.log4j.Logger logger;
     
-    public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":ruby", 15, new int[]{4, 3, 2, 1}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
-    public static final Item.ToolMaterial SlimeToolMaterial = EnumHelper.addToolMaterial("Slime", 4, 4096, 14, 9, 19);
+    public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":ruby", 15, new int[]{18, 51, 21, 30}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+    public static final Item.ToolMaterial SlimeToolMaterial = EnumHelper.addToolMaterial("Slime", 74, 4096, 40, 124, 42);
 
 
     @Mod.EventHandler

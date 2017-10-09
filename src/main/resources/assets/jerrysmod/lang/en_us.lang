@@ -3,5 +3,9 @@ tile.jerrysmod.slimeore.name=Slime Ore
 item.jerrysmod.slimeshard.name=Slime Shard
 item.jerrysmod.slimegem.name=Slime Gem
 item.jerrysmod.jerrygem.name=Jerry Gem
+item.SlimeHelmet.name=Slime Helmet
+item.SlimeChestplate.name=Slime Chestplate
+item.SlimeLeggings.name=Slime Leggings
+item.SlimeBoots.name=Slime Boots
 
 itemGroup.Jerry's Mod=Jerry's Mod

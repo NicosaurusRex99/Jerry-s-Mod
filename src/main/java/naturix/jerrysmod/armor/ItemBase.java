@@ -22,6 +22,7 @@ public class ItemBase extends Item
 		item.setRegistryName(name);
 		item.setCreativeTab(JerrysMod.JerrysMod);
 		item.setUnlocalizedName(name);
+		item.setMaxStackSize(1);
 
 		ForgeRegistries.ITEMS.register(item);
 		

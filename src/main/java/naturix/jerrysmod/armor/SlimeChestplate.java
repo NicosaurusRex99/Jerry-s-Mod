@@ -11,19 +11,19 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SlimeHelmet extends ItemArmor 
+public class SlimeChestplate extends ItemArmor 
 {
-
-	public SlimeHelmet()
+	public SlimeChestplate()
 	{
-		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.HEAD);
-		ItemBase.registerItem("SlimeHelmet", this);
+		
+		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.CHEST);
+		ItemBase.registerItem("SlimeChestplate", this);
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack)
 	{
-		return EnumRarity.RARE;
+		return EnumRarity.EPIC;
 	}
 	
 	@Override
@@ -36,7 +36,7 @@ public class SlimeHelmet extends ItemArmor
 	@Override
 	public int getMaxDamage()
 	{
-		return 5500001;
+		return 8000001;
 	}
 
 
