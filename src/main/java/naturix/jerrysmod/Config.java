@@ -1,13 +1,15 @@
 package naturix.jerrysmod;
 
-import org.apache.logging.log4j.Level;
-
 import naturix.jerrysmod.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 	private static final String CATEGORY_GENERAL = "general";
-	
+	private static final String CATEGORY_ORE = "Ore Gen";
+	public static int slimeVeinSize = 2;
+    public static int slimeMax = 15;
+    public static int slimeMin = 1;
+    public static int slimeSpawnTries = 1;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -24,6 +26,11 @@ public class Config {
     }
 	 private static void initGeneralConfig(Configuration cfg) {
 	        cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
+	        cfg.addCustomCategoryComment(CATEGORY_ORE, "Generation of ore");
+	        slimeVeinSize = cfg.getInt("slimeVeinSize", CATEGORY_ORE, 2, 1, 1000, "Choose a number between 1 and 1000 to change the size of slime ore veins");
+	        slimeMin = cfg.getInt("slimeMin", CATEGORY_ORE, 1, 1, 255, "Choose a number between 1 and 255 to choose the min slime ore height");
+	        slimeMax = cfg.getInt("slimeMax", CATEGORY_ORE, 15, 1, 256, "Choose a number between 1 and 256 to choose the max slime ore height");
+	        slimeSpawnTries = cfg.getInt("slimeSpawnTries", CATEGORY_ORE, 1, 1, 100, "Choose a number between 1 and 100 to change how often you see slime ore");
 	        
 	 }
 }

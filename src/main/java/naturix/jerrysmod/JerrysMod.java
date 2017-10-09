@@ -3,6 +3,7 @@ package naturix.jerrysmod;
 import java.util.logging.Logger;
 
 import naturix.jerrysmod.proxy.CommonProxy;
+import naturix.jerrysmod.proxy.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -42,6 +44,7 @@ public class JerrysMod
     {
     	logger = event.getModLog();
         proxy.preInit(event);
+        GameRegistry.registerWorldGenerator(new WorldGen(), 3);
 
     }
 

@@ -2,9 +2,11 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
+import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.blocks.SlimeOre;
+import naturix.jerrysmod.items.SlimeShard;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -23,21 +25,22 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		public void preInit(FMLPreInitializationEvent e) 
 		{
 			File directory = e.getModConfigurationDirectory();
-	        config = new Configuration(new File(directory.getPath(), "Just Another Ruby Mod.cfg"));
+	        config = new Configuration(new File(directory.getPath(), "Jerry's Mod.cfg"));
 	        JerrysMod.logger.info("JARM config found");
 	        JerrysMod.logger.info("JARM config read");
 	    }
 
 	    public void init(FMLInitializationEvent e)
 	    {
-	    	 JerrysMod.logger.info("JARM Initialized :D");
+	    	FurnaceRecipe.init();
+	    	JerrysMod.logger.info("Jerry's Mod Initialized");
 	    }
 	    
 	    public void postInit(FMLPostInitializationEvent e) 
 	    {
 	    	if (config.hasChanged()) {
 	            config.save();
-	            JerrysMod.logger.info("JARM config loaded");
+	            JerrysMod.logger.info("Jerry's Mod config loaded");
 	    }
 	    }
 	    @SubscribeEvent
@@ -47,7 +50,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimeore).setRegistryName(ModBlocks.slimeore.getRegistryName()));
-	        JerrysMod.logger.info("Jerry's mod Items have just been loaded");
+	    	event.getRegistry().register(new SlimeShard());
+	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	    
 	    }
 }
