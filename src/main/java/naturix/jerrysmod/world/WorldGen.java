@@ -1,4 +1,4 @@
-package naturix.jerrysmod.proxy;
+package naturix.jerrysmod.world;
 
 import java.util.Random;
 

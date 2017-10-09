@@ -1,5 +1,7 @@
-tile.jerrysmod.slimeore.name=Slime ore
+tile.jerrysmod.slimeore.name=Slime Ore
 
-item.jerrysmod.slimeshard.name=Slime shard
+item.jerrysmod.slimeshard.name=Slime Shard
+item.jerrysmod.slimegem.name=Slime Gem
+item.jerrysmod.jerrygem.name=Jerry Gem
 
 itemGroup.Jerry's Mod=Jerry's Mod

@@ -3,7 +3,7 @@ package naturix.jerrysmod;
 import java.util.logging.Logger;
 
 import naturix.jerrysmod.proxy.CommonProxy;
-import naturix.jerrysmod.proxy.WorldGen;
+import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;

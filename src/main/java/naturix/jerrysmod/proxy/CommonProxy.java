@@ -6,6 +6,8 @@ import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.blocks.SlimeOre;
+import naturix.jerrysmod.items.JerryGem;
+import naturix.jerrysmod.items.SlimeGem;
 import naturix.jerrysmod.items.SlimeShard;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -51,6 +53,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimeore).setRegistryName(ModBlocks.slimeore.getRegistryName()));
 	    	event.getRegistry().register(new SlimeShard());
+	    	event.getRegistry().register(new SlimeGem());
+	    	event.getRegistry().register(new JerryGem());
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	    
 	    }

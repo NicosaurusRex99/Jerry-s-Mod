@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "key": {
+    "X": {
+        "item": "jerrysmod:slimeshard"
+    },
+    "#": {
+        "item": "minecraft:diamond_block"
+        }
+  },
+  "result": {
+    "item": "jerrysmod:slimegem"
+  }
+}
