@@ -1,4 +1,4 @@
-n{
+{
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "XXX",
@@ -7,10 +7,10 @@ n{
   ],
   "key": {
     "X": {
-        "item": "jerrysmod:slimegem"
+        "item": "jerrysmod:jerrygem"
     }
   },
   "result": {
-    "item": "jerrysmod:slimeleggings"
+    "item": "jerrysmod:jerryleggings"
   }
 }

@@ -7,5 +7,9 @@ item.SlimeHelmet.name=Slime Helmet
 item.SlimeChestplate.name=Slime Chestplate
 item.SlimeLeggings.name=Slime Leggings
 item.SlimeBoots.name=Slime Boots
+item.JerryHelmet.name=Jerry Helmet
+item.JerryChestplate.name=Jerry Chestplate
+item.JerryLeggings.name=Jerry Leggings
+item.JerryBoots.name=Jerry Boots
 
 itemGroup.Jerry's Mod=Jerry's Mod

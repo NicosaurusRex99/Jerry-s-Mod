@@ -5,6 +5,10 @@ import java.io.File;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.armor.JerryBoots;
+import naturix.jerrysmod.armor.JerryChestplate;
+import naturix.jerrysmod.armor.JerryHelmet;
+import naturix.jerrysmod.armor.JerryLeggings;
 import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
@@ -63,6 +67,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new SlimeChestplate());
 	    	event.getRegistry().register(new SlimeLeggings());
 	    	event.getRegistry().register(new SlimeBoots());
+	    	event.getRegistry().register(new JerryHelmet());
+	    	event.getRegistry().register(new JerryChestplate());
+	    	event.getRegistry().register(new JerryLeggings());
+	    	event.getRegistry().register(new JerryBoots());
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	    
 	    }

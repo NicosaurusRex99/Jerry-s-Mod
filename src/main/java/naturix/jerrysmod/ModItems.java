@@ -1,5 +1,9 @@
 package naturix.jerrysmod;
 
+import naturix.jerrysmod.armor.JerryBoots;
+import naturix.jerrysmod.armor.JerryChestplate;
+import naturix.jerrysmod.armor.JerryHelmet;
+import naturix.jerrysmod.armor.JerryLeggings;
 import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
@@ -27,6 +31,14 @@ public class ModItems
     public static SlimeLeggings slimeleggings;
 	@GameRegistry.ObjectHolder("jerrysmod:slimeboots")
     public static SlimeBoots slimeboots;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryhelmet")
+	public static JerryHelmet jerryhelmet;
+	@GameRegistry.ObjectHolder("jerrysmod:jerrychestplate")
+	public static JerryChestplate jerrychestplate;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryleggings")
+	public static JerryLeggings jerryleggings;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryboots")
+	public static JerryBoots jerryboots;
 	
 	
 	@SideOnly(Side.CLIENT)
@@ -38,5 +50,9 @@ public class ModItems
 	slimechestplate.initModel();
 	slimeleggings.initModel();
 	slimeboots.initModel();
+	jerryhelmet.initModel();
+	jerrychestplate.initModel();
+	jerryleggings.initModel();
+	jerryboots.initModel();
 }
 }

@@ -35,10 +35,11 @@ public class JerrysMod
 
     public static org.apache.logging.log4j.Logger logger;
     
-    public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":ruby", 15, new int[]{18, 51, 21, 30}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
+    public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":slime", 15, new int[]{18, 51, 21, 30}, 9, SoundEvents.ENTITY_SLIME_SQUISH, 0.0F);
     public static final Item.ToolMaterial SlimeToolMaterial = EnumHelper.addToolMaterial("Slime", 74, 4096, 40, 124, 42);
-
-
+    public static final ItemArmor.ArmorMaterial JerryArmorMaterial = EnumHelper.addArmorMaterial("Jerry", MODID + "jerry", 15, new int[]{54, 111, 75, 60}, 9, SoundEvents.ENTITY_SLIME_JUMP, 0.5F);
+    public static final Item.ToolMaterial JerryToolMaterial = EnumHelper.addToolMaterial("Jerry", 466, 642, 321, 104, 50);
+    
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
