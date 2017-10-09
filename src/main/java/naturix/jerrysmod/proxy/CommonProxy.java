@@ -3,12 +3,18 @@ package naturix.jerrysmod.proxy;
 import java.io.File;
 
 import naturix.jerrysmod.JerrysMod;
-import net.minecraftforge.common.config.Config;
+import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.blocks.SlimeOre;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber
 	public class CommonProxy {
@@ -34,4 +40,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 	            JerrysMod.logger.info("JARM config loaded");
 	    }
 	    }
+	    @SubscribeEvent
+	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
+	    	event.getRegistry().register(new SlimeOre(null));
 	}
+	    @SubscribeEvent
+	    public static void registerItems(RegistryEvent.Register<Item> event) {
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimeore).setRegistryName(ModBlocks.slimeore.getRegistryName()));
+	        JerrysMod.logger.info("Jerry's mod Items have just been loaded");
+	    
+	    }
+}
