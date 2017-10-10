@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class SlimeHoe extends ItemHoe {
 
     public SlimeHoe(ToolMaterial material) {
-    	super(JerrysMod.JerryToolMaterial);
+    	super(JerrysMod.SlimeToolMaterial);
         setRegistryName("slimehoe");
         setUnlocalizedName(JerrysMod.MODID + ".slimehoe");
         setCreativeTab(JerrysMod.JerrysMod);

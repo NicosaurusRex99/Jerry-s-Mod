@@ -21,7 +21,7 @@ public class OliveLeaves extends Block {
 
 
 	public OliveLeaves(Material materialIn) {
-		super(Material.ROCK);
+		super(Material.LEAVES);
         setUnlocalizedName(JerrysMod.MODID + ".oliveleaves");
         setRegistryName("oliveleaves");
         setCreativeTab(JerrysMod.JerrysMod);
@@ -55,4 +55,5 @@ public class OliveLeaves extends Block {
     {
         return ModBlocks.olivesapling(this);
     }
+
 }

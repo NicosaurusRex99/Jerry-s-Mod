@@ -9,7 +9,12 @@ import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
 import naturix.jerrysmod.items.CaptainOfLight;
+import naturix.jerrysmod.items.JerryAxe;
 import naturix.jerrysmod.items.JerryGem;
+import naturix.jerrysmod.items.JerryHoe;
+import naturix.jerrysmod.items.JerryPickaxe;
+import naturix.jerrysmod.items.JerryShovel;
+import naturix.jerrysmod.items.JerrySword;
 import naturix.jerrysmod.items.SlimeAxe;
 import naturix.jerrysmod.items.SlimeGem;
 import naturix.jerrysmod.items.SlimeHoe;
@@ -60,6 +65,16 @@ public class ModItems
 	public static SlimeShovel slimeshovel;
 	@GameRegistry.ObjectHolder("jerrysmod:slimehoe")
 	public static SlimeHoe slimehoe;
+	@GameRegistry.ObjectHolder("jerrysmod:jerrysword")
+	public static JerrySword jerrysword;
+	@GameRegistry.ObjectHolder("jerrysmod:jerrypickaxe")
+	public static JerryPickaxe jerrypickaxe;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryaxe")
+	public static JerryAxe jerryaxe;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryshovel")
+	public static JerryShovel jerryshovel;
+	@GameRegistry.ObjectHolder("jerrysmod:jerryhoe")
+	public static JerryHoe jerryhoe;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
@@ -81,5 +96,10 @@ public class ModItems
 	slimeaxe.initModel();
 	slimeshovel.initModel();
 	slimehoe.initModel();
+	jerrysword.initModel();
+	jerrypickaxe.initModel();
+	jerryaxe.initModel();
+	jerryshovel.initModel();
+	jerryhoe.initModel();
 }
 }

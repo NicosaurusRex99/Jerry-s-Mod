@@ -2,22 +2,22 @@ package naturix.jerrysmod.items;
 
 import naturix.jerrysmod.JerrysMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemSword;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SlimeSword extends ItemSword {
+public class JerryPickaxe extends ItemPickaxe {
 
-    public SlimeSword(ToolMaterial material) {
-    	super(JerrysMod.SlimeToolMaterial);
-        setRegistryName("slimesword");
-        setUnlocalizedName(JerrysMod.MODID + ".slimesword");
+    public JerryPickaxe(ToolMaterial material) {
+    	super(JerrysMod.JerryToolMaterial);
+        setRegistryName("jerrypickaxe");
+        setUnlocalizedName(JerrysMod.MODID + ".jerrypickaxe");
         setCreativeTab(JerrysMod.JerrysMod);
         setMaxStackSize(1);
-        setMaxDamage(600001);
-        setHarvestLevel(getUnlocalizedName(), 4);
+        setMaxDamage(13000001);
+        setHarvestLevel(getUnlocalizedName(), 6);
         getItemEnchantability();
     }
     @SideOnly(Side.CLIENT)

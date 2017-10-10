@@ -3,7 +3,6 @@ package naturix.jerrysmod;
 import naturix.jerrysmod.proxy.CommonProxy;
 import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
@@ -36,7 +35,7 @@ public class JerrysMod
     public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":slime", 15, new int[]{18, 51, 21, 30}, 9, SoundEvents.ENTITY_SLIME_SQUISH, 0.0F);
     public static final Item.ToolMaterial SlimeToolMaterial = EnumHelper.addToolMaterial("Slime", 74, 4096, 40, 124, 42);
     public static final ItemArmor.ArmorMaterial JerryArmorMaterial = EnumHelper.addArmorMaterial("Jerry", MODID + "jerry", 15, new int[]{54, 111, 75, 60}, 9, SoundEvents.ENTITY_SLIME_JUMP, 0.5F);
-    public static final Item.ToolMaterial JerryToolMaterial = EnumHelper.addToolMaterial("Jerry", 466, 642, 321, 104, 50);
+    public static final Item.ToolMaterial JerryToolMaterial = EnumHelper.addToolMaterial("Jerry", 99, 6142, 321, 844, 50);
     
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -63,7 +62,7 @@ public class JerrysMod
         @SideOnly(Side.CLIENT)
         public ItemStack getTabIconItem()
         {
-            return new ItemStack(Blocks.SLIME_BLOCK);
+            return new ItemStack(ModItems.jerrysword);
         }
 		
     };

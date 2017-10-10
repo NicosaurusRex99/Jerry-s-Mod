@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class SlimeShovel extends ItemSpade {
 
     public SlimeShovel(ToolMaterial material) {
-    	super(JerrysMod.JerryToolMaterial);
+    	super(JerrysMod.SlimeToolMaterial);
         setRegistryName("slimeshovel");
         setUnlocalizedName(JerrysMod.MODID + ".slimeshovel");
         setCreativeTab(JerrysMod.JerrysMod);

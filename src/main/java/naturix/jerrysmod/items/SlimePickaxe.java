@@ -11,7 +11,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class SlimePickaxe extends ItemPickaxe {
 
     public SlimePickaxe(ToolMaterial material) {
-    	super(JerrysMod.JerryToolMaterial);
+    	super(JerrysMod.SlimeToolMaterial);
         setRegistryName("slimepickaxe");
         setUnlocalizedName(JerrysMod.MODID + ".slimepickaxe");
         setCreativeTab(JerrysMod.JerrysMod);
