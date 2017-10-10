@@ -16,6 +16,16 @@ item.JerryChestplate.name=Jerry Chestplate
 item.JerryLeggings.name=Jerry Leggings
 item.JerryBoots.name=Jerry Boots
 item.jerrysmod.captainoflight.name=Captain of Light
+item.jerrysmod.slimesword.name=Slime Sword
+item.jerrysmod.slimepickaxe.name=Slime Pickaxe
+item.jerrysmod.slimeaxe.name=Slime Axe
+item.jerrysmod.slimeshovel.name=Slime Shovel
+item.jerrysmod.slimehoe.name=Slime Hoe
 item.jerrysmod.slimestick.name=Slime Stick
+item.jerrysmod.jerrysword.name=Jerry Sword
+item.jerrysmod.jerrypickaxe.name=Jerry Pickaxe
+item.jerrysmod.jerryaxe.name=Jerry Axe
+item.jerrysmod.jerryshovel.name=Jerry Shovel
+item.jerrysmod.jerryhoe.name=Jerry Hoe
 
 itemGroup.Jerry's Mod=Jerry's Mod

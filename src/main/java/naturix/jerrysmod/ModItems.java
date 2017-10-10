@@ -10,9 +10,14 @@ import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
 import naturix.jerrysmod.items.CaptainOfLight;
 import naturix.jerrysmod.items.JerryGem;
+import naturix.jerrysmod.items.SlimeAxe;
 import naturix.jerrysmod.items.SlimeGem;
+import naturix.jerrysmod.items.SlimeHoe;
+import naturix.jerrysmod.items.SlimePickaxe;
 import naturix.jerrysmod.items.SlimeShard;
+import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
+import naturix.jerrysmod.items.SlimeSword;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,7 +50,16 @@ public class ModItems
 	public static CaptainOfLight captainoflight;
 	@GameRegistry.ObjectHolder("jerrysmod:slimestick")
 	public static SlimeStick slimestick;
-	
+	@GameRegistry.ObjectHolder("jerrysmod:slimesword")
+	public static SlimeSword slimesword;
+	@GameRegistry.ObjectHolder("jerrysmod:slimepickaxe")
+	public static SlimePickaxe slimepickaxe;
+	@GameRegistry.ObjectHolder("jerrysmod:slimeaxe")
+	public static SlimeAxe slimeaxe;
+	@GameRegistry.ObjectHolder("jerrysmod:slimeshovel")
+	public static SlimeShovel slimeshovel;
+	@GameRegistry.ObjectHolder("jerrysmod:slimehoe")
+	public static SlimeHoe slimehoe;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
@@ -62,5 +76,10 @@ public class ModItems
 	jerryboots.initModel();
 	captainoflight.initModel();
 	slimestick.initModel();
+	slimesword.initModel();
+	slimepickaxe.initModel();
+	slimeaxe.initModel();
+	slimeshovel.initModel();
+	slimehoe.initModel();
 }
 }
