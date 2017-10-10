@@ -3,6 +3,7 @@ package naturix.jerrysmod.items;
 import naturix.jerrysmod.JerrysMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.ItemHoe;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -16,7 +17,7 @@ public class JerryHoe extends ItemHoe {
         setCreativeTab(JerrysMod.JerrysMod);
         setMaxStackSize(1);
         setMaxDamage(13000001);
-        setHarvestLevel(getUnlocalizedName(), 6);
+        setHarvestLevel(getUnlocalizedName(), 4);
         getItemEnchantability();
     }
     @SideOnly(Side.CLIENT)
