@@ -8,9 +8,11 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
+import naturix.jerrysmod.items.CaptainOfLight;
 import naturix.jerrysmod.items.JerryGem;
 import naturix.jerrysmod.items.SlimeGem;
 import naturix.jerrysmod.items.SlimeShard;
+import naturix.jerrysmod.items.SlimeStick;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -39,6 +41,10 @@ public class ModItems
 	public static JerryLeggings jerryleggings;
 	@GameRegistry.ObjectHolder("jerrysmod:jerryboots")
 	public static JerryBoots jerryboots;
+	@GameRegistry.ObjectHolder("jerrysmod:captainoflight")
+	public static CaptainOfLight captainoflight;
+	@GameRegistry.ObjectHolder("jerrysmod:slimestick")
+	public static SlimeStick slimestick;
 	
 	
 	@SideOnly(Side.CLIENT)
@@ -54,5 +60,7 @@ public class ModItems
 	jerrychestplate.initModel();
 	jerryleggings.initModel();
 	jerryboots.initModel();
+	captainoflight.initModel();
+	slimestick.initModel();
 }
 }

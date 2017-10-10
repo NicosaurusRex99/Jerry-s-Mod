@@ -3,13 +3,13 @@
   "modid": "jerrysmod",
   "name": "Jerry's Mod",
   "description": "A fan made mod in honor of Jerry the slime!",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
+  "version": "1.12.2.0",
+  "mcversion": "1.12.2",
+  "url": "https://minecraft.curseforge.com/projects/unofficial-jerrys-mod/",
+  "updateUrl": "https://minecraft.curseforge.com/projects/unofficial-jerrys-mod/files",
   "authorList": ["NicosaurusRex99, Sniper_Mine, Hawaii_Beach"],
   "credits": "Credits to Sniper_Mine for making the original mod!",
-  "logoFile": "",
+  "logoFile": "jerrysmod:logo/logo",
   "screenshots": [],
   "dependencies": []
 }
