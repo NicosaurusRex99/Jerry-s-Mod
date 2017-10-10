@@ -2,6 +2,7 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
@@ -13,6 +14,10 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
+import naturix.jerrysmod.blocks.OliveLeaves;
+import naturix.jerrysmod.blocks.OliveLog;
+import naturix.jerrysmod.blocks.OlivePlanks;
+import naturix.jerrysmod.blocks.OliveSapling;
 import naturix.jerrysmod.blocks.SlimeOre;
 import naturix.jerrysmod.items.JerryGem;
 import naturix.jerrysmod.items.SlimeGem;
@@ -36,8 +41,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 		{
 			File directory = e.getModConfigurationDirectory();
 	        config = new Configuration(new File(directory.getPath(), "Jerry's Mod.cfg"));
-	        JerrysMod.logger.info("JARM config found");
-	        JerrysMod.logger.info("JARM config read");
+	        JerrysMod.logger.info("Jerry's Mod config found");
+	        Config.readConfig();
+	        JerrysMod.logger.info("Jerry's Mod config read");
+	        
+	        
 	    }
 
 	    public void init(FMLInitializationEvent e)
@@ -56,6 +64,10 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    @SubscribeEvent
 	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    	event.getRegistry().register(new SlimeOre(null));
+	    	event.getRegistry().register(new OliveLeaves(null));
+	    	event.getRegistry().register(new OliveLog(null));
+	    	event.getRegistry().register(new OliveSapling(null));
+	    	event.getRegistry().register(new OlivePlanks(null));
 	}
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -71,6 +83,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new JerryChestplate());
 	    	event.getRegistry().register(new JerryLeggings());
 	    	event.getRegistry().register(new JerryBoots());
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveleaves).setRegistryName(ModBlocks.oliveleaves.getRegistryName()));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivelog).setRegistryName(ModBlocks.olivelog.getRegistryName()));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveplanks).setRegistryName(ModBlocks.oliveplanks.getRegistryName()));
+	    	
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	    
 	    }

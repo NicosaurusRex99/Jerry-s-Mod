@@ -9,17 +9,17 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class SlimeOre extends Block {
+public class OlivePlanks extends Block {
 
 
-	public SlimeOre(Material materialIn) {
-		super(Material.ROCK);
-        setUnlocalizedName(JerrysMod.MODID + ".slimeore");
-        setRegistryName("slimeore");
+	public OlivePlanks(Material materialIn) {
+		super(Material.WOOD);
+        setUnlocalizedName(JerrysMod.MODID + ".oliveplanks");
+        setRegistryName("oliveplanks");
         setCreativeTab(JerrysMod.JerrysMod);
-        setHarvestLevel("pickaxe", 2);
-        setHardness(4f);
-		setResistance(5f);
+        setHarvestLevel("axe", 1);
+        setHardness(2f);
+		setResistance(1f);
 	}
 	@SideOnly(Side.CLIENT)
     public void initModel() {

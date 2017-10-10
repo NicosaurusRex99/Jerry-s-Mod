@@ -1,7 +1,5 @@
 package naturix.jerrysmod;
 
-import java.util.logging.Logger;
-
 import naturix.jerrysmod.proxy.CommonProxy;
 import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
