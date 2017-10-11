@@ -21,7 +21,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
-    public static final String VERSION = "1.12.2.1";
+    public static final String VERSION = "1.12.2.0B";
     
 
     @SidedProxy(clientSide = "naturix.jerrysmod.proxy.ClientProxy", serverSide = "naturix.jerrysmod.proxy.ServerProxy")
@@ -43,7 +43,7 @@ public class JerrysMod
     	logger = event.getModLog();
         proxy.preInit(event);
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-
+        
     }
 
     @Mod.EventHandler

@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" X ",
+		" # ",
+		" # "
+	],
+	"key": {
+		"X": {
+			"item": "jerrysmod:slimegem"
+		},
+		"#": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "jerrysmod:slimeshovel"
+	}
+}
