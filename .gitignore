@@ -32,3 +32,4 @@ gradlew.bat
 setupEclipse.bat
 SetupWorkspace.bat
 UpdateForge.bat
+setupCleanCache.bat
