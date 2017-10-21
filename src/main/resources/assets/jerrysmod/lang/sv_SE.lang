@@ -1,0 +1,56 @@
+﻿< Swedish (SE) Localization File >
+
+item.jerrysword.name=Jerrysvärd
+item.jerrypickaxe.name=Jerryhacka
+item.jerryshovel.name=Jerryspade
+item.jerryaxe.name=Jerryyxa
+item.jerryhoe.name=Jerryflohacka
+
+item.slimesword.name=Slemsvärd
+item.slimepickaxe.name=Slemhacka
+item.slimeshovel.name=Slemspade
+item.slimeaxe.name=Slemyxa
+item.slimehoe.name=Slemflohacka
+
+item.jerryhelmet.name=Jerryhjälm
+item.jerrychest.name=Jerryharnesk
+item.jerryleggings.name=Jerrybyxor
+item.jerryboots.name=Jerrystövlar
+
+item.slimehelmet.name=Slemhjälm
+item.slimechest.name=Slemharnesk
+item.slimeleggings.name=Slembyxor
+item.slimeboots.name=Slemstövlar
+
+item.jerrygem.name=Jerryjuvel
+item.slimegem.name=Slemjuvel
+item.slimechunk.name=Slembit
+item.slimeshard.name=Slemskärva
+item.slimestick.name=Slempinne
+item.slimetamer.name=Slemtamare
+item.slimehead.name=Slemhuvud
+item.captainofLight.name=§6Kapten av Ljus
+item.slimeandSteel.name=Slem och stål
+item.slimedrop.name=Slemrester
+
+item.olive.name=Oliv
+item.grapes.name=Vindruvor
+item.phone.name=§6Mobil
+
+tile.slimegrass.name=Slemgräs
+tile.slimedirt.name=Slemjord
+tile.slimeore.name=Slemmalm
+tile.slimestone.name=Slemsten
+tile.slimeblock.name=§2Slemblock
+tile.jerryblock.name=§aJerryblock
+
+tile.fire.name=Eld
+tile.slimeportal.name=Slemportal
+
+tile.oliveplank.name=Olivplankor
+tile.olivelog.name=Olivträ
+tile.olivesapling.name=Olivplanta
+tile.oliveleaves.name=Olivlöv
+tile.olivestairs.name=Olivtrappa
+
+itemGroup.jerrysmod=Jerrys modd
