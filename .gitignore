@@ -20,3 +20,15 @@ build
 # other
 eclipse
 run
+
+# we only want the source
+gradle
+Build Mod.bat
+build.gradle
+Github.bat
+gradle.properties
+gradlew
+gradlew.bat
+setupEclipse.bat
+SetupWorkspace.bat
+UpdateForge.bat
