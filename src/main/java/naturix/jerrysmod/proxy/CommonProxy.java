@@ -6,6 +6,7 @@ import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.ModDimensions;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
 import naturix.jerrysmod.armor.JerryHelmet;
@@ -56,6 +57,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        JerrysMod.logger.info("Jerry's Mod config found");
 	        Config.readConfig();
 	        JerrysMod.logger.info("Jerry's Mod config read");
+	        ModDimensions.init();
 	        
 	        
 	    }

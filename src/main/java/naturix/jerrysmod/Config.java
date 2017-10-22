@@ -10,6 +10,7 @@ public class Config {
     public static int slimeMax = 15;
     public static int slimeMin = 1;
     public static int slimeSpawnTries = 1;
+	public static int dimensionId;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -31,6 +32,6 @@ public class Config {
 	        slimeMin = cfg.getInt("slimeMin", CATEGORY_ORE, 1, 1, 255, "Choose a number between 1 and 255 to choose the min slime ore height");
 	        slimeMax = cfg.getInt("slimeMax", CATEGORY_ORE, 15, 1, 256, "Choose a number between 1 and 256 to choose the max slime ore height");
 	        slimeSpawnTries = cfg.getInt("slimeSpawnTries", CATEGORY_ORE, 1, 1, 100, "Choose a number between 1 and 100 to change how often you see slime ore");
-	        
+	        dimensionId = cfg.getInt("dimensionId", CATEGORY_GENERAL, 502, -10000, 10000, "Slime Dimension ID");
 	 }
 }
