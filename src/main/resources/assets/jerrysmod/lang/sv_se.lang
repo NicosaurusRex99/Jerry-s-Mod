@@ -1,56 +1,56 @@
 se﻿< Swedish (SE) Localization File >
 
-item.jerrysword.name=Jerrysvärd
-item.jerrypickaxe.name=Jerryhacka
-item.jerryshovel.name=Jerryspade
-item.jerryaxe.name=Jerryyxa
-item.jerryhoe.name=Jerryflohacka
+item.jerrysmod.jerrysword.name=Jerrysvärd
+item.jerrysmod.jerrypickaxe.name=Jerryhacka
+item.jerrysmod.jerryshovel.name=Jerryspade
+item.jerrysmod.jerryaxe.name=Jerryyxa
+item.jerrysmod.jerryhoe.name=Jerryflohacka
 
-item.slimesword.name=Slemsvärd
-item.slimepickaxe.name=Slemhacka
-item.slimeshovel.name=Slemspade
-item.slimeaxe.name=Slemyxa
-item.slimehoe.name=Slemflohacka
+item.jerrysmod.slimesword.name=Slemsvärd
+item.jerrysmod.slimepickaxe.name=Slemhacka
+item.jerrysmod.slimeshovel.name=Slemspade
+item.jerrysmod.slimeaxe.name=Slemyxa
+item.jerrysmod.slimehoe.name=Slemflohacka
 
-item.jerryhelmet.name=Jerryhjälm
-item.jerrychest.name=Jerryharnesk
-item.jerryleggings.name=Jerrybyxor
-item.jerryboots.name=Jerrystövlar
+item.JerryHelmet.name=Jerryhjälm
+item.JerryChestplate.name=Jerryharnesk
+item.JerryLeggings.name=Jerrybyxor
+item.JerryBoots.name=Jerrystövlar
 
-item.slimehelmet.name=Slemhjälm
-item.slimechest.name=Slemharnesk
-item.slimeleggings.name=Slembyxor
-item.slimeboots.name=Slemstövlar
+item.SlimeHelmet.name=Slemhjälm
+item.SlimeChestplate.name=Slemharnesk
+item.SlimeLeggings.name=Slembyxor
+item.SlimeBoots.name=Slemstövlar
 
-item.jerrygem.name=Jerryjuvel
-item.slimegem.name=Slemjuvel
-item.slimechunk.name=Slembit
-item.slimeshard.name=Slemskärva
-item.slimestick.name=Slempinne
-item.slimetamer.name=Slemtamare
-item.slimehead.name=Slemhuvud
-item.captainofLight.name=§6Kapten av Ljus
-item.slimeandSteel.name=Slem och stål
-item.slimedrop.name=Slemrester
+item.jerrysmod.jerrygem.name=Jerryjuvel
+item.jerrysmod.slimegem.name=Slemjuvel
+item.jerrysmod.slimechunk.name=Slembit
+item.jerrysmod.slimeshard.name=Slemskärva
+item.jerrysmod.slimestick.name=Slempinne
+item.jerrysmod.slimetamer.name=Slemtamare
+item.jerrysmod.slimehead.name=Slemhuvud
+item.jerrysmod.captainoflight.name=§6Kapten av Ljus
+item.jerrysmod.slimeandSteel.name=Slem och stål
+item.jerrysmod.slimedrop.name=Slemrester
 
-item.olive.name=Oliv
-item.grapes.name=Vindruvor
-item.phone.name=§6Mobil
+item.jerrysmod.olive.name=Oliv
+item.jerrysmod.grapes.name=Vindruvor
+item.jerrysmod.phone.name=§6Mobil
 
-tile.slimegrass.name=Slemgräs
-tile.slimedirt.name=Slemjord
-tile.slimeore.name=Slemmalm
-tile.slimestone.name=Slemsten
-tile.slimeblock.name=§2Slemblock
-tile.jerryblock.name=§aJerryblock
+tile.jerrysmod.slimegrass.name=Slemgräs
+tile.jerrysmod.slimedirt.name=Slemjord
+tile.jerrysmod.slimeore.name=Slemmalm
+tile.jerrysmod.slimestone.name=Slemsten
+tile.jerrysmod.slimeblock.name=§2Slemblock
+tile.jerrysmod.jerryblock.name=§aJerryblock
 
-tile.fire.name=Eld
-tile.slimeportal.name=Slemportal
+tile.jerrysmod.fire.name=Eld
+tile.jerrysmod.slimeportal.name=Slemportal
 
-tile.oliveplank.name=Olivplankor
-tile.olivelog.name=Olivträ
-tile.olivesapling.name=Olivplanta
-tile.oliveleaves.name=Olivlöv
-tile.olivestairs.name=Olivtrappa
+tile.jerrysmod.oliveplanks.name=Olivplankor
+tile.jerrysmod.olivelog.name=Olivträ
+tile.jerrysmod.olivesapling.name=Olivplanta
+tile.jerrysmod.oliveleaves.name=Olivlöv
+tile.jerrysmod.olivestairs.name=Olivtrappa
 
-itemGroup.jerrysmod=Jerrys modd
+itemGroup.Jerry's Mod=Jerrys modd
