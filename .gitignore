@@ -20,16 +20,18 @@ build
 # other
 eclipse
 run
-
-# we only want the source
-gradle
-Build Mod.bat
-build.gradle
-Github.bat
-gradle.properties
+*.bat
+src/main/resources/mcmod.info
+src/main/resources/mcmod.info
+README.txt
+Paulscode SoundSystem CodecIBXM License.txt
+MinecraftForge-Credits.txt
+LICENSE-new.txt
+Paulscode IBXM Library License.txt
 gradlew
-gradlew.bat
-setupEclipse.bat
-SetupWorkspace.bat
-UpdateForge.bat
-setupCleanCache.bat
+build.gradle
+CREDITS-fml.txt
+forge-1.12.2-14.23.0.2512-changelog.txt
+gradle.properties
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
