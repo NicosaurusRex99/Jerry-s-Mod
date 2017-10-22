@@ -1,5 +1,6 @@
 package naturix.jerrysmod;
 
+import naturix.jerrysmod.dimension.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
 import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -54,6 +56,10 @@ public class JerrysMod
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
+    }
+    @Mod.EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+        event.registerServerCommand(new DimensionTp());
     }
     
     public static final CreativeTabs JerrysMod = new CreativeTabs("Jerry's Mod")
