@@ -1,56 +1,56 @@
 ﻿< en_US.lang - English (US) Localization File >
 
-item.jerrysword.name=Jerry Sword
-item.jerrypickaxe.name=Jerry Pickaxe
-item.jerryshovel.name=Jerry Shovel
-item.jerryaxe.name=Jerry Axe
-item.jerryhoe.name=Jerry Hoe
+item.jerrysmod.jerrysword.name=Jerry Sword
+item.jerrysmod.jerrypickaxe.name=Jerry Pickaxe
+item.jerrysmod.jerryshovel.name=Jerry Shovel
+item.jerrysmod.jerryaxe.name=Jerry Axe
+item.jerrysmod.jerryhoe.name=Jerry Hoe
 	
-item.slimesword.name=Slime Sword
-item.slimepickaxe.name=Slime Pickaxe
-item.slimeshovel.name=Slime Shovel
-item.slimeaxe.name=Slime Axe
-item.slimehoe.name=Slime Hoe
+item.jerrysmod.slimesword.name=Slime Sword
+item.jerrysmod.slimepickaxe.name=Slime Pickaxe
+item.jerrysmod.slimeshovel.name=Slime Shovel
+item.jerrysmod.slimeaxe.name=Slime Axe
+item.jerrysmod.slimehoe.name=Slime Hoe
 	
-item.jerryhelmet.name=Jerry Helmet
-item.jerrychest.name=Jerry Chestplate
-item.jerryleggings.name=Jerry Leggings
-item.jerryboots.name=Jerry Boots
+item.JerryHelmet.name=Jerry Helmet
+item.JerryChestplate.name=Jerry Chestplate
+item.JerryLeggings.name=Jerry Leggings
+item.JerryBoots.name=Jerry Boots
 	
-item.slimehelmet.name=Slime Helmet
-item.slimechest.name=Slime Chestplate
-item.slimeleggings.name=Slime Leggings
-item.slimeboots.name=Slime Boots
+item.SlimeHelmet.name=Slime Helmet
+item.SlimeChestplate.name=Slime Chestplate
+item.SlimeLeggings.name=Slime Leggings
+item.SlimeBoots.name=Slime Boots
 	
-item.jerrygem.name=Jerry Gem
-item.slimegem.name=Slime Gem
-item.slimechunk.name=Slime Chunk
-item.slimeshard.name=Slime Shard
-item.slimestick.name=Slime Stick
-item.slimetamer.name=Slime Tamer
-item.slimehead.name=Slime Head
-item.captainofLight.name=§6Captain of Light
-item.slimeandsteel.name=Slime and Steel
-item.slimedrop.name=Slime Drop
+item.jerrysmod.jerrygem.name=Jerry Gem
+item.jerrysmod.slimegem.name=Slime Gem
+item.jerrysmod.slimechunk.name=Slime Chunk
+item.jerrysmod.slimeshard.name=Slime Shard
+item.jerrysmod.slimestick.name=Slime Stick
+item.jerrysmod.slimetamer.name=Slime Tamer
+item.jerrysmod.slimehead.name=Slime Head
+item.jerrysmod.captainoflight.name=§6Captain of Light
+item.jerrysmod.slimeandsteel.name=Slime and Steel
+item.jerrysmod.slimedrop.name=Slime Drop
 
-item.olive.name=Olive
-item.grapes.name=Grapes
-item.phone.name=§6Phone
+item.jerrysmod.olive.name=Olive
+item.jerrysmod.grapes.name=Grapes
+item.jerrysmod.phone.name=§6Phone
 	
-tile.slimegrass.name=Slime Grass
-tile.slimedirt.name=Slime Dirt
-tile.slimeore.name=Slime Ore
-tile.slimestone.name=Slime Stone
-tile.slimeblock.name=§2Slime Block
-tile.jerryblock.name=§aJerry Block
+tile.jerrysmod.slimegrass.name=Slime Grass
+tile.jerrysmod.slimedirt.name=Slime Dirt
+tile.jerrysmod.slimeore.name=Slime Ore
+tile.jerrysmod.slimestone.name=Slime Stone
+tile.jerrysmod.slimeblock.name=§2Slime Block
+tile.jerrysmod.jerryblock.name=§aJerry Block
 
-tile.oliveplank.name=Olive Plank
-tile.olivelog.name=Olive Log
-tile.olivesapling.name=Olive Sapling
-tile.oliveleaves.name=Olive Leaves
-tile.olivestairs.name=Olive Stairs
+tile.jerrysmod.oliveplanks.name=Olive Plank
+tile.jerrysmod.olivelog.name=Olive Log
+tile.jerrysmod.olivesapling.name=Olive Sapling
+tile.jerrysmod.oliveleaves.name=Olive Leaves
+tile.jerrysmod.olivestairs.name=Olive Stairs
 
-tile.fire.name=Fire
-tile.slimeportal.name=Slime Portal
+tile.jerrysmod.fire.name=Fire
+tile.jerrysmod.slimeportal.name=Slime Portal
 
-itemGroup.jerrysmod=Jerry's Mod
+itemGroup.Jerry's Mod=Jerry's Mod

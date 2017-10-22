@@ -5,8 +5,6 @@ import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
 import naturix.jerrysmod.blocks.OliveSapling;
 import naturix.jerrysmod.blocks.SlimeOre;
-import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -33,8 +31,5 @@ public class ModBlocks {
         oliveplanks.initModel();
 }
 
-	public static Item olivesapling(OliveLeaves oliveLeaves2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 }
