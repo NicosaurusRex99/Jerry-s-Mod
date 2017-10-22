@@ -1,0 +1,56 @@
+﻿< en_ud.lang - English (Pirate) Localization File >
+
+item.jerrysmod.jerrysword.name=Jerry Cutlass
+item.jerrysmod.jerrypickaxe.name=Jerry Choppa'
+item.jerrysmod.jerryshovel.name=Jerry Digga'
+item.jerrysmod.jerryaxe.name=Jerry Cutta'
+item.jerrysmod.jerryhoe.name=Jerry Tilla'
+    
+item.jerrysmod.slimesword.name=Slime Cutlass
+item.jerrysmod.slimepickaxe.name=Slime Choppa'
+item.jerrysmod.slimeshovel.name=Slime Digga'
+item.jerrysmod.slimeaxe.name=Slime Cutta'
+item.jerrysmod.slimehoe.name=Slime Tilla'
+    
+item.JerryHelmet.name=Jerry Helmet
+item.JerryChestplate.name=Jerry Chestplate
+item.JerryLeggings.name=Jerry Leggin's
+item.JerryBoots.name=Jerry Boots
+    
+item.SlimeHelmet.name=Slime Helmet
+item.SlimeChestplate.name=Slime Chestplate
+item.SlimeLeggings.name=Slime Leggin's
+item.SlimeBoots.name=Slime Boots
+    
+item.jerrysmod.jerrygem.name=Jerry Gem
+item.jerrysmod.slimegem.name=Slime Gem
+item.jerrysmod.slimechunk.name=Slime Chunk
+item.jerrysmod.slimeshard.name=Slime Shard
+item.jerrysmod.slimestick.name=Slime Stick
+item.jerrysmod.slimetamer.name=Slime Tamer
+item.jerrysmod.slimehead.name=Slime Head
+item.jerrysmod.captainoflight.name=§6Capt'n o' Light
+item.jerrysmod.slimeandsteel.name=Slime 'n Steel
+item.jerrysmod.slimedrop.name=Slime Drop
+
+item.jerrysmod.olive.name=Olive
+item.jerrysmod.grapes.name=Grapes
+item.jerrysmod.phone.name=§6Devil's Slate
+    
+tile.jerrysmod.slimegrass.name=Slime Land
+tile.jerrysmod.slimedirt.name=Slime Land
+tile.jerrysmod.slimeore.name=Slime Ore
+tile.jerrysmod.slimestone.name=Slime Stone
+tile.jerrysmod.slimeblock.name=§2Slime Block
+tile.jerrysmod.jerryblock.name=§aJerry Block
+
+tile.jerrysmod.oliveplanks.name=Olive Plank
+tile.jerrysmod.olivelog.name=Olive Log
+tile.jerrysmod.olivesapling.name=Olive Sapling
+tile.jerrysmod.oliveleaves.name=Olive Leaves
+tile.jerrysmod.olivestairs.name=Olive Stairs
+
+tile.jerrysmod.fire.name=Fire
+tile.jerrysmod.slimeportal.name=Slime Portal
+
+itemGroup.Jerry's Mod=Jerry's Locker
