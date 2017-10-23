@@ -2,6 +2,7 @@ package naturix.jerrysmod.dimension;
 
 import java.util.Random;
 
+import naturix.jerrysmod.Config;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -30,7 +31,7 @@ public class NormalTerrainGenerator {
     private NoiseGeneratorOctaves depthNoise;
 
     private final float[] biomeWeights;
-    private double[] depthBuffer = new double[256];
+    private double[] depthBuffer = new double[Config.maxDimensionHeight];
 
     private Biome[] biomesForGeneration;
 
@@ -166,7 +167,7 @@ public class NormalTerrainGenerator {
     public void generate(int chunkX, int chunkZ, ChunkPrimer primer) {
         generateHeightmap(chunkX * 4, 0, chunkZ * 4);
 
-        byte waterLevel = 63;
+        byte waterLevel = (byte) Config.waterHeight;
         for (int x4 = 0; x4 < 4; ++x4) {
             int l = x4 * 5;
             int i1 = (x4 + 1) * 5;

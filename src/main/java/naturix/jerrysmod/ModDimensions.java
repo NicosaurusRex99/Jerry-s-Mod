@@ -13,7 +13,7 @@ public class ModDimensions {
     }
 
     private static void registerDimensionTypes() {
-        jerryDimensionType = DimensionType.register(JerrysMod.MODID, "_test", Config.dimensionId, WorldProviderJerry.class, false);
+        jerryDimensionType = DimensionType.register(JerrysMod.MODID, "_jerrysmod", Config.dimensionId, WorldProviderJerry.class, false);
     }
 
     private static void registerDimensions() {
