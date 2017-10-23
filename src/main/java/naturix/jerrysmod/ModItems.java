@@ -16,6 +16,7 @@ import naturix.jerrysmod.items.JerryPickaxe;
 import naturix.jerrysmod.items.JerryShovel;
 import naturix.jerrysmod.items.JerrySword;
 import naturix.jerrysmod.items.Olive;
+import naturix.jerrysmod.items.Phone;
 import naturix.jerrysmod.items.SlimeAxe;
 import naturix.jerrysmod.items.SlimeGem;
 import naturix.jerrysmod.items.SlimeHoe;
@@ -78,6 +79,8 @@ public class ModItems
 	public static JerryHoe jerryhoe;
 	@GameRegistry.ObjectHolder("jerrysmod:olive")
 	public static Olive olive;
+	@GameRegistry.ObjectHolder("jerrysmod:phone")
+	public static Phone phone;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
@@ -105,5 +108,6 @@ public class ModItems
 	jerryshovel.initModel();
 	jerryhoe.initModel();
 	olive.initModel();
+	phone.initModel();
 }
 }
