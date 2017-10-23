@@ -25,6 +25,7 @@ import naturix.jerrysmod.items.SlimeShard;
 import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
 import naturix.jerrysmod.items.SlimeSword;
+import naturix.jerrysmod.items.SlimeTamer;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -81,6 +82,8 @@ public class ModItems
 	public static Olive olive;
 	@GameRegistry.ObjectHolder("jerrysmod:phone")
 	public static Phone phone;
+	@GameRegistry.ObjectHolder("jerrysmod:slimetamer")
+	public static SlimeTamer slimetamer;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
@@ -109,5 +112,6 @@ public class ModItems
 	jerryhoe.initModel();
 	olive.initModel();
 	phone.initModel();
+	slimetamer.initModel();
 }
 }
