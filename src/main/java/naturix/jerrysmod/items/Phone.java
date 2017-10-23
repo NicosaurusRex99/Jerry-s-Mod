@@ -1,8 +1,13 @@
 package naturix.jerrysmod.items;
 
+import akka.Main;
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.GUI.GUIPhone;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -27,4 +32,6 @@ public class Phone extends Item {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
+    
+	
 }

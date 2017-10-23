@@ -1,5 +1,9 @@
 package naturix.jerrysmod;
 
+import akka.Main;
+import ibxm.Player;
+import naturix.jerrysmod.GUI.GUIHandler;
+import naturix.jerrysmod.GUI.GUIPhone;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
 import naturix.jerrysmod.armor.JerryHelmet;
@@ -27,6 +31,9 @@ import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
 import naturix.jerrysmod.items.SlimeSword;
 import naturix.jerrysmod.items.SlimeTamer;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -118,4 +125,5 @@ public class ModItems
 	slimetamer.initModel();
 	grapes.initModel();
 }
+
 }

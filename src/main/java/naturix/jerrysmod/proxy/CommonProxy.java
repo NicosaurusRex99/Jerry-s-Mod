@@ -2,11 +2,13 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
+import akka.Main;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.ModDimensions;
+import naturix.jerrysmod.GUI.GUIHandler;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
 import naturix.jerrysmod.armor.JerryHelmet;
@@ -20,6 +22,7 @@ import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
 import naturix.jerrysmod.blocks.OliveSapling;
 import naturix.jerrysmod.blocks.SlimeOre;
+import naturix.jerrysmod.blocks.SlimeStone;
 import naturix.jerrysmod.items.CaptainOfLight;
 import naturix.jerrysmod.items.Grapes;
 import naturix.jerrysmod.items.JerryAxe;
@@ -49,6 +52,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod.EventBusSubscriber
 	public class CommonProxy {
@@ -70,6 +74,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    {
 	    	FurnaceRecipe.init();
 	    	JerrysMod.logger.info("Jerry's Mod Initialized");
+	    	NetworkRegistry.INSTANCE.registerGuiHandler(JerrysMod.instance, new GUIHandler());
 	    }
 	    
 	    public void postInit(FMLPostInitializationEvent e) 
@@ -86,6 +91,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new OliveLog(null));
 	    	event.getRegistry().register(new OliveSapling(null));
 	    	event.getRegistry().register(new OlivePlanks(null));
+	    	event.getRegistry().register(new SlimeStone(null));
 	}
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -117,6 +123,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new JerryAxe(JerrysMod.JerryToolMaterial));
 	    	event.getRegistry().register(new JerryShovel(JerrysMod.JerryToolMaterial));
 	    	event.getRegistry().register(new JerryHoe(JerrysMod.JerryToolMaterial));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimestone).setRegistryName(ModBlocks.slimestone.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveleaves).setRegistryName(ModBlocks.oliveleaves.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivelog).setRegistryName(ModBlocks.olivelog.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));

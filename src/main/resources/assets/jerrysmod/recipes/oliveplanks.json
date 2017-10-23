@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "jarm:oliveplanks",
+    "count": 4
+  },
+  "ingredients": [
+    {
+      "item": "jarm:olivelog"
+    }
+  ],
+  "type": "forge:ore_shapeless"
+}
