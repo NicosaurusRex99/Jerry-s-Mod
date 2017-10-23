@@ -35,7 +35,7 @@ public class Config {
 	        slimeMax = cfg.getInt("slimeMax", CATEGORY_ORE, 15, 1, 256, "Choose a number between 1 and 256 to choose the max slime ore height");
 	        slimeSpawnTries = cfg.getInt("slimeSpawnTries", CATEGORY_ORE, 1, 1, 100, "Choose a number between 1 and 100 to change how often you see slime ore");
 	        dimensionId = cfg.getInt("dimensionId", CATEGORY_GENERAL, 502, -10000, 10000, "Slime Dimension ID");
-	        maxDimensionHeight = cfg.getInt("maxDimensionHeight", CATEGORY_GENERAL, maxDimensionHeight, 0, 1024, "maximum build height of the Slime Dimension");
+	        maxDimensionHeight = cfg.getInt("maxDimensionHeight", CATEGORY_GENERAL, 63, 0, 512, "Max build height in the Slime Dimension");
 	        waterHeight = cfg.getInt("waterHeight", CATEGORY_GENERAL, 63, 0, Config.maxDimensionHeight, "Height of natural water level");
 	 
 	 }
