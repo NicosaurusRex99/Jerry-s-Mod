@@ -9,6 +9,7 @@ import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
 import naturix.jerrysmod.items.CaptainOfLight;
+import naturix.jerrysmod.items.Grapes;
 import naturix.jerrysmod.items.JerryAxe;
 import naturix.jerrysmod.items.JerryGem;
 import naturix.jerrysmod.items.JerryHoe;
@@ -84,6 +85,8 @@ public class ModItems
 	public static Phone phone;
 	@GameRegistry.ObjectHolder("jerrysmod:slimetamer")
 	public static SlimeTamer slimetamer;
+	@GameRegistry.ObjectHolder("jerrysmod:grapes")
+	public static Grapes grapes;
 	
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
@@ -113,5 +116,6 @@ public class ModItems
 	olive.initModel();
 	phone.initModel();
 	slimetamer.initModel();
+	grapes.initModel();
 }
 }
