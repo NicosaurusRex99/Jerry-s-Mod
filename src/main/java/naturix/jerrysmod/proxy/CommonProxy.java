@@ -2,13 +2,11 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
-import akka.Main;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.ModDimensions;
-import naturix.jerrysmod.GUI.GUIHandler;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
 import naturix.jerrysmod.armor.JerryHelmet;
@@ -74,7 +72,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 	    {
 	    	FurnaceRecipe.init();
 	    	JerrysMod.logger.info("Jerry's Mod Initialized");
-	    	NetworkRegistry.INSTANCE.registerGuiHandler(JerrysMod.instance, new GUIHandler());
 	    }
 	    
 	    public void postInit(FMLPostInitializationEvent e) 
