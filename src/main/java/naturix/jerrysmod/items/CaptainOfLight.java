@@ -47,5 +47,4 @@ public class CaptainOfLight extends Item {
 
 		return ar;
 	}
-
 }
