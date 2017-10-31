@@ -40,6 +40,7 @@ import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
 import naturix.jerrysmod.items.SlimeSword;
 import naturix.jerrysmod.items.SlimeTamer;
+import naturix.jerrysmod.tree.tree;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -64,6 +65,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 	        Config.readConfig();
 	        JerrysMod.logger.info("Jerry's Mod config read");
 	        ModDimensions.init();
+	        
 	        
 	        
 	    }
