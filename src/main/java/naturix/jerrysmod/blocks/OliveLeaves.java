@@ -4,6 +4,7 @@ import java.util.Random;
 
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
@@ -72,7 +73,7 @@ public class OliveLeaves extends Block
      */
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(Blocks.SAPLING);
+        return Item.getItemFromBlock(ModBlocks.olivesapling);
     }
 
     /**
@@ -133,7 +134,7 @@ public class OliveLeaves extends Block
         this.captureDrops(true);
         if (world instanceof World)
             this.dropApple((World)world, pos, state, chance); // Dammet mojang
-        drops.addAll(this.captureDrops(false));
+        drops.addAll(this.captureDrops(true));
     }
 
     @SideOnly(Side.CLIENT)
