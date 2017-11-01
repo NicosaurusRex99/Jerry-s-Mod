@@ -38,7 +38,7 @@ public class Tree {
 		Biome.REGISTRY.register(40, new ResourceLocation("olivetree"), biome);
 		BiomeDictionary.addTypes(biome, BiomeDictionary.Type.SWAMP);
 		BiomeManager.addSpawnBiome(ModBiomes.SlimeBiome);
-		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(ModBiomes.SlimeBiome, 10));
+		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 10));
 	}
 
 	public void generateNether(World world, Random random, int chunkX, int chunkZ) {
@@ -63,7 +63,7 @@ public class Tree {
 	static class BiomeGenolivetree extends Biome {
 		public BiomeGenolivetree(Biome.BiomeProperties mycustomProps) {
 			super(mycustomProps);
-			topBlock = Blocks.DIRT.getDefaultState();
+			topBlock = Blocks.GRASS.getDefaultState();
 			fillerBlock = ModBlocks.slimestone.getDefaultState();
 			decorator.generateFalls = false;
 			decorator.treesPerChunk = 10;
