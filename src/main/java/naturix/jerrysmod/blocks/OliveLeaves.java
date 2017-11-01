@@ -40,9 +40,9 @@ public class OliveLeaves extends Block
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setSoundType(SoundType.PLANT);
-        setUnlocalizedName(JerrysMod.MODID + ".slimeore");
-        setRegistryName("slimeore");
-        setHarvestLevel("pickaxe", 2);
+        setUnlocalizedName(JerrysMod.MODID + ".oliveleaves");
+        setRegistryName("oliveleaves");
+        setHarvestLevel("shears", 1);
 		setResistance(5f);
     }
 
