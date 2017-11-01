@@ -14,6 +14,7 @@ public class Config {
 	public static int maxDimensionHeight;
 	public static int waterHeight;
 	public static int saplingDrop;
+	public static int slimeBiomeID;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -39,5 +40,6 @@ public class Config {
 	        maxDimensionHeight = cfg.getInt("maxDimensionHeight", CATEGORY_GENERAL, 63, 0, 512, "Max build height in the Slime Dimension");
 	        waterHeight = cfg.getInt("waterHeight", CATEGORY_GENERAL, 63, 0, Config.maxDimensionHeight, "Height of natural water level");
 	        saplingDrop = cfg.getInt("saplingDrop", CATEGORY_GENERAL, 20, 0, 100, "Chance of a sapling dropping");
+	        slimeBiomeID = cfg.getInt("slimeBiomeID", CATEGORY_GENERAL, 500, -4000, 4000, "Slime Biome ID");
 	 }
 }

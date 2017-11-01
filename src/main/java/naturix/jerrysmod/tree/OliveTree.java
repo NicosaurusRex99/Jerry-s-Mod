@@ -2,6 +2,9 @@ package naturix.jerrysmod.tree;
 
 import java.util.Random;
 
+import org.apache.logging.log4j.core.tools.Generate;
+
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.Block;
@@ -12,16 +15,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-public class Tree extends WorldGenAbstractTree implements IWorldGenerator {
+public class OliveTree extends WorldGenAbstractTree {
 
 public WorldGenAbstractTree genBigTreeChance(Random rand) {
-	return new Tree();
+	return new OliveTree();
 }
 
 
-	public Tree() {
+	public OliveTree() {
 		super(false);
 	}
 
@@ -81,7 +85,6 @@ public WorldGenAbstractTree genBigTreeChance(Random rand) {
 			world.setBlockState(new BlockPos(i + 3, j + 5, k + 2), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 2, j + 5, k + 3), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 2, j + 6, k + 2), Block.getBlockById(254).getStateFromMeta(0), 3);
-		JerrysMod.logger.info("tree spawned");
 		}
 
 		return true;
@@ -100,13 +103,4 @@ public WorldGenAbstractTree genBigTreeChance(Random rand) {
 		return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos)
 				|| state.getBlock().isWood(world, pos) || canGrowInto(state.getBlock());
 	}
-
-
-	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-			IChunkProvider chunkProvider) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

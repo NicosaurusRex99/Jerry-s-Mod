@@ -4,7 +4,7 @@ import java.util.Random;
 
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.tree.Tree;
+import naturix.jerrysmod.tree.OliveTree;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
