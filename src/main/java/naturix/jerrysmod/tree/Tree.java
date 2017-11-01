@@ -5,6 +5,7 @@ import java.util.Random;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -12,13 +13,13 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.fml.common.IWorldGenerator;
-public class tree implements IWorldGenerator {
+
+public class Tree extends WorldGenAbstractTree implements IWorldGenerator {
 
 public WorldGenAbstractTree genBigTreeChance(Random rand) {
 	return new Tree();
 }
 
-class Tree extends WorldGenAbstractTree {
 
 	public Tree() {
 		super(false);
@@ -43,11 +44,11 @@ class Tree extends WorldGenAbstractTree {
 
 		if (place) {
 			world.setBlockState(new BlockPos(i + 0, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 1, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 2, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 3, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 4, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 0, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 1, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 2, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 3, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 4, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 0, j + 3, k + 1), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 1, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 2, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 3, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
@@ -99,12 +100,13 @@ class Tree extends WorldGenAbstractTree {
 		return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos)
 				|| state.getBlock().isWood(world, pos) || canGrowInto(state.getBlock());
 	}
-}
 
-@Override
-public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
-		IChunkProvider chunkProvider) {
-	// TODO Auto-generated method stub
-	
-}
+
+	@Override
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+			IChunkProvider chunkProvider) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -2,6 +2,7 @@ package naturix.jerrysmod.blocks;
 
 import java.util.Random;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.ModItems;
@@ -90,7 +91,7 @@ public class OliveLeaves extends Block
 
     protected int getSaplingDropChance(IBlockState state)
     {
-        return 20;
+        return Config.saplingDrop;
     }
 
     public boolean causesSuffocation(IBlockState state)

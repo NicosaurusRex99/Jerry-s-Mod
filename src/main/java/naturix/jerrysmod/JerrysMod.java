@@ -2,7 +2,7 @@ package naturix.jerrysmod;
 
 import naturix.jerrysmod.dimension.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
-import naturix.jerrysmod.tree.tree;
+import naturix.jerrysmod.tree.Tree;
 import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
@@ -46,8 +46,8 @@ public class JerrysMod
     	logger = event.getModLog();
         proxy.preInit(event);
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-        GameRegistry.registerWorldGenerator(new tree(), 3);
-        
+        GameRegistry.registerWorldGenerator(new Tree(), 0);
+       
     }
 
     @Mod.EventHandler
