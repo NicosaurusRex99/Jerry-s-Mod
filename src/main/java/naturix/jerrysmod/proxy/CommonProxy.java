@@ -40,7 +40,6 @@ import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
 import naturix.jerrysmod.items.SlimeSword;
 import naturix.jerrysmod.items.SlimeTamer;
-import naturix.jerrysmod.tree.tree;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -51,7 +50,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 @Mod.EventBusSubscriber
 	public class CommonProxy {
@@ -86,7 +84,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 	    @SubscribeEvent
 	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    	event.getRegistry().register(new SlimeOre(null));
-	    	event.getRegistry().register(new OliveLeaves(null));
+	    	event.getRegistry().register(new OliveLeaves());
 	    	event.getRegistry().register(new OliveLog(null));
 	    	event.getRegistry().register(new OliveSapling(null));
 	    	event.getRegistry().register(new OlivePlanks(null));

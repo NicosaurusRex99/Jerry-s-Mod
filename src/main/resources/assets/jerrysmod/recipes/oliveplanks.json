@@ -5,7 +5,7 @@
   },
   "ingredients": [
     {
-      "item": "jarm:olivelog"
+      "item": "jerrysmod:olivelog"
     }
   ],
   "type": "forge:ore_shapeless"

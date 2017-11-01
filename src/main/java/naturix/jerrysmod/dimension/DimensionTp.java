@@ -21,7 +21,7 @@ import net.minecraft.util.text.TextFormatting;
 public class DimensionTp extends CommandBase {
 
     public DimensionTp(){
-        aliases = Lists.newArrayList(JerrysMod.MODID, "TP", "tp");
+        aliases = Lists.newArrayList(JerrysMod.MODID, "DTP", "dtp", "DtP", "Dtp");
     }
 
     private final List<String> aliases;
@@ -29,13 +29,13 @@ public class DimensionTp extends CommandBase {
     @Override
     @Nonnull
     public String getName() {
-        return "tp";
+        return "dtp";
     }
 
     @Override
     @Nonnull
     public String getUsage(@Nonnull ICommandSender sender) {
-        return "tp <id>";
+        return "dtp <id>";
     }
 
     @Override
@@ -54,7 +54,7 @@ public class DimensionTp extends CommandBase {
         try {
             dim = Integer.parseInt(s);
         } catch (NumberFormatException e) {
-            sender.sendMessage(new TextComponentString(TextFormatting.RED + "Error parsing dimension!"));
+            sender.sendMessage(new TextComponentString(TextFormatting.RED + "Cannot find dimension!"));
             return;
         }
 
