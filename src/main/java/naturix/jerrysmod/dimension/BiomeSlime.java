@@ -19,7 +19,7 @@ public class BiomeSlime extends BiomeSwamp {
 
 	public BiomeSlime(final BiomeProperties properties) {
 		super(properties);
-		topBlock = Blocks.GRASS.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
+		topBlock = Blocks.DIRT.getDefaultState().withProperty(BlockDirt.VARIANT, BlockDirt.DirtType.PODZOL);
 		fillerBlock = ModBlocks.slimestone.getDefaultState();
 	}
 
@@ -29,7 +29,7 @@ public class BiomeSlime extends BiomeSwamp {
 
 		if (!logged) {
 			logged = true;
-			JerrysMod.logger.info("Generating slime test at %d,%d", x, z);
+			JerrysMod.logger.info("Generating slime biome");
 		}
 	}
 }
