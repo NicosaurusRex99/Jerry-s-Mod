@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -41,24 +42,6 @@ public class Tree {
 		BiomeManager.addBiome(BiomeManager.BiomeType.COOL, new BiomeManager.BiomeEntry(biome, 10));
 	}
 
-	public void generateNether(World world, Random random, int chunkX, int chunkZ) {
-	}
-
-	public void generateSurface(World world, Random random, int chunkX, int chunkZ) {
-	}
-
-	public void registerRenderers() {
-	}
-
-	public int addFuel(ItemStack fuel) {
-		return 0;
-	}
-
-	public void serverLoad(FMLServerStartingEvent event) {
-	}
-
-	public void preInit(FMLPreInitializationEvent event) {
-	}
 
 	static class BiomeGenolivetree extends Biome {
 		public BiomeGenolivetree(Biome.BiomeProperties mycustomProps) {
@@ -77,9 +60,11 @@ public class Tree {
 
 		}
 
-		public Tree genBigTreeChance(Random rand) {
-			return new Tree();
+		public WorldGenAbstractTree genBigTreeChance(Random rand) {
+			return new OliveTree();
 		}
+
+
 
 }
 }
