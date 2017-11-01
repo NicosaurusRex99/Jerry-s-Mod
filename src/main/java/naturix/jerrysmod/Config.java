@@ -15,6 +15,7 @@ public class Config {
 	public static int waterHeight;
 	public static int saplingDrop;
 	public static int slimeBiomeID;
+	public static boolean slimeBiomePos;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -41,5 +42,6 @@ public class Config {
 	        waterHeight = cfg.getInt("waterHeight", CATEGORY_GENERAL, 63, 0, Config.maxDimensionHeight, "Height of natural water level");
 	        saplingDrop = cfg.getInt("saplingDrop", CATEGORY_GENERAL, 20, 0, 100, "Chance of a sapling dropping");
 	        slimeBiomeID = cfg.getInt("slimeBiomeID", CATEGORY_GENERAL, 500, -4000, 4000, "Slime Biome ID");
+	        slimeBiomePos = cfg.getBoolean("slimeBiomePos", CATEGORY_GENERAL, false, "set to true to see where the biome is");
 	 }
 }

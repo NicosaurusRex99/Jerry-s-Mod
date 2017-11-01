@@ -87,7 +87,7 @@ public class JerryChunkProvider implements IChunkGenerator {
 
     @Override
     public boolean generateStructures(Chunk chunkIn, int x, int z) {
-        return false;
+        return true;
     }
 
     @Override

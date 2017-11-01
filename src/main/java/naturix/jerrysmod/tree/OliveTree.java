@@ -20,11 +20,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class OliveTree extends WorldGenAbstractTree {
 
-public WorldGenAbstractTree genBigTreeChance(Random rand) {
-	return new OliveTree();
-}
-
-
 	public OliveTree() {
 		super(false);
 	}
@@ -47,12 +42,12 @@ public WorldGenAbstractTree genBigTreeChance(Random rand) {
 						place = false;
 
 		if (place) {
-			world.setBlockState(new BlockPos(i + 0, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 1, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 2, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 3, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 4, j + 3, k + 0), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
-			world.setBlockState(new BlockPos(i + 0, j + 3, k + 1), ModBlocks.oliveleaves.getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 0, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 1, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 2, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 3, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 4, j + 3, k + 0), Block.getBlockById(254).getStateFromMeta(0), 3);
+			world.setBlockState(new BlockPos(i + 0, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 1, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 2, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
 			world.setBlockState(new BlockPos(i + 3, j + 3, k + 1), Block.getBlockById(254).getStateFromMeta(0), 3);
@@ -97,10 +92,19 @@ public WorldGenAbstractTree genBigTreeChance(Random rand) {
 	public void generateSaplings(World worldIn, Random random, BlockPos pos) {
 	}
 
+	/**
+	 * sets dirt at a specific location if it isn't already dirt
+	 */
+	protected void setDirtAt(World worldIn, BlockPos pos) {
+		if (worldIn.getBlockState(pos).getBlock() != Blocks.DIRT) {
+			this.setBlockAndNotifyAdequately(worldIn, pos, Blocks.DIRT.getDefaultState());
+		}
+	}
 
 	public boolean isReplaceable(World world, BlockPos pos) {
 		net.minecraft.block.state.IBlockState state = world.getBlockState(pos);
 		return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos)
 				|| state.getBlock().isWood(world, pos) || canGrowInto(state.getBlock());
 	}
+
 }
