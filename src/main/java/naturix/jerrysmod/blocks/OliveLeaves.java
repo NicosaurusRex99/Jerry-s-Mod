@@ -27,15 +27,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class OliveLeaves extends Block
 {
-    public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
-    public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
-    protected boolean leavesFancy;
-    int[] surroundings;
 
     public OliveLeaves()
     {
         super(Material.LEAVES);
-        this.setTickRandomly(true);
         this.setCreativeTab(JerrysMod.JerrysMod);
         this.setHardness(0.2F);
         this.setLightOpacity(1);
@@ -44,150 +39,6 @@ public class OliveLeaves extends Block
         setRegistryName("oliveleaves");
         setHarvestLevel("shears", 1);
 		setResistance(5f);
-    }
-
-    /**
-     * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
-     */
-    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
-    {
-        int i = 1;
-        int j = 2;
-        int k = pos.getX();
-        int l = pos.getY();
-        int i1 = pos.getZ();
-
-        if (worldIn.isAreaLoaded(new BlockPos(k - 2, l - 2, i1 - 2), new BlockPos(k + 2, l + 2, i1 + 2)))
-        {
-            for (int j1 = -1; j1 <= 1; ++j1)
-            {
-                for (int k1 = -1; k1 <= 1; ++k1)
-                {
-                    for (int l1 = -1; l1 <= 1; ++l1)
-                    {
-                        BlockPos blockpos = pos.add(j1, k1, l1);
-                        IBlockState iblockstate = worldIn.getBlockState(blockpos);
-
-                        if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos))
-                        {
-                            iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-    {
-        if (!worldIn.isRemote)
-        {
-            if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue() && ((Boolean)state.getValue(DECAYABLE)).booleanValue())
-            {
-                int i = 4;
-                int j = 5;
-                int k = pos.getX();
-                int l = pos.getY();
-                int i1 = pos.getZ();
-                int j1 = 32;
-                int k1 = 1024;
-                int l1 = 16;
-
-                if (this.surroundings == null)
-                {
-                    this.surroundings = new int[32768];
-                }
-
-                if (worldIn.isAreaLoaded(new BlockPos(k - 5, l - 5, i1 - 5), new BlockPos(k + 5, l + 5, i1 + 5)))
-                {
-                    BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
-
-                    for (int i2 = -4; i2 <= 4; ++i2)
-                    {
-                        for (int j2 = -4; j2 <= 4; ++j2)
-                        {
-                            for (int k2 = -4; k2 <= 4; ++k2)
-                            {
-                                IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2));
-                                Block block = iblockstate.getBlock();
-
-                                if (!block.canSustainLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
-                                {
-                                    if (block.isLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
-                                    {
-                                        this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -2;
-                                    }
-                                    else
-                                    {
-                                        this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -1;
-                                    }
-                                }
-                                else
-                                {
-                                    this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = 0;
-                                }
-                            }
-                        }
-                    }
-
-                    for (int i3 = 1; i3 <= 4; ++i3)
-                    {
-                        for (int j3 = -4; j3 <= 4; ++j3)
-                        {
-                            for (int k3 = -4; k3 <= 4; ++k3)
-                            {
-                                for (int l3 = -4; l3 <= 4; ++l3)
-                                {
-                                    if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16] == i3 - 1)
-                                    {
-                                        if (this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
-                                        }
-
-                                        if (this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
-                                        }
-
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] = i3;
-                                        }
-
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] = i3;
-                                        }
-
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] = i3;
-                                        }
-
-                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] == -2)
-                                        {
-                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] = i3;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                int l2 = this.surroundings[16912];
-
-                if (l2 >= 0)
-                {
-                    worldIn.setBlockState(pos, state.withProperty(CHECK_DECAY, Boolean.valueOf(false)), 4);
-                }
-                else
-                {
-                    this.destroy(worldIn, pos);
-                }
-            }
-        }
     }
 
     private void destroy(World worldIn, BlockPos pos)
@@ -241,29 +92,6 @@ public class OliveLeaves extends Block
         return 20;
     }
 
-    /**
-     * Used to determine ambient occlusion and culling when rebuilding chunks for render
-     */
-    public boolean isOpaqueCube(IBlockState state)
-    {
-        return !this.leavesFancy;
-    }
-
-    /**
-     * Pass true to draw this block using fancy graphics, or false for fast graphics.
-     */
-    @SideOnly(Side.CLIENT)
-    public void setGraphicsLevel(boolean fancy)
-    {
-        this.leavesFancy = fancy;
-    }
-
-    @SideOnly(Side.CLIENT)
-    public BlockRenderLayer getBlockLayer()
-    {
-        return this.leavesFancy ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
-    }
-
     public boolean causesSuffocation(IBlockState state)
     {
         return false;
@@ -275,15 +103,6 @@ public class OliveLeaves extends Block
 
     public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos){ return true; }
     @Override public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos){ return true; }
-
-    @Override
-    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos)
-    {
-        if (!(Boolean)state.getValue(CHECK_DECAY))
-        {
-            world.setBlockState(pos, state.withProperty(CHECK_DECAY, true), 4);
-        }
-    }
 
     @Override
     public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
