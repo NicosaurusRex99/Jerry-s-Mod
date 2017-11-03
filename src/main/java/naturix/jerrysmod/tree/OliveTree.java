@@ -2,235 +2,115 @@ package naturix.jerrysmod.tree;
 
 import java.util.Random;
 
+import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class OliveTree extends WorldGenAbstractTree {
-	/** The minimum height of a generated tree. */
-	private final int minTreeHeight;
-
-	/** True if this tree should grow Vines. */
-	private final boolean vinesGrow;
-
-	/** The metadata value of the wood to use in tree generation. */
-	private final int metaWood;
-
-	/** The metadata value of the leaves to use in tree generation. */
-	private final int metaLeaves;
-
-	public OliveTree() {
-		super(false);
-		this.minTreeHeight = 10;
-		this.metaWood = 0;
-		this.metaLeaves = 0;
-		this.vinesGrow = false;
+public class OliveTree extends WorldGenAbstractTree{
+	  
+	  private final int minTreeHeight = 4;
+	  
+	  private final IBlockState logBlock = ModBlocks.olivelog.getDefaultState();
+	  private final IBlockState leafBlock = ModBlocks.oliveleaves.getDefaultState();
+	  
+	  // this function is copied from WorldGenTrees.java
+	  // variable names have been changed for readability, and some un-used parts (vine, cocoa generation) have been removed
+	  public boolean generate(World world, Random random, BlockPos pos){
+		  int height = random.nextInt(3) + this.minTreeHeight;
+		  boolean isValidPlantingSpot = true;
+		  
+		  if (pos.getY() >= 1 && pos.getY() + height + 1 <= 256){
+			  byte leafMaxRadius;
+			  IBlockState block;
+			  
+			  for (int j = pos.getY(); j <= pos.getY() + 1 + height; j++){
+				  leafMaxRadius = 1;
+				  
+				  if (j == pos.getY()){
+					  leafMaxRadius = 0;
+				  }
+				  
+				  if (j >= pos.getY() + 1 + height - 2){
+					  leafMaxRadius = 2;
+				  }
+				  
+				  for (int i = pos.getX() - leafMaxRadius; i <= pos.getX() + leafMaxRadius && isValidPlantingSpot; i++){
+					  for (int k = pos.getZ() - leafMaxRadius; k <= pos.getZ() + leafMaxRadius && isValidPlantingSpot; k++){
+						  if (j >= 0 && j < 256){						  
+							  if (!this.isReplaceable(world, new BlockPos (i, j, k))){
+								  isValidPlantingSpot = false;
+							  }
+						  }
+						  else{
+							  isValidPlantingSpot = false;
+						  }
+					  }
+				  }
+			  }
+			  
+			  if (!isValidPlantingSpot){
+				  return false;
+			  }
+			  else{
+				  Block block2 = world.getBlockState(pos.down()).getBlock();
+				  
+				  boolean isSoil = block2.canSustainPlant(world.getBlockState(pos.down()), world, pos.down(), EnumFacing.UP, (BlockSapling)Blocks.SAPLING);
+				  if (isSoil && pos.getY() < 256 - height - 1){
+					  block2.onPlantGrow(world.getBlockState(pos.down()),world, pos.down(), pos);
+					  leafMaxRadius = 3;
+					  byte b1 = 0;
+					  
+					  for (int j = pos.getY() - leafMaxRadius + height; j <= pos.getY() + height; j++){
+						  int treeHeightLayer = j - (pos.getY() + height);
+						  int leafGenRadius = b1 + 1 - treeHeightLayer / 2;
+						  
+						  for (int i = pos.getX() - leafGenRadius; i <= pos.getX() + leafGenRadius; i++){
+							  int leafGenDeltaX = i - pos.getX();
+							  
+							  for (int k = pos.getZ() - leafGenRadius; k <= pos.getZ() + leafGenRadius; k++){
+								  int leafGenDeltaZ = k - pos.getZ();
+								  
+								  if (Math.abs(leafGenDeltaX) != leafGenRadius || Math.abs(leafGenDeltaZ) != leafGenRadius || random.nextInt(2) != 0 && treeHeightLayer != 0){
+									  BlockPos leafPos = new BlockPos(i, j, k);
+									  IBlockState block1 = world.getBlockState(leafPos);
+									  
+									  if (block1.getBlock().isAir(block1, world, leafPos) || block1.getBlock().isLeaves(block1, world, leafPos)){
+										  world.setBlockState(leafPos, leafBlock);
+									  }
+								  }
+							  }
+						  }
+					  }
+					  
+					  for (int j = 0; j < height; j++){
+						  block = world.getBlockState(pos.add(0, j, 0));
+						  
+						  if (block.getBlock().isAir(block, world, pos.add(0, j, 0)) || block.getBlock().isLeaves(block, world, pos.add(0, j, 0))){
+							  this.setBlockAndNotifyAdequately(world, pos.add(0, j, 0), logBlock);
+						  }
+					  }
+					  
+					  return true;
+				  }
+				  else{
+					  return false;
+				  }
+			  }
+		  }
+		  else{
+			  return false;
+		  }
+	  }
+	  
+	  
+	  public OliveTree(boolean par1){
+		super(par1);
+	  }
+	  
 	}
-
-	public boolean generate(World par1World, Random par2Random, BlockPos pos) {
-		int par3 = pos.getX();
-		int par4 = pos.getY();
-		int par5 = pos.getZ();
-		int var6 = par2Random.nextInt(3) + this.minTreeHeight;
-		boolean var7 = true;
-
-		if (par4 >= 1 && par4 + var6 + 1 <= 256) {
-			int var8;
-			byte var9;
-			int var11;
-			int var12;
-
-			for (var8 = par4; var8 <= par4 + 1 + var6; ++var8) {
-				var9 = 1;
-
-				if (var8 == par4) {
-					var9 = 0;
-				}
-
-				if (var8 >= par4 + 1 + var6 - 2) {
-					var9 = 2;
-				}
-
-				for (int var10 = par3 - var9; var10 <= par3 + var9 && var7; ++var10) {
-					for (var11 = par5 - var9; var11 <= par5 + var9 && var7; ++var11) {
-						if (var8 >= 0 && var8 < 256) {
-							Block var12s = par1World.getBlockState(new BlockPos(var10, var8, var11)).getBlock();
-							var12 = Block.getIdFromBlock(var12s);
-
-							if (var12 != 0 && var12s != Blocks.STANDING_SIGN && var12s != Blocks.MAGMA && var12s != Blocks.BEDROCK
-									&& var12s != Blocks.SPONGE) {
-								var7 = false;
-							}
-						} else {
-							var7 = false;
-						}
-					}
-				}
-			}
-
-			if (!var7) {
-				return false;
-			} else {
-				Block var8s = par1World.getBlockState(new BlockPos(par3, par4 - 1, par5)).getBlock();
-				var8 = Block.getIdFromBlock(var8s);
-
-				if ((var8s == Blocks.MAGMA || var8s == Blocks.BEDROCK) && par4 < 256 - var6 - 1) {
-					par1World.setBlockState(new BlockPos(par3, par4 - 1, par5), Blocks.BEDROCK.getDefaultState(), 3);
-					var9 = 3;
-					byte var18 = 0;
-					int var13;
-					int var14;
-					int var15;
-
-					for (var11 = par4 - var9 + var6; var11 <= par4 + var6; ++var11) {
-						var12 = var11 - (par4 + var6);
-						var13 = var18 + 1 - var12 / 2;
-
-						for (var14 = par3 - var13; var14 <= par3 + var13; ++var14) {
-							var15 = var14 - par3;
-
-							for (int var16 = par5 - var13; var16 <= par5 + var13; ++var16) {
-								int var17 = var16 - par5;
-
-								if ((Math.abs(var15) != var13 || Math.abs(var17) != var13 || par2Random.nextInt(2) != 0 && var12 != 0)) {
-									par1World.setBlockState(new BlockPos(var14, var11, var16), Blocks.LAPIS_BLOCK.getDefaultState(), 3);
-								}
-							}
-						}
-					}
-
-					for (var11 = 0; var11 < var6; ++var11) {
-						Block var12s = par1World.getBlockState(new BlockPos(par3, par4 + var11, par5)).getBlock();
-						var12 = Block.getIdFromBlock(var12s);
-
-						if (var12 == 0 || var12s == Blocks.LAPIS_BLOCK) {
-							par1World.setBlockState(new BlockPos(par3, par4 + var11, par5), Blocks.SPONGE.getDefaultState(), 3);
-
-							if (this.vinesGrow && var11 > 0) {
-								if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(new BlockPos(par3 - 1, par4 + var11, par5))) {
-									par1World.setBlockState(new BlockPos(par3 - 1, par4 + var11, par5),
-											Blocks.STANDING_SIGN.getDefaultState(), 3);
-								}
-
-								if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(new BlockPos(par3 + 1, par4 + var11, par5))) {
-									par1World.setBlockState(new BlockPos(par3 + 1, par4 + var11, par5),
-											Blocks.STANDING_SIGN.getDefaultState(), 3);
-								}
-
-								if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(new BlockPos(par3, par4 + var11, par5 - 1))) {
-									par1World.setBlockState(new BlockPos(par3, par4 + var11, par5 - 1),
-											Blocks.STANDING_SIGN.getDefaultState(), 3);
-								}
-
-								if (par2Random.nextInt(3) > 0 && par1World.isAirBlock(new BlockPos(par3, par4 + var11, par5 + 1))) {
-									par1World.setBlockState(new BlockPos(par3, par4 + var11, par5 + 1),
-											Blocks.STANDING_SIGN.getDefaultState(), 3);
-								}
-							}
-						}
-					}
-
-					if (this.vinesGrow) {
-						for (var11 = par4 - 3 + var6; var11 <= par4 + var6; ++var11) {
-							var12 = var11 - (par4 + var6);
-							var13 = 2 - var12 / 2;
-
-							for (var14 = par3 - var13; var14 <= par3 + var13; ++var14) {
-								for (var15 = par5 - var13; var15 <= par5 + var13; ++var15) {
-									if (par1World.getBlockState(new BlockPos(var14, var11, var15)).getBlock() == Blocks.LAPIS_BLOCK) {
-										if (par2Random.nextInt(4) == 0
-												&& Block.getIdFromBlock(par1World.getBlockState(new BlockPos(var14 - 1, var11, var15))
-														.getBlock()) == 0) {
-											this.growVines(par1World, var14 - 1, var11, var15, 8);
-										}
-
-										if (par2Random.nextInt(4) == 0
-												&& Block.getIdFromBlock(par1World.getBlockState(new BlockPos(var14 + 1, var11, var15))
-														.getBlock()) == 0) {
-											this.growVines(par1World, var14 + 1, var11, var15, 2);
-										}
-
-										if (par2Random.nextInt(4) == 0
-												&& Block.getIdFromBlock(par1World.getBlockState(new BlockPos(var14, var11, var15 - 1))
-														.getBlock()) == 0) {
-											this.growVines(par1World, var14, var11, var15 - 1, 1);
-										}
-
-										if (par2Random.nextInt(4) == 0
-												&& Block.getIdFromBlock(par1World.getBlockState(new BlockPos(var14, var11, var15 + 1))
-														.getBlock()) == 0) {
-											this.growVines(par1World, var14, var11, var15 + 1, 4);
-										}
-									}
-								}
-							}
-						}
-
-						if (par2Random.nextInt(5) == 0 && var6 > 5) {
-							for (var11 = 0; var11 < 2; ++var11) {
-								for (var12 = 0; var12 < 4; ++var12) {
-									if (par2Random.nextInt(4 - var11) == 0) {
-										var13 = par2Random.nextInt(3);
-										par1World.setBlockState(new BlockPos(par3, par4 + var6 - 5 + var11, par5),
-												Blocks.CHEST.getDefaultState(), 3);
-									}
-								}
-							}
-						}
-					}
-
-					return true;
-				} else {
-					return false;
-				}
-			}
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Grows vines downward from the given block for a given length.
-	 * Args: World, x, starty, z, vine-length
-	 */
-	private void growVines(World par1World, int par2, int par3, int par4, int par5) {
-		par1World.setBlockState(new BlockPos(par2, par3, par4), Blocks.STANDING_SIGN.getDefaultState(), 3);
-		int var6 = 4;
-
-		while (true) {
-			--par3;
-
-			if (Block.getIdFromBlock(par1World.getBlockState(new BlockPos(par2, par3, par4)).getBlock()) != 0 || var6 <= 0) {
-				return;
-			}
-
-			par1World.setBlockState(new BlockPos(par2, par3, par4), Blocks.STANDING_SIGN.getDefaultState(), 3);
-			--var6;
-		}
-	}
-
-	protected boolean canGrowInto(Block blockType) {
-		return true;
-	}
-
-	public void generateSaplings(World worldIn, Random random, BlockPos pos) {
-	}
-
-	/**
-	 * sets dirt at a specific location if it isn't already dirt
-	 */
-	protected void setDirtAt(World worldIn, BlockPos pos) {
-		if (worldIn.getBlockState(pos).getBlock() != Blocks.DIRT) {
-			this.setBlockAndNotifyAdequately(worldIn, pos, Blocks.DIRT.getDefaultState());
-		}
-	}
-
-	public boolean isReplaceable(World world, BlockPos pos) {
-		net.minecraft.block.state.IBlockState state = world.getBlockState(pos);
-		return state.getBlock().isAir(state, world, pos) || state.getBlock().isLeaves(state, world, pos)
-				|| state.getBlock().isWood(world, pos) || canGrowInto(state.getBlock());
-	}
-
-}

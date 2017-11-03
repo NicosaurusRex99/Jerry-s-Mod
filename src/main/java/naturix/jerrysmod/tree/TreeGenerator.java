@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
-public class Tree {
+public class TreeGenerator {
 
 	static Biome.BiomeProperties customProps = null;
 	public static BiomeGenolivetree biome = null;
@@ -32,7 +32,7 @@ public class Tree {
 
 	public static Object instance;
 
-	public Tree() {
+	public TreeGenerator() {
 	}
 
 	public void load(FMLInitializationEvent event) {
@@ -61,7 +61,7 @@ public class Tree {
 		}
 
 		public WorldGenAbstractTree genBigTreeChance(Random rand) {
-			return new OliveTree();
+			return new OliveTree(true);
 		}
 
 

@@ -1,6 +1,8 @@
 package naturix.jerrysmod;
 
-import naturix.jerrysmod.dimension.BiomeSlime;
+import naturix.jerrysmod.biome.BiomeSlime;
+import naturix.jerrysmod.tree.OliveTree;
+import naturix.jerrysmod.tree.TreeGenerator;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;
@@ -22,13 +24,7 @@ public class ModBiomes {
 		public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
 			final IForgeRegistry<Biome> registry = event.getRegistry();
 
-			registerBiome(registry, new BiomeSlime(new Biome.BiomeProperties("SlimeBiome")
-					.setBaseHeight(0.125F)
-					.setHeightVariation(0.05F)
-					.setTemperature(2.0F)
-					.setRainfall(0.0F)
-					.setRainDisabled()
-			), "SlimeBiome", BiomeManager.BiomeType.COOL, 1000);
+			registerBiome(registry, new BiomeSlime(new Biome.BiomeProperties("SlimeBiome").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled()), "SlimeBiome", BiomeManager.BiomeType.COOL, 1000);
 		}
 
 		private static <T extends Biome> void registerBiome(final IForgeRegistry<Biome> registry, final T biome, final String biomeName, final BiomeManager.BiomeType biomeType, final int weight, final BiomeDictionary.Type... types) {
@@ -39,7 +35,6 @@ public class ModBiomes {
 	}
 
 	private static BiomeSlime Null() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

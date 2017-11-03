@@ -1,4 +1,4 @@
-package naturix.jerrysmod.dimension;
+package naturix.jerrysmod.biome;
 
 import java.util.Random;
 import java.util.logging.Logger;
@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.tree.OliveTree;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockSand;
 import net.minecraft.init.Blocks;

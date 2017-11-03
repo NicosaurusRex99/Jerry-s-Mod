@@ -16,6 +16,7 @@ public class Config {
 	public static int saplingDrop;
 	public static int slimeBiomeID;
 	public static boolean slimeBiomePos;
+	public static int treeChances;
 	
 	public static void readConfig() {
         Configuration cfg = CommonProxy.config;
@@ -43,5 +44,7 @@ public class Config {
 	        saplingDrop = cfg.getInt("saplingDrop", CATEGORY_GENERAL, 20, 0, 100, "Chance of a sapling dropping");
 	        slimeBiomeID = cfg.getInt("slimeBiomeID", CATEGORY_GENERAL, 500, -4000, 4000, "Slime Biome ID");
 	        slimeBiomePos = cfg.getBoolean("slimeBiomePos", CATEGORY_GENERAL, false, "set to true to see where the biome is");
+	        treeChances = cfg.getInt("treeChances", CATEGORY_GENERAL, 12, -4000, 4000, "how frequent trees spawn");
+	        
 	 }
 }
