@@ -1,0 +1,8 @@
+Fix Sapling
+Add portal to slime dimension
+Make slime biome only spawn in dimension
+Maybe add Jerrys Tree to the 0 0 coordinates in slime dimension
+Fix captain of light
+Add tame slime entity
+Fix slime tamer
+Make phone do secret things
