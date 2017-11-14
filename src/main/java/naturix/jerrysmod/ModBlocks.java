@@ -1,5 +1,6 @@
 package naturix.jerrysmod;
 
+import naturix.jerrysmod.biome.SlimeGrass;
 import naturix.jerrysmod.blocks.OliveLeaves;
 import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
@@ -24,6 +25,8 @@ public class ModBlocks {
 	public static OlivePlanks oliveplanks;
 	@GameRegistry.ObjectHolder("jerrysmod:slimestone")
 	public static SlimeStone slimestone;
+	@GameRegistry.ObjectHolder("jerrysmod:slimegrass")
+	public static SlimeGrass slimegrass;
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
@@ -33,7 +36,12 @@ public class ModBlocks {
         oliveleaves.initModel();
         oliveplanks.initModel();
         slimestone.initModel();
+        slimegrass.initModel();
 }
+	public static void initOreDict() {
+		slimegrass.initOreDict();
+		slimestone.initOreDict();
+	}
 
 
 }

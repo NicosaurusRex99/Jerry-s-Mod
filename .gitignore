@@ -20,22 +20,23 @@ build
 # other
 eclipse
 run
-Build Mod.bat
-build.gradle
-CREDITS-fml.txt
-forge-1.12.2-14.23.0.2512-changelog.txt
-gradle.properties
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
-gradlew
-gradlew.bat
-LICENSE-new.txt
-MinecraftForge-Credits.txt
-Paulscode IBXM Library License.txt
-Paulscode SoundSystem CodecIBXM License.txt
+UpdateForge.bat
+src/main/resources/mcmod.info
+src/main/resources/mcmod.info
+setupEclipse.bat
 setupCleanCache.bat
 README.txt
-UpdateForge.bat
-setupEclipse.bat
-Github.bat
-SetupWorkspace.bat
+Paulscode SoundSystem CodecIBXM License.txt
+Paulscode IBXM Library License.txt
+MinecraftForge-Credits.txt
+LICENSE-new.txt
+gradlew.bat
+gradlew
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+gradle.properties
+forge-1.12.2-14.23.0.2540-changelog.txt
+forge-1.12.2-14.23.0.2512-changelog.txt
+CREDITS-fml.txt
+build.gradle
+Build Mod.bat

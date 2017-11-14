@@ -6,3 +6,4 @@ Fix captain of light
 Add tame slime entity
 Fix slime tamer
 Make phone do secret things
+Add slime gem and Jerry gem to loot tables

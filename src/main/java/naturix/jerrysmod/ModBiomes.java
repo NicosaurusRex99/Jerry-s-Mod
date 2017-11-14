@@ -1,8 +1,6 @@
 package naturix.jerrysmod;
 
 import naturix.jerrysmod.biome.BiomeSlime;
-import naturix.jerrysmod.tree.OliveTree;
-import naturix.jerrysmod.tree.TreeGenerator;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;

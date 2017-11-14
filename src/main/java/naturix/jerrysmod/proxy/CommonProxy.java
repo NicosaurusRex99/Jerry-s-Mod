@@ -15,6 +15,7 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
+import naturix.jerrysmod.biome.SlimeGrass;
 import naturix.jerrysmod.blocks.OliveLeaves;
 import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
@@ -64,8 +65,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        JerrysMod.logger.info("Jerry's Mod config read");
 	        ModDimensions.init();
 	        
-	        
-	        
 	    }
 
 	    public void init(FMLInitializationEvent e)
@@ -89,6 +88,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new OliveSapling(null));
 	    	event.getRegistry().register(new OlivePlanks(null));
 	    	event.getRegistry().register(new SlimeStone(null));
+	    	event.getRegistry().register(new SlimeGrass(null));
 	}
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -125,6 +125,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivelog).setRegistryName(ModBlocks.olivelog.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveplanks).setRegistryName(ModBlocks.oliveplanks.getRegistryName()));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimegrass).setRegistryName(ModBlocks.slimegrass.getRegistryName()));
 	    	
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	    
