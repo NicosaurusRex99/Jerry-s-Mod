@@ -6,6 +6,7 @@ import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockGrass;
+import net.minecraft.block.BlockTallGrass;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -72,7 +73,60 @@ public class SlimeGrass extends BlockGrass {
             }
         }
     }
-	
+	public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient)
+    {
+        return true;
+    }
+
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    {
+        return true;
+    }
+
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state)
+    {
+        BlockPos blockpos = pos.up();
+
+        for (int i = 0; i < 128; ++i)
+        {
+            BlockPos blockpos1 = blockpos;
+            int j = 0;
+
+            while (true)
+            {
+                if (j >= i / 16)
+                {
+                    if (worldIn.isAirBlock(blockpos1))
+                    {
+                        if (rand.nextInt(8) == 0)
+                        {
+                            worldIn.getBiome(blockpos1).plantFlower(worldIn, rand, blockpos1);
+                        }
+                        else
+                        {
+                            IBlockState iblockstate1 = Blocks.TALLGRASS.getDefaultState().withProperty(BlockTallGrass.TYPE, BlockTallGrass.EnumType.GRASS);
+
+                            if (Blocks.TALLGRASS.canBlockStay(worldIn, blockpos1, iblockstate1))
+                            {
+                                worldIn.setBlockState(blockpos1, iblockstate1, 3);
+                            }
+                        }
+                    }
+
+                    break;
+                }
+
+                blockpos1 = blockpos1.add(rand.nextInt(3) - 1, (rand.nextInt(3) - 1) * rand.nextInt(3) / 2, rand.nextInt(3) - 1);
+
+                if (worldIn.getBlockState(blockpos1.down()).getBlock() != ModBlocks.slimegrass || worldIn.getBlockState(blockpos1).isNormalCube())
+                {
+                    break;
+                }
+
+                ++j;
+            }
+        }
+    }
 	
 	
 }
