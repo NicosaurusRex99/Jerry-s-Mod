@@ -1,12 +1,12 @@
 {
-  "result": {
-    "item": "jarm:oliveplanks",
-    "count": 4
-  },
-  "ingredients": [
-    {
-      "item": "jerrysmod:olivelog"
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "jerrysmod:olivelog"
+        }
+    ],
+    "result": {
+        "item": "jerrysmod:oliveplanks"
+        "count": 4
     }
-  ],
-  "type": "forge:ore_shapeless"
 }

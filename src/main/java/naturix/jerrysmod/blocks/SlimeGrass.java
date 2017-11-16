@@ -30,6 +30,7 @@ public class SlimeGrass extends BlockGrass {
         setHarvestLevel("shovel", 1);
         setHardness(1f);
 		setResistance(3f);
+		this.setTickRandomly(true);
 	}
 	
 	public void initOreDict() {

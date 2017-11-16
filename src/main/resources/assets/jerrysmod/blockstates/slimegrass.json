@@ -5,6 +5,7 @@
   },
   "variants": {
     "normal": [{}],
-    "inventory": [{}]
+    "inventory": [{}],
+	"snowy=false": [{}]
   }
 }

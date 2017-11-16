@@ -1,56 +1,59 @@
 package naturix.jerrysmod.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.biome.BiomeSlime;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.feature.WorldGenTrees;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.common.BiomeDictionary;
+import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 public class WorldGenTree implements IWorldGenerator{
 
-	private final WorldGenerator gen_olive_tree = new WorldGenTrees(false, 3, ModBlocks.olivelog.getDefaultState(), ModBlocks.olivelog.getDefaultState(), false);
-	private final WorldGenerator gen_big_olive_tree = new WorldGenBigOliveTree(false);
+	private WorldGenBigOliveTree olives = new WorldGenBigOliveTree(true);
 
-	private void runGenerator(WorldGenerator generator, World world, Random random, int chunkX, int chunkZ, double chancesToSpawn, int minHeight, int maxHeight, Class<?>... classe) {
-		if (chancesToSpawn < 1) {
-				if (random.nextDouble() < chancesToSpawn)
-					chancesToSpawn = 1;
-				else
-					chancesToSpawn = 0;
+	public boolean generate(World world, Random rand, BlockPos pos) {
+		boolean ret = false;
+
+		if (generateOliveTrees(world, rand, pos)) {
+			ret = true;
 		}
-		ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classe));
-		int heightDiff = maxHeight - minHeight + 1;
-		for (int i = 0; i < chancesToSpawn; i++) {
-			BlockPos pos = new BlockPos(chunkX * 16 + 1 + random.nextInt(15),
-					minHeight + random.nextInt(heightDiff),
-					chunkZ * 16 + 1 + random.nextInt(15));
-			if (minHeight < 0)
-				pos = world.getHeight(pos);
-			Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
-			if (classesList.contains(biome) || classe.length == 0)
-				generator.generate(world, random, pos);
-		}
+		return ret;
 	}
 	
+	private boolean generateOliveTrees(World world, Random rand, BlockPos pos) {
+		boolean generated = false;
+		Biome biome = world.getBiome(pos);
+		boolean validBiome = (!BiomeDictionary.hasType(biome, Type.SWAMP)) && (BiomeDictionary.hasType(biome, Type.COLD) || BiomeDictionary.hasType(biome, Type.PLAINS) || BiomeDictionary.hasType(biome, Type.MOUNTAIN));
+
+		if (validBiome && rand.nextFloat() < Config.OLIVE_GEN_CHANCE) {
+			for (int i = 0; i < Config.MAX_OLIVE_GEN_ATTEMPTS; i++) {
+				int x = pos.getX() + (5 - rand.nextInt(11));
+				int z = pos.getZ() + (5 - rand.nextInt(11));
+				int y = world.getHeight(x, z);
+				BlockPos genPos = new BlockPos(x, y, z);
+				
+				if (!world.canSnowAt(genPos, true) && ModBlocks.olivesapling.canPlaceBlockAt(world, genPos) && olives.generate(world, rand, genPos)) {
+					generated = true;
+				}
+			}
+		}
+		
+		return generated;
+	}
+
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		switch (world.provider.getDimension()) {
-	    case 0:
-	    	this.runGenerator(gen_olive_tree, world, random, chunkX, chunkZ, 1, -1, 0, BiomeSlime.class);
-	    	this.runGenerator(gen_big_olive_tree, world, random, chunkX, chunkZ, 9, -1, 0, BiomeSlime.class);
-	    	break;
-	    case -1:
-	        break;
-	    case 1:
-	        break;
-	    }
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator,
+			IChunkProvider chunkProvider) {
+		// TODO Auto-generated method stub
+		
 	}
-	}
+	
+	
+
+}
