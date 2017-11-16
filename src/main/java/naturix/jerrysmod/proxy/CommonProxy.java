@@ -15,11 +15,11 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
-import naturix.jerrysmod.biome.SlimeGrass;
 import naturix.jerrysmod.blocks.OliveLeaves;
 import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
 import naturix.jerrysmod.blocks.OliveSapling;
+import naturix.jerrysmod.blocks.SlimeGrass;
 import naturix.jerrysmod.blocks.SlimeOre;
 import naturix.jerrysmod.blocks.SlimeStone;
 import naturix.jerrysmod.items.CaptainOfLight;
@@ -128,6 +128,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimegrass).setRegistryName(ModBlocks.slimegrass.getRegistryName()));
 	    	
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
-	    
+	   
 	    }
 }

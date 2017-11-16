@@ -1,0 +1,7 @@
+{
+  "phone": {
+    "category": "block",
+    "subtitle": "jerrysmod.subtitle.phone",
+    "sounds": [ "jerrysmod:phone" ]
+  }
+}
