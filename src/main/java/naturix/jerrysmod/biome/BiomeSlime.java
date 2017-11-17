@@ -5,8 +5,6 @@ import java.util.Random;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.tree.WorldGenTree;
-import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityBat;
@@ -15,11 +13,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeSwamp;
 import net.minecraft.world.chunk.ChunkPrimer;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BiomeSlime extends Biome {
 	private boolean logged = Config.slimeBiomePos;
@@ -51,11 +45,5 @@ public class BiomeSlime extends Biome {
     public void addDefaultFlowers()
     {
 		addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.HOUSTONIA), 10);
-    }
-	@Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-		GameRegistry.registerWorldGenerator(new WorldGenTree(), 0);
-		JerrysMod.logger.info("Tree Generating");
     }
 }

@@ -1,57 +1,192 @@
 package naturix.jerrysmod.blocks;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
-import com.google.common.collect.ImmutableMap;
-
-import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.EnumPushReaction;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.state.BlockFaceShape;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumBlockRenderType;
+import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class OliveLeaves extends Block implements IBlockState
+public class OliveLeaves extends Block implements net.minecraftforge.common.IShearable
 {
+    public static final PropertyBool DECAYABLE = PropertyBool.create("decayable");
+    public static final PropertyBool CHECK_DECAY = PropertyBool.create("check_decay");
+    protected boolean leavesFancy;
+    int[] surroundings;
 
     public OliveLeaves()
     {
         super(Material.LEAVES);
-        this.setCreativeTab(JerrysMod.JerrysMod);
+        this.setTickRandomly(true);
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setSoundType(SoundType.PLANT);
+        this.setCreativeTab(JerrysMod.JerrysMod);
         setUnlocalizedName(JerrysMod.MODID + ".oliveleaves");
         setRegistryName("oliveleaves");
         setHarvestLevel("shears", 1);
 		setResistance(5f);
+    }
+
+    /**
+     * Called serverside after this block is replaced with another in Chunk, but before the Tile Entity is updated
+     */
+    public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
+    {
+        int i = 1;
+        int j = 2;
+        int k = pos.getX();
+        int l = pos.getY();
+        int i1 = pos.getZ();
+
+        if (worldIn.isAreaLoaded(new BlockPos(k - 2, l - 2, i1 - 2), new BlockPos(k + 2, l + 2, i1 + 2)))
+        {
+            for (int j1 = -1; j1 <= 1; ++j1)
+            {
+                for (int k1 = -1; k1 <= 1; ++k1)
+                {
+                    for (int l1 = -1; l1 <= 1; ++l1)
+                    {
+                        BlockPos blockpos = pos.add(j1, k1, l1);
+                        IBlockState iblockstate = getStateById(OliveLeaves.getStateId(getDefaultState()));
+
+                        if (iblockstate.getBlock().isLeaves(iblockstate, worldIn, blockpos))
+                        {
+                            iblockstate.getBlock().beginLeavesDecay(iblockstate, worldIn, blockpos);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
+    {
+        if (!worldIn.isRemote)
+        {
+            if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue() && ((Boolean)state.getValue(DECAYABLE)).booleanValue())
+            {
+                int i = 4;
+                int j = 5;
+                int k = pos.getX();
+                int l = pos.getY();
+                int i1 = pos.getZ();
+                int j1 = 32;
+                int k1 = 1024;
+                int l1 = 16;
+
+                if (this.surroundings == null)
+                {
+                    this.surroundings = new int[32768];
+                }
+
+                if (worldIn.isAreaLoaded(new BlockPos(k - 5, l - 5, i1 - 5), new BlockPos(k + 5, l + 5, i1 + 5)))
+                {
+                    BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+
+                    for (int i2 = -4; i2 <= 4; ++i2)
+                    {
+                        for (int j2 = -4; j2 <= 4; ++j2)
+                        {
+                            for (int k2 = -4; k2 <= 4; ++k2)
+                            {
+                                IBlockState iblockstate = worldIn.getBlockState(blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2));
+                                Block block = iblockstate.getBlock();
+
+                                if (!block.canSustainLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
+                                {
+                                    if (block.isLeaves(iblockstate, worldIn, blockpos$mutableblockpos.setPos(k + i2, l + j2, i1 + k2)))
+                                    {
+                                        this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -2;
+                                    }
+                                    else
+                                    {
+                                        this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = -1;
+                                    }
+                                }
+                                else
+                                {
+                                    this.surroundings[(i2 + 16) * 1024 + (j2 + 16) * 32 + k2 + 16] = 0;
+                                }
+                            }
+                        }
+                    }
+
+                    for (int i3 = 1; i3 <= 4; ++i3)
+                    {
+                        for (int j3 = -4; j3 <= 4; ++j3)
+                        {
+                            for (int k3 = -4; k3 <= 4; ++k3)
+                            {
+                                for (int l3 = -4; l3 <= 4; ++l3)
+                                {
+                                    if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16] == i3 - 1)
+                                    {
+                                        if (this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16 - 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
+                                        }
+
+                                        if (this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16 + 1) * 1024 + (k3 + 16) * 32 + l3 + 16] = i3;
+                                        }
+
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16 - 1) * 32 + l3 + 16] = i3;
+                                        }
+
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16 + 1) * 32 + l3 + 16] = i3;
+                                        }
+
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + (l3 + 16 - 1)] = i3;
+                                        }
+
+                                        if (this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] == -2)
+                                        {
+                                            this.surroundings[(j3 + 16) * 1024 + (k3 + 16) * 32 + l3 + 16 + 1] = i3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                int l2 = this.surroundings[16912];
+
+                if (l2 >= 0)
+                {
+                    worldIn.setBlockState(pos, state.withProperty(CHECK_DECAY, Boolean.valueOf(false)), 4);
+                }
+                else
+                {
+                    this.destroy(worldIn, pos);
+                }
+            }
+        }
     }
 
     private void destroy(World worldIn, BlockPos pos)
@@ -72,13 +207,6 @@ public class OliveLeaves extends Block implements IBlockState
         }
     }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    public int quantityDropped(Random random)
-    {
-        return random.nextInt(20) == 0 ? 1 : 0;
-    }
 
     /**
      * Get the Item that this Block should drop when harvested.
@@ -102,7 +230,30 @@ public class OliveLeaves extends Block implements IBlockState
 
     protected int getSaplingDropChance(IBlockState state)
     {
-        return Config.saplingDrop;
+        return 20;
+    }
+
+    /**
+     * Used to determine ambient occlusion and culling when rebuilding chunks for render
+     */
+    public boolean isOpaqueCube(IBlockState state)
+    {
+        return !this.leavesFancy;
+    }
+
+    /**
+     * Pass true to draw this block using fancy graphics, or false for fast graphics.
+     */
+    @SideOnly(Side.CLIENT)
+    public void setGraphicsLevel(boolean fancy)
+    {
+        this.leavesFancy = fancy;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public BlockRenderLayer getBlockLayer()
+    {
+        return this.leavesFancy ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
     }
 
     public boolean causesSuffocation(IBlockState state)
@@ -114,8 +265,17 @@ public class OliveLeaves extends Block implements IBlockState
 		return null;
 	}
 
-    public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos){ return true; }
+    @Override public boolean isShearable(ItemStack item, IBlockAccess world, BlockPos pos){ return true; }
     @Override public boolean isLeaves(IBlockState state, IBlockAccess world, BlockPos pos){ return true; }
+
+    @Override
+    public void beginLeavesDecay(IBlockState state, World world, BlockPos pos)
+    {
+        if (!(Boolean)state.getValue(CHECK_DECAY))
+        {
+            world.setBlockState(pos, state.withProperty(CHECK_DECAY, true), 4);
+        }
+    }
 
     @Override
     public void getDrops(net.minecraft.util.NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
@@ -146,305 +306,22 @@ public class OliveLeaves extends Block implements IBlockState
         this.captureDrops(true);
         if (world instanceof World)
             this.dropApple((World)world, pos, state, chance); // Dammet mojang
-        drops.addAll(this.captureDrops(true));
+        drops.addAll(this.captureDrops(false));
     }
 
+
+    @SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side)
+    {
+        return !this.leavesFancy && blockAccess.getBlockState(pos.offset(side)).getBlock() == this ? false : super.shouldSideBeRendered(blockState, blockAccess, pos, side);
+    }
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
 
 	@Override
-	public boolean onBlockEventReceived(World worldIn, BlockPos pos, int id, int param) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void neighborChanged(World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Material getMaterial() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isFullBlock() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean canEntitySpawn(Entity entityIn) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int getLightOpacity() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getLightOpacity(IBlockAccess world, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getLightValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getLightValue(IBlockAccess world, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isTranslucent() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean useNeighborBrightness() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public MapColor getMapColor(IBlockAccess p_185909_1_, BlockPos p_185909_2_) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IBlockState withRotation(Rotation rot) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IBlockState withMirror(Mirror mirrorIn) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isFullCube() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean hasCustomBreakingProgress() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public EnumBlockRenderType getRenderType() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getPackedLightmapCoords(IBlockAccess source, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public float getAmbientOcclusionLightValue() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean isBlockNormalCube() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isNormalCube() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean canProvidePower() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int getWeakPower(IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean hasComparatorInputOverride() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int getComparatorInputOverride(World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public float getBlockHardness(World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public float getPlayerRelativeBlockHardness(EntityPlayer player, World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int getStrongPower(IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public EnumPushReaction getMobilityFlag() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public IBlockState getActualState(IBlockAccess blockAccess, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public AxisAlignedBB getSelectedBoundingBox(World worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean shouldSideBeRendered(IBlockAccess blockAccess, BlockPos pos, EnumFacing facing) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isOpaqueCube() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockAccess worldIn, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addCollisionBoxToList(World worldIn, BlockPos pos, AxisAlignedBB entityBox,
-			List<AxisAlignedBB> collidingBoxes, Entity entityIn, boolean p_185908_6_) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockAccess blockAccess, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public RayTraceResult collisionRayTrace(World worldIn, BlockPos pos, Vec3d start, Vec3d end) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean isTopSolid() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean doesSideBlockRendering(IBlockAccess world, BlockPos pos, EnumFacing side) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isSideSolid(IBlockAccess world, BlockPos pos, EnumFacing side) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Vec3d getOffset(IBlockAccess access, BlockPos pos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean causesSuffocation() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, BlockPos pos, EnumFacing facing) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Collection<IProperty<?>> getPropertyKeys() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T extends Comparable<T>> T getValue(IProperty<T> property) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T extends Comparable<T>, V extends T> IBlockState withProperty(IProperty<T> property, V value) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T extends Comparable<T>> IBlockState cycleProperty(IProperty<T> property) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ImmutableMap<IProperty<?>, Comparable<?>> getProperties() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Block getBlock() {
+	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
 		// TODO Auto-generated method stub
 		return null;
 	}

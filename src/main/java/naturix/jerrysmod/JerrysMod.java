@@ -2,7 +2,6 @@ package naturix.jerrysmod;
 
 import naturix.jerrysmod.dimension.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
-import naturix.jerrysmod.tree.WorldGenTree;
 import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;

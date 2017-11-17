@@ -15,7 +15,7 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
-import naturix.jerrysmod.blocks.OliveLeaves;
+import naturix.jerrysmod.blocks.OliveLeaves; 
 import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
 import naturix.jerrysmod.blocks.OliveSapling;
@@ -83,12 +83,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    @SubscribeEvent
 	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    	event.getRegistry().register(new SlimeOre(null));
-	    	event.getRegistry().register(new OliveLeaves());
-	    	event.getRegistry().register(new OliveLog(null));
-	    	event.getRegistry().register(new OliveSapling(null));
 	    	event.getRegistry().register(new OlivePlanks(null));
 	    	event.getRegistry().register(new SlimeStone(null));
 	    	event.getRegistry().register(new SlimeGrass(null));
+	    	event.getRegistry().register(new OliveLog());
+	    	event.getRegistry().register(new OliveSapling());
+	    	event.getRegistry().register(new OliveLeaves()); 
 	}
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {

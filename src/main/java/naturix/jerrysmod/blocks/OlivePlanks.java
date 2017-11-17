@@ -15,6 +15,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class OlivePlanks extends Block {
 	
@@ -27,6 +28,9 @@ public class OlivePlanks extends Block {
         setHardness(2f);
 		setResistance(1f);
 		
+	}
+	public void initOreDict() {
+		OreDictionary.registerOre("plankWood", this);
 	}
 	@SideOnly(Side.CLIENT)
     public void initModel() {

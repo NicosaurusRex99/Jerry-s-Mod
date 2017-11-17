@@ -37,7 +37,7 @@ public class ModBlocks {
         oliveplanks.initModel();
         slimestone.initModel();
         slimegrass.initModel();
-}
+} 
 	public static void initOreDict() {
 		slimegrass.initOreDict();
 		slimestone.initOreDict();
