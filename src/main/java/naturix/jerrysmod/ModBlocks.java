@@ -17,8 +17,6 @@ public class ModBlocks {
     public static SlimeOre slimeore;
 	@GameRegistry.ObjectHolder("jerrysmod:olivelog")
 	public static OliveLog olivelog;
-	@GameRegistry.ObjectHolder("jerrysmod:olivesapling")
-	public static OliveSapling olivesapling;
 	@GameRegistry.ObjectHolder("jerrysmod:oliveleaves")
 	public static OliveLeaves oliveleaves;
 	@GameRegistry.ObjectHolder("jerrysmod:oliveplanks")
@@ -27,16 +25,18 @@ public class ModBlocks {
 	public static SlimeStone slimestone;
 	@GameRegistry.ObjectHolder("jerrysmod:slimegrass")
 	public static SlimeGrass slimegrass;
+	@GameRegistry.ObjectHolder("jerrysmod:olivesapling")
+	public static OliveSapling olivesapling;
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
         slimeore.initModel();
         olivelog.initModel();
-        olivesapling.initModel();
         oliveleaves.initModel();
         oliveplanks.initModel();
         slimestone.initModel();
         slimegrass.initModel();
+        olivesapling.initModel();
 } 
 	public static void initOreDict() {
 		slimegrass.initOreDict();

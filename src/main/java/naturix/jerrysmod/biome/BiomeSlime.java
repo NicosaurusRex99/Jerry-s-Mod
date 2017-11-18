@@ -5,6 +5,7 @@ import java.util.Random;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.ModBlocks;
+import naturix.jerrysmod.tree.OliveTest2;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.monster.EntitySlime;
 import net.minecraft.entity.passive.EntityBat;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
 public class BiomeSlime extends Biome {
 	private boolean logged = Config.slimeBiomePos;
@@ -46,4 +48,7 @@ public class BiomeSlime extends Biome {
     {
 		addFlower(Blocks.RED_FLOWER.getDefaultState().withProperty(Blocks.RED_FLOWER.getTypeProperty(), BlockFlower.EnumFlowerType.HOUSTONIA), 10);
     }
+	public WorldGenAbstractTree getRandomTreeFeature(Random rand) {
+		return new OliveTest2();
+	}
 }

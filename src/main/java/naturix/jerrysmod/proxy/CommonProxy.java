@@ -15,7 +15,7 @@ import naturix.jerrysmod.armor.SlimeBoots;
 import naturix.jerrysmod.armor.SlimeChestplate;
 import naturix.jerrysmod.armor.SlimeHelmet;
 import naturix.jerrysmod.armor.SlimeLeggings;
-import naturix.jerrysmod.blocks.OliveLeaves; 
+import naturix.jerrysmod.blocks.OliveLeaves;
 import naturix.jerrysmod.blocks.OliveLog;
 import naturix.jerrysmod.blocks.OlivePlanks;
 import naturix.jerrysmod.blocks.OliveSapling;
@@ -87,8 +87,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new SlimeStone(null));
 	    	event.getRegistry().register(new SlimeGrass(null));
 	    	event.getRegistry().register(new OliveLog());
-	    	event.getRegistry().register(new OliveSapling());
 	    	event.getRegistry().register(new OliveLeaves()); 
+	    	event.getRegistry().register(new OliveSapling());
 	}
 	    @SubscribeEvent
 	    public static void registerItems(RegistryEvent.Register<Item> event) {
@@ -123,9 +123,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimestone).setRegistryName(ModBlocks.slimestone.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveleaves).setRegistryName(ModBlocks.oliveleaves.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivelog).setRegistryName(ModBlocks.olivelog.getRegistryName()));
-	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.oliveplanks).setRegistryName(ModBlocks.oliveplanks.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimegrass).setRegistryName(ModBlocks.slimegrass.getRegistryName()));
+	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));
 	    	
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
 	   

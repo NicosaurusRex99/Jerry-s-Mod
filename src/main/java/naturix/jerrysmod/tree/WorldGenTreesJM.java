@@ -3,8 +3,7 @@ package naturix.jerrysmod.tree;
 import java.util.Random;
 
 import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.blocks.OliveLeaves;
-import naturix.jerrysmod.blocks.OliveLog;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLeaf;
@@ -19,12 +18,11 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-import net.minecraftforge.common.IPlantable;
 
 public class WorldGenTreesJM extends WorldGenAbstractTree
 {
-    private static final IBlockState DEFAULT_TRUNK = ModBlocks.olivelog.getDefaultState().withProperty(BlockOldLog.VARIANT, BlockPlanks.EnumType.OAK);
-    private static final IBlockState DEFAULT_LEAF = ModBlocks.oliveleaves.getDefaultState().withProperty(BlockOldLeaf.VARIANT, BlockPlanks.EnumType.OAK).withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+    private static final IBlockState DEFAULT_TRUNK = ModBlocks.olivelog.getDefaultState();
+    private static final IBlockState DEFAULT_LEAF = ModBlocks.oliveleaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
     /** The minimum height of a generated tree. */
     private final int minTreeHeight;
     /** True if this tree should grow Vines. */
@@ -34,10 +32,10 @@ public class WorldGenTreesJM extends WorldGenAbstractTree
     /** The metadata value of the leaves to use in tree generation. */
     private final IBlockState metaLeaves;
 
-    public WorldGenTreesJM(OliveLog olivelog, OliveLeaves oliveleaves, boolean p_i2027_1_)
+    public WorldGenTreesJM(boolean p_i2027_1_)
     {
         this(p_i2027_1_, 4, DEFAULT_TRUNK, DEFAULT_LEAF, false);
-    } 
+    }
 
     public WorldGenTreesJM(boolean notify, int minTreeHeightIn, IBlockState woodMeta, IBlockState p_i46446_4_, boolean growVines)
     {
@@ -98,7 +96,7 @@ public class WorldGenTreesJM extends WorldGenAbstractTree
             {
                 IBlockState state = worldIn.getBlockState(position.down());
 
-                if (state.getBlock().canSustainPlant(state, worldIn, position.down(), net.minecraft.util.EnumFacing.UP, (IPlantable)ModBlocks.olivesapling) && position.getY() < worldIn.getHeight() - i - 1)
+                if (state.getBlock().canSustainPlant(state, worldIn, position.down(), net.minecraft.util.EnumFacing.UP, (net.minecraft.block.BlockSapling)Blocks.SAPLING) && position.getY() < worldIn.getHeight() - i - 1)
                 {
                     state.getBlock().onPlantGrow(state, worldIn, position.down(), position);
                     int k2 = 3;

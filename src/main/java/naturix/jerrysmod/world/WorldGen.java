@@ -42,12 +42,12 @@ public class WorldGen implements IWorldGenerator {
 
 	}
 	private void generateSurface(World world, Random random, int BlockX, int BlockZ) {
-		for (int i = 0; i < Config.OLIVE_GEN_CHANCE; i++) {
+		for (int i = 0; i < 20; i++) {
 			int Xcoord1 = BlockX + random.nextInt(16);
 			int Ycoord1 = random.nextInt(90);
 			int Zcoord1 = BlockZ + random.nextInt(16);
 			
-			new WorldGenTreesJM(ModBlocks.olivelog, ModBlocks.oliveleaves, false); 
+			new WorldGenTreesJM(false); 
 			}
 			}
 
