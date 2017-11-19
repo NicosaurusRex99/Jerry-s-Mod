@@ -2,8 +2,8 @@ package naturix.jerrysmod.world;
 
 import java.util.Random;
 
+import Registries.ModBlocks;
 import naturix.jerrysmod.Config;
-import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.tree.OliveTest2;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;

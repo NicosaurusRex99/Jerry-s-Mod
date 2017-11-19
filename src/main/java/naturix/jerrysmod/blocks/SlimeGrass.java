@@ -2,8 +2,8 @@ package naturix.jerrysmod.blocks;
 
 import java.util.Random;
 
+import Registries.ModBlocks;
 import naturix.jerrysmod.JerrysMod;
-import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockGrass;
 import net.minecraft.block.BlockTallGrass;

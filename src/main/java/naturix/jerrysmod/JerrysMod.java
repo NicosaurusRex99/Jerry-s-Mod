@@ -1,5 +1,6 @@
 package naturix.jerrysmod;
 
+import Registries.ModItems;
 import naturix.jerrysmod.command.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
 import naturix.jerrysmod.world.WorldGen;

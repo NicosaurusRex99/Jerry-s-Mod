@@ -3,9 +3,9 @@ package naturix.jerrysmod.blocks;
 import java.util.List;
 import java.util.Random;
 
+import Registries.ModBlocks;
+import Registries.ModItems;
 import naturix.jerrysmod.JerrysMod;
-import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;

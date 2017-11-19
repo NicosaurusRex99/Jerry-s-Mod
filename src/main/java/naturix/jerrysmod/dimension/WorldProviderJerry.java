@@ -1,6 +1,6 @@
 package naturix.jerrysmod.dimension;
 
-import naturix.jerrysmod.ModDimensions;
+import Registries.ModDimensions;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.gen.IChunkGenerator;

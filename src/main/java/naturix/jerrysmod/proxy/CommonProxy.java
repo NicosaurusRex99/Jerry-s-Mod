@@ -2,12 +2,12 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
+import Registries.ModBlocks;
+import Registries.ModDimensions;
+import Registries.ModItems;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
-import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.ModDimensions;
-import naturix.jerrysmod.ModItems;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
 import naturix.jerrysmod.armor.JerryHelmet;

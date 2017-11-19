@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Registries.ModBiomes;
+import Registries.ModDimensions;
 import naturix.jerrysmod.Config;
-import naturix.jerrysmod.ModBiomes;
-import naturix.jerrysmod.ModDimensions;
 import naturix.jerrysmod.items.Phone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;

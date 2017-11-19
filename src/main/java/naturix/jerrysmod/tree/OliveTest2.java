@@ -2,8 +2,8 @@ package naturix.jerrysmod.tree;
 
 import java.util.Random;
 
+import Registries.ModBlocks;
 import naturix.jerrysmod.Config;
-import naturix.jerrysmod.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;

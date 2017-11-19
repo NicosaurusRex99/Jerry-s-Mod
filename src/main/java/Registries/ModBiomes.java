@@ -1,5 +1,7 @@
-package naturix.jerrysmod;
+package Registries;
 
+import naturix.jerrysmod.Config;
+import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.biome.BiomeSlime;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.BiomeDictionary;

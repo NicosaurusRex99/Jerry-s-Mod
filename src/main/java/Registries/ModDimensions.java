@@ -1,4 +1,6 @@
-package naturix.jerrysmod;
+package Registries;
+import naturix.jerrysmod.Config;
+import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.dimension.WorldProviderJerry;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
