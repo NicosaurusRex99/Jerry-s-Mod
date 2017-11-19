@@ -19,6 +19,7 @@ public class Config {
 	public static int treeChances;
 	public static int OLIVE_GEN_CHANCE;
 	public static int TreeHeight;
+	public static int SlimeBiomeWeight;
 
 	
 	public static void readConfig() {
@@ -48,8 +49,9 @@ public class Config {
 	        slimeBiomeID = cfg.getInt("slimeBiomeID", CATEGORY_GENERAL, 500, -4000, 4000, "Slime Biome ID");
 	        slimeBiomePos = cfg.getBoolean("slimeBiomePos", CATEGORY_GENERAL, false, "set to true to see where the biome is");
 	        treeChances = cfg.getInt("treeChances", CATEGORY_GENERAL, 12, -4000, 4000, "how frequent trees spawn");
-	        OLIVE_GEN_CHANCE = cfg.getInt("OliveGenChance", CATEGORY_GENERAL, 15, 1, 100, "Generation of olive trees");
-	        TreeHeight = cfg.getInt("Height of olive tree", CATEGORY_GENERAL, 5, 1, 256, "Height of olive trees");
+	        OLIVE_GEN_CHANCE = cfg.getInt("OliveGenChance", CATEGORY_GENERAL, 80, 1, 100, "Generation of olive trees");
+	        TreeHeight = cfg.getInt("OliveHeight", CATEGORY_GENERAL, 5, 1, 256, "Height of olive trees");
+	        SlimeBiomeWeight = cfg.getInt("WeightOfSlimeBiome", CATEGORY_GENERAL, 3, 1, 256, "Changes how frequent slime biomes spawn");
 	        
 	 
 	 }

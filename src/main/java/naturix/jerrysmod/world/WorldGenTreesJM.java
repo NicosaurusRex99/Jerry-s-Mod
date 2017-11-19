@@ -2,6 +2,7 @@ package naturix.jerrysmod.world;
 
 import java.util.Random;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.tree.OliveTest2;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -38,7 +39,7 @@ public class WorldGenTreesJM implements IWorldGenerator {
 
 	}
 	private void generateSurface(World world, Random random, int BlockX, int BlockZ) {
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < Config.OLIVE_GEN_CHANCE; i++) {
 			int Xcoord1 = BlockX + random.nextInt(16);
 			int Ycoord1 = random.nextInt(90);
 			int Zcoord1 = BlockZ + random.nextInt(16);

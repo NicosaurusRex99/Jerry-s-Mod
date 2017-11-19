@@ -22,7 +22,7 @@ public class ModBiomes {
 		public static void registerBiomes(final RegistryEvent.Register<Biome> event) {
 			final IForgeRegistry<Biome> registry = event.getRegistry();
 
-			registerBiome(registry, new BiomeSlime(new Biome.BiomeProperties("SlimeBiome").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled()), "SlimeBiome", BiomeManager.BiomeType.COOL, 1000);
+			registerBiome(registry, new BiomeSlime(new Biome.BiomeProperties("SlimeBiome").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(2.0F).setRainfall(0.0F).setRainDisabled()), "SlimeBiome", BiomeManager.BiomeType.COOL, Config.SlimeBiomeWeight);
 		}
 
 		private static <T extends Biome> void registerBiome(final IForgeRegistry<Biome> registry, final T biome, final String biomeName, final BiomeManager.BiomeType biomeType, final int weight, final BiomeDictionary.Type... types) {

@@ -79,7 +79,7 @@ public class OliveTest2 extends WorldGenAbstractTree {
 					Block var8s = par1World.getBlockState(new BlockPos(par3, par4 - 1, par5)).getBlock();
 					var8 = Block.getIdFromBlock(var8s);
 
-					if ((var8s == Blocks.GRASS || var8s == ModBlocks.slimegrass) && par4 < 256 - var6 - 1) {
+					if ((var8s == Blocks.GRASS || var8s == Blocks.DIRT || var8s == ModBlocks.slimegrass) && par4 < 256 - var6 - 1) {
 						par1World.setBlockState(new BlockPos(par3, par4 - 1, par5), Blocks.DIRT.getDefaultState(), 3);
 						var9 = 3;
 						byte var18 = 0;
