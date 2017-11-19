@@ -27,8 +27,8 @@ public class BiomeSlime extends Biome {
 		fillerBlock = ModBlocks.slimestone.getDefaultState();
 		this.spawnableWaterCreatureList.add(new Biome.SpawnListEntry(EntitySquid.class, 10, 4, 4));
         this.spawnableCaveCreatureList.add(new Biome.SpawnListEntry(EntityBat.class, 10, 8, 8));
-        this.spawnableWaterCreatureList.add(new Biome.SpawnListEntry(EntitySlime.class, 10, 4, 4));
-        
+        this.spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 5, 1, 5));
+
 	}
 	public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)
     {

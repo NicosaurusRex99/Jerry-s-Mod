@@ -1,4 +1,4 @@
-package naturix.jerrysmod.dimension;
+package naturix.jerrysmod.command;
 
 import javax.annotation.Nonnull;
 

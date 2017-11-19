@@ -1,8 +1,9 @@
 package naturix.jerrysmod;
 
-import naturix.jerrysmod.dimension.DimensionTp;
+import naturix.jerrysmod.command.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
 import naturix.jerrysmod.world.WorldGen;
+import naturix.jerrysmod.world.WorldGenTreesJM;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -45,6 +46,7 @@ public class JerrysMod
     	logger = event.getModLog();
         proxy.preInit(event);
         GameRegistry.registerWorldGenerator(new WorldGen(), 3);
+        GameRegistry.registerWorldGenerator(new WorldGenTreesJM(), Config.OLIVE_GEN_CHANCE);
         
     }
 

@@ -2,8 +2,6 @@ package naturix.jerrysmod.world;
 
 import java.util.Random;
 
-import naturix.jerrysmod.Config;
-import naturix.jerrysmod.ModBlocks;
 import naturix.jerrysmod.tree.OliveTest2;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -13,9 +11,9 @@ import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
-public class WorldGen implements IWorldGenerator {
+public class WorldGenTreesJM implements IWorldGenerator {
 	
-	public static WorldGen instance = new WorldGen();
+	public static WorldGenTreesJM instance = new WorldGenTreesJM();
 	private Random rand;
 	 
 	@Override
@@ -37,8 +35,6 @@ public class WorldGen implements IWorldGenerator {
 		}
 	}
 	private void generateOverworld(Random random, int chunkX, int chunkY, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-		generateOre(ModBlocks.slimeore.getDefaultState(), world, random, chunkX * 16, chunkY * 16, Config.slimeMin, Config.slimeMax, Config.slimeVeinSize + random.nextInt(4), Config.slimeSpawnTries);
-	
 
 	}
 	private void generateSurface(World world, Random random, int BlockX, int BlockZ) {

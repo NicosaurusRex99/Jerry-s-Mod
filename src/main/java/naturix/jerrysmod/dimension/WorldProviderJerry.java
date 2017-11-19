@@ -6,6 +6,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 
 public class WorldProviderJerry extends WorldProvider {
+	
 
     @Override
     public DimensionType getDimensionType() {

@@ -3,8 +3,8 @@ package naturix.jerrysmod.blocks;
 import java.util.Random;
 
 import naturix.jerrysmod.JerrysMod;
-import naturix.jerrysmod.ModBlocks;
-import naturix.jerrysmod.tree.WorldGenTreesJM;
+import naturix.jerrysmod.tree.OliveTest2;
+import naturix.jerrysmod.world.WorldGen;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
@@ -21,7 +21,6 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -78,7 +77,7 @@ public class OliveSapling extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = (WorldGenerator)(rand.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTreesJM(false));
+        WorldGenerator worldgenerator = (WorldGenerator)(rand.nextInt(10) == 0 ? new WorldGen() : new OliveTest2());
         int i = 0;
         int j = 0;
         boolean flag = false;
