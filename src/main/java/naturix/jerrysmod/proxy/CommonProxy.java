@@ -89,7 +89,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new OlivePlanks(null));
 	    	event.getRegistry().register(new SlimeStone(null));
 	    	event.getRegistry().register(new SlimeGrass(null));
-	    	event.getRegistry().register(new OliveLog());
+	    	event.getRegistry().register(new OliveLog()); 
 	    	event.getRegistry().register(new OliveLeaves()); 
 	    	event.getRegistry().register(new OliveSapling());
 	}
@@ -130,7 +130,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.slimegrass).setRegistryName(ModBlocks.slimegrass.getRegistryName()));
 	    	event.getRegistry().register(new ItemBlock(ModBlocks.olivesapling).setRegistryName(ModBlocks.olivesapling.getRegistryName()));
 	    	
-	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded");
+	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded"); 
 	   
 	    }
 }

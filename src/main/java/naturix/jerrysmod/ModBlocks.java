@@ -26,7 +26,7 @@ public class ModBlocks {
 	@GameRegistry.ObjectHolder("jerrysmod:slimegrass")
 	public static SlimeGrass slimegrass;
 	@GameRegistry.ObjectHolder("jerrysmod:olivesapling")
-	public static OliveSapling olivesapling;
+	public static OliveSapling olivesapling; 
 	
 	@SideOnly(Side.CLIENT)
     public static void initModels() {
