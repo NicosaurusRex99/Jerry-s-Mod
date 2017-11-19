@@ -39,7 +39,7 @@ public class OliveSapling extends BlockBush implements IGrowable
         setUnlocalizedName(JerrysMod.MODID + ".olivesapling");
         setRegistryName("olivesapling");
         setHardness(0.2f);
-        setLightOpacity(255);
+        setLightOpacity(0);
 		setResistance(1f);
 		setSoundType(SoundType.PLANT);
     }
@@ -77,7 +77,7 @@ public class OliveSapling extends BlockBush implements IGrowable
     public void generateTree(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
         if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(worldIn, rand, pos)) return;
-        WorldGenerator worldgenerator = (WorldGenerator)(rand.nextInt(10) == 0 ? new WorldGen() : new OliveTest2());
+        WorldGenerator worldgenerator = (WorldGenerator)(rand.nextInt(10) == 0 ? new OliveTest2() : new OliveTest2());
         int i = 0;
         int j = 0;
         boolean flag = false;

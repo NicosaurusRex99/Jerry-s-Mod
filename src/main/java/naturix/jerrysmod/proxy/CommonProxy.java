@@ -65,8 +65,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        JerrysMod.logger.info("Jerry's Mod config read");
 	        ModDimensions.init();
-	        ModItems.initOreDict();
-	        ModBlocks.initOreDict();
 	        
 	    }
 
@@ -74,6 +72,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    {
 	    	FurnaceRecipe.init();
 	    	JerrysMod.logger.info("Jerry's Mod Initialized");
+	        ModItems.initOreDict();
+	        ModBlocks.initOreDict();
 	    }
 	    
 	    public void postInit(FMLPostInitializationEvent e) 
