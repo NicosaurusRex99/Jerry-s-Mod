@@ -13,6 +13,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -164,7 +165,14 @@ public class OliveLeaves extends Block implements net.minecraftforge.common.IShe
             this.dropApple((World)world, pos, state, chance); // Dammet mojang
         drops.addAll(this.captureDrops(false));
     }
-
+    public void onLanded(World worldIn, Entity entityIn)
+    {
+        entityIn.motionY = 2.0D;
+    }
+	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
+    {
+        entityIn.fall(fallDistance, 0.0F);
+    }
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
@@ -175,4 +183,5 @@ public class OliveLeaves extends Block implements net.minecraftforge.common.IShe
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 }
