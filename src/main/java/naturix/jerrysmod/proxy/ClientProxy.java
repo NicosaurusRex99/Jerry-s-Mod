@@ -1,7 +1,7 @@
 package naturix.jerrysmod.proxy;
 
-import Registries.ModBlocks;
-import Registries.ModItems;
+import naturix.jerrysmod.registries.ModBlocks;
+import naturix.jerrysmod.registries.ModItems;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

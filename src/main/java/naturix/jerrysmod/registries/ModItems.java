@@ -1,4 +1,4 @@
-package Registries;
+package naturix.jerrysmod.registries;
 
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;

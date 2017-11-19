@@ -1,4 +1,3 @@
-Make slime biome only spawn in dimension
 Add tame slime entity
 Fix slime tamer
 Add slime gem and Jerry gem to loot tables

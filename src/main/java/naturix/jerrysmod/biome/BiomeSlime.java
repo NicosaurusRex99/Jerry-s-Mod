@@ -2,9 +2,9 @@ package naturix.jerrysmod.biome;
 
 import java.util.Random;
 
-import Registries.ModBlocks;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.registries.ModBlocks;
 import naturix.jerrysmod.tree.OliveTest2;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.entity.monster.EntitySlime;

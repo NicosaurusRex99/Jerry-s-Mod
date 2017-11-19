@@ -2,9 +2,6 @@ package naturix.jerrysmod.proxy;
 
 import java.io.File;
 
-import Registries.ModBlocks;
-import Registries.ModDimensions;
-import Registries.ModItems;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
@@ -42,21 +39,25 @@ import naturix.jerrysmod.items.SlimeShovel;
 import naturix.jerrysmod.items.SlimeStick;
 import naturix.jerrysmod.items.SlimeSword;
 import naturix.jerrysmod.items.SlimeTamer;
+import naturix.jerrysmod.registries.ModBlocks;
+import naturix.jerrysmod.registries.ModDimensions;
+import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber
 	public class CommonProxy {
 		public static Configuration config;
-
 		public void preInit(FMLPreInitializationEvent e) 
 		{
 			File directory = e.getModConfigurationDirectory();
@@ -65,6 +66,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        JerrysMod.logger.info("Jerry's Mod config read");
 	        ModDimensions.init();
+	        
 	        
 	    }
 
@@ -83,6 +85,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	            JerrysMod.logger.info("Jerry's Mod config loaded");
 	    }
 	    }
+		@EventHandler
+		public void serverLoad(FMLServerStartingEvent event) 
+		{
+		}
+			
+			
 	    @SubscribeEvent
 	    public static void registerBlocks(RegistryEvent.Register<Block> event) {
 	    	event.getRegistry().register(new SlimeOre(null));

@@ -1,7 +1,7 @@
 package naturix.jerrysmod;
 
-import Registries.ModBlocks;
-import Registries.ModItems;
+import naturix.jerrysmod.registries.ModBlocks;
+import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

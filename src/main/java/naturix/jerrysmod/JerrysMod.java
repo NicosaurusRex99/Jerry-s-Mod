@@ -1,8 +1,8 @@
 package naturix.jerrysmod;
 
-import Registries.ModItems;
 import naturix.jerrysmod.command.DimensionTp;
 import naturix.jerrysmod.proxy.CommonProxy;
+import naturix.jerrysmod.registries.ModItems;
 import naturix.jerrysmod.world.WorldGen;
 import naturix.jerrysmod.world.WorldGenTreesJM;
 import net.minecraft.creativetab.CreativeTabs;
@@ -34,6 +34,7 @@ public class JerrysMod
 
     @Mod.Instance
     public static JerrysMod instance;
+ 
 
     public static org.apache.logging.log4j.Logger logger;
     

@@ -1,4 +1,4 @@
-package Registries;
+package naturix.jerrysmod.registries;
 import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.dimension.WorldProviderJerry;

@@ -1,4 +1,4 @@
-package Registries;
+package naturix.jerrysmod.registries;
 
 import naturix.jerrysmod.blocks.OliveLeaves;
 import naturix.jerrysmod.blocks.OliveLog;
