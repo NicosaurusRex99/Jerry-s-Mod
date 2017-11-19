@@ -1,7 +1,6 @@
 package naturix.jerrysmod.items;
 
 import naturix.jerrysmod.JerrysMod;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
@@ -34,17 +33,20 @@ public class CaptainOfLight extends Item {
 	public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer entity, EnumHand hand) {
 		float var4 = 1.0F;
 		ActionResult<ItemStack> ar = super.onItemRightClick(world, entity, hand);
-		RayTraceResult result = Minecraft.getMinecraft().objectMouseOver;
-        blockPos = result.getBlockPos();
-		int i = (int) (blockPos.getX() * (double) var4);
-		int j = (int) (blockPos.getY() * (double) var4 + 1.62D);
-		int k = (int) (blockPos.getZ() * (double) var4);
+		
+		RayTraceResult pos = entity.rayTrace(100, 20);
 
+			double i = pos.getBlockPos().getX();
+			double j = pos.getBlockPos().getY();
+			double k = pos.getBlockPos().getZ();
+
+		
+		
 		if (true) {
 			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
 		}
 
-
 		return ar;
 	}
+
 }
