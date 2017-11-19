@@ -20,11 +20,12 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = JerrysMod.MODID, version = JerrysMod.VERSION)
+@Mod(modid = JerrysMod.MODID, version = JerrysMod.VERSION, name = JerrysMod.NAME)
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
     public static final String VERSION = "1.12.2.0C";
+    public static final String NAME = "Jerry's Mod";
     
 
     @SidedProxy(clientSide = "naturix.jerrysmod.proxy.ClientProxy", serverSide = "naturix.jerrysmod.proxy.ServerProxy")
