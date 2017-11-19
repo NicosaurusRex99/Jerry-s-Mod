@@ -41,6 +41,8 @@ public class ModBlocks {
 	public static void initOreDict() {
 		slimegrass.initOreDict();
 		slimestone.initOreDict();
+		oliveplanks.initOreDict();
+		olivelog.initOreDict();
 	}
 
 

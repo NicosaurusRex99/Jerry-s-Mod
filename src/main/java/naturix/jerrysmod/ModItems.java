@@ -118,5 +118,7 @@ public class ModItems
 	slimetamer.initModel();
 	grapes.initModel();
 }
-
+	public static void initOreDict() {
+		phone.initOreDict();
+	}
 }
