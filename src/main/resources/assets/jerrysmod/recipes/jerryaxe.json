@@ -7,13 +7,13 @@
 	],
 	"key": {
 		"X": {
-			"item": "jerrysmod:slimegem"
+			"item": "jerrysmod:jerrygem"
 		},
 		"#": {
 			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "jerrysmod:slimeaxe"
+		"item": "jerrysmod:jerryaxe"
 	}
 }

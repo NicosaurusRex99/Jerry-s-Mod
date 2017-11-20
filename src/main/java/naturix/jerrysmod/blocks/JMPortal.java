@@ -80,7 +80,7 @@ public class JMPortal {
 	public static Phone block;
 
 	static {
-		portal = (BlockTutorialPortal) (new BlockTutorialPortal().setUnlocalizedName("jerrysModDim_portal"));
+		portal = (BlockTutorialPortal) (new BlockTutorialPortal().setUnlocalizedName("jerrysmod:portal"));
 	}
 
 	public JMPortal() {
