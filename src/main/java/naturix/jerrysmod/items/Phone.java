@@ -14,9 +14,9 @@
     */
 package naturix.jerrysmod.items;
 
-import naturix.jerrysmod.JerryHelpers;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.blocks.JMPortal;
+import naturix.jerrysmod.helpers.JerryHelpers;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;

@@ -54,3 +54,5 @@ tile.jerrysmod.fire.name=Fire
 tile.jerrysmod.slimeportal.name=Slime Portal
 
 itemGroup.Jerry's Mod=Jerry's Mod
+
+entity.tameslime.name=Tame Slime

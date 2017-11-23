@@ -12,7 +12,7 @@
     You should have received a copy Of the GNU General Public License
     along with this program.  If Not, see <http://www.gnu.org/licenses/>.
     */
-package naturix.jerrysmod;
+package naturix.jerrysmod.helpers;
 
 import naturix.jerrysmod.blocks.JMPortal;
 import net.minecraft.block.Block;

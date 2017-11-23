@@ -34,6 +34,7 @@ public class Config {
 	public static int OLIVE_GEN_CHANCE;
 	public static int TreeHeight;
 	public static int SlimeBiomeWeight;
+	
 
 	
 	public static void readConfig() {

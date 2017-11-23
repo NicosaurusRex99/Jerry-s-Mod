@@ -15,6 +15,8 @@
 package naturix.jerrysmod.items;
 
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.entity.EntityTameSlime;
+import naturix.jerrysmod.registries.ModEntities;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
@@ -24,6 +26,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
@@ -34,7 +38,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class SlimeTamer extends Item {
-
 	public SlimeTamer(ToolMaterial material) {
     	super();
         setRegistryName("slimetamer");
@@ -49,7 +52,5 @@ public class SlimeTamer extends Item {
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
-
-
 
 }
