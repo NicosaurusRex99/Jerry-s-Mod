@@ -15,7 +15,6 @@
 package naturix.jerrysmod.proxy;
 
 import naturix.jerrysmod.registries.ModBlocks;
-import naturix.jerrysmod.registries.ModEntities;
 import naturix.jerrysmod.registries.ModItems;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -32,8 +31,7 @@ public class ClientProxy extends CommonProxy {
         super.preInit(e);
     }
 	public void Init(FMLInitializationEvent e) {
-		ModEntities.initModels();
-	}
+		}
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
     	ModBlocks.initModels();

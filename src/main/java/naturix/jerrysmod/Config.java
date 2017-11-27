@@ -34,6 +34,7 @@ public class Config {
 	public static int OLIVE_GEN_CHANCE;
 	public static int TreeHeight;
 	public static int SlimeBiomeWeight;
+	public static int AbsorbsionStrength;
 	
 
 	
@@ -67,6 +68,7 @@ public class Config {
 	        OLIVE_GEN_CHANCE = cfg.getInt("OliveGenChance", CATEGORY_GENERAL, 80, 1, 100, "Generation of olive trees");
 	        TreeHeight = cfg.getInt("OliveHeight", CATEGORY_GENERAL, 5, 1, 256, "Height of olive trees");
 	        SlimeBiomeWeight = cfg.getInt("WeightOfSlimeBiome", CATEGORY_GENERAL, 3, 1, 256, "Changes how frequent slime biomes spawn");
+	        AbsorbsionStrength = cfg.getInt("AbsorbsionStrength", CATEGORY_GENERAL, 2, 1, 10, "Changes the strength of absorbsion given from the slime tamer");
 	        
 	 
 	 }

@@ -55,7 +55,6 @@ import naturix.jerrysmod.items.SlimeSword;
 import naturix.jerrysmod.items.SlimeTamer;
 import naturix.jerrysmod.registries.ModBlocks;
 import naturix.jerrysmod.registries.ModDimensions;
-import naturix.jerrysmod.registries.ModEntities;
 import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -81,7 +80,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	        Config.readConfig();
 	        JerrysMod.logger.info("Jerry's Mod config read");
 	        ModDimensions.init();
-	        ModEntities.init();
 	        
 	    }
 

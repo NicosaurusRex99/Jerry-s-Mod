@@ -14,24 +14,15 @@
     */
 package naturix.jerrysmod.items;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
-import naturix.jerrysmod.entity.EntityTameSlime;
-import naturix.jerrysmod.registries.ModEntities;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.monster.EntitySlime;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -52,5 +43,17 @@ public class SlimeTamer extends Item {
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
+    @Override
+	public void onUpdate(ItemStack itemstack, World world, Entity entity, int par4, boolean par5) {
+		int i = (int) entity.posX;
+		int j = (int) entity.posY;
+		int k = (int) entity.posZ;
+
+		if (true) {
+			if (entity instanceof EntityLivingBase)
+				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, Config.AbsorbsionStrength, 2));
+		}
+
+	}
 
 }
