@@ -115,7 +115,6 @@ public class OliveLeaves extends Block implements net.minecraftforge.common.IShe
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
         return Item.getItemFromBlock(ModBlocks.olivesapling); 
-
     }
 
     /**
@@ -181,7 +180,7 @@ public class OliveLeaves extends Block implements net.minecraftforge.common.IShe
     }
     public void onLanded(World worldIn, Entity entityIn)
     {
-        entityIn.motionY = 2.0D;
+        entityIn.motionY = 2.6D;
     }
 	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
     {
