@@ -25,7 +25,7 @@ item.SlimeBoots.name=Slime Boots
 item.jerrysmod.jerrygem.name=Jerry Gem
 item.jerrysmod.slimegem.name=Slime Gem
 item.jerrysmod.slimechunk.name=Slime Chunk
-item.jerrysmod.slimeshard.name=Slime Shard
+item.slimeShard.name=Slime Shard
 item.jerrysmod.slimestick.name=Slime Stick
 item.jerrysmod.slimetamer.name=Slime Tamer
 item.jerrysmod.slimehead.name=Slime Head
@@ -39,7 +39,7 @@ item.jerrysmod.phone.name=§6Phone
 	
 tile.jerrysmod.slimegrass.name=Slime Grass
 tile.jerrysmod.slimedirt.name=Slime Dirt
-tile.jerrysmod.slimeore.name=Slime Ore
+tile.SlimeOre.name=Slime Ore
 tile.jerrysmod.slimestone.name=Slime Stone
 tile.jerrysmod.slimeblock.name=§2Slime Block
 tile.jerrysmod.jerryblock.name=§aJerry Block
