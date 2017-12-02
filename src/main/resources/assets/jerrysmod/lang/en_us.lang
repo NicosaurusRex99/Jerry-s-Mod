@@ -1,16 +1,16 @@
 ﻿< en_US.lang - English (US) Localization File >
 
-item.jerrysmod.jerrysword.name=Jerry Sword
-item.jerrysmod.jerrypickaxe.name=Jerry Pickaxe
-item.jerrysmod.jerryshovel.name=Jerry Shovel
-item.jerrysmod.jerryaxe.name=Jerry Axe
-item.jerrysmod.jerryhoe.name=Jerry Hoe
+item.jerry_sword.name=Jerry Sword
+item.jerry_pickaxe.name=Jerry Pickaxe
+item.jerry_spade.name=Jerry Shovel
+item.jerry_axe.name=Jerry Axe
+item.jerry_hoe.name=Jerry Hoe
 	
-item.jerrysmod.slimesword.name=Slime Sword
-item.jerrysmod.slimepickaxe.name=Slime Pickaxe
-item.jerrysmod.slimeshovel.name=Slime Shovel
-item.jerrysmod.slimeaxe.name=Slime Axe
-item.jerrysmod.slimehoe.name=Slime Hoe
+item.slime_sword.name=Slime Sword
+item.slime_pickaxe.name=Slime Pickaxe
+item.slime_spade.name=Slime Shovel
+item.slime_axe.name=Slime Axe
+item.slime_hoe.name=Slime Hoe
 	
 item.jerry_helmet.name=Jerry Helmet
 item.jerry_chestplate.name=Jerry Chestplate
