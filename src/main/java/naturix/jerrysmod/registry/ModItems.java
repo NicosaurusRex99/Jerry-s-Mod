@@ -3,6 +3,7 @@ package naturix.jerrysmod.registry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.armour.ItemModArmour;
+import naturix.jerrysmod.items.CaptainOfLight;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -36,7 +37,7 @@ public final class ModItems {
 	        jerryGem = new Item().setUnlocalizedName("jerryGem").setCreativeTab(ModItems.JerrysModTab).setTextureName(JerrysMod.MODID + ":jerrygem");;
 	        slimeStick = new Item().setUnlocalizedName("slimeStick").setCreativeTab(ModItems.JerrysModTab).setTextureName(JerrysMod.MODID + ":slimestick");;
 	        slimeHead = new Item().setUnlocalizedName("slimeHead").setCreativeTab(ModItems.JerrysModTab).setTextureName(JerrysMod.MODID + ":slimehead");;
-	        captainOfLight = new CaptainOfLight.setUnlocalizedName("captainOfLight").setCreativeTab(ModItems.JerrysModTab).setTextureName(JerrysMod.MODID + ":captainOfLight");;
+	        captainOfLight = new CaptainOfLight(null, JERRY_ARMOR, null, 0).setUnlocalizedName("captainOfLight").setCreativeTab(ModItems.JerrysModTab).setTextureName(JerrysMod.MODID + ":captainOfLight");;
 	               
 	        	        
 	        GameRegistry.registerItem(slimeShard, "slimeShard");
