@@ -12,24 +12,24 @@ item.jerrysmod.slimeshovel.name=Slime Shovel
 item.jerrysmod.slimeaxe.name=Slime Axe
 item.jerrysmod.slimehoe.name=Slime Hoe
 	
-item.JerryHelmet.name=Jerry Helmet
-item.JerryChestplate.name=Jerry Chestplate
-item.JerryLeggings.name=Jerry Leggings
-item.JerryBoots.name=Jerry Boots
+item.jerry_helmet.name=Jerry Helmet
+item.jerry_chestplate.name=Jerry Chestplate
+item.jerry_leggings.name=Jerry Leggings
+item.jerry_boots.name=Jerry Boots
 	
-item.SlimeHelmet.name=Slime Helmet
-item.SlimeChestplate.name=Slime Chestplate
-item.SlimeLeggings.name=Slime Leggings
-item.SlimeBoots.name=Slime Boots
+item.slime_helmet.name=Slime Helmet
+item.slime_chestplate.name=Slime Chestplate
+item.slime_leggings.name=Slime Leggings
+item.slime_boots.name=Slime Boots
 	
-item.jerrysmod.jerrygem.name=Jerry Gem
-item.jerrysmod.slimegem.name=Slime Gem
+item.jerryGem.name=Jerry Gem
+item.slimeGem.name=Slime Gem
 item.jerrysmod.slimechunk.name=Slime Chunk
 item.slimeShard.name=Slime Shard
-item.jerrysmod.slimestick.name=Slime Stick
-item.jerrysmod.slimetamer.name=Slime Tamer
-item.jerrysmod.slimehead.name=Slime Head
-item.jerrysmod.captainoflight.name=§6Captain of Light
+item.slimeStick.name=Slime Stick
+item.slimeTamer.name=Slime Tamer
+item.slimeHead.name=Slime Head
+item.captainoflight.name=§6Captain of Light
 item.jerrysmod.slimeandsteel.name=Slime and Steel
 item.jerrysmod.slimedrop.name=Slime Drop
 
