@@ -17,6 +17,7 @@ package naturix.jerrysmod.worldgen;
 import java.util.Random;
 
 import cpw.mods.fml.common.IWorldGenerator;
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.registry.ModBlocks;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -41,7 +42,7 @@ public class ModWorldGen implements IWorldGenerator {
     private WorldGenerator SlimeOre; //Generates Tutorial Ore (used in Overworld)
 
     public ModWorldGen() {
-        this.SlimeOre = new WorldGenMinable(ModBlocks.SlimeOre, 4);
+        this.SlimeOre = new WorldGenMinable(ModBlocks.SlimeOre, Config.slimeVeinSize);
     }
     private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
         if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
@@ -50,7 +51,7 @@ public class ModWorldGen implements IWorldGenerator {
         int heightDiff = maxHeight - minHeight + 1;
         for (int i = 0; i < chancesToSpawn; i ++) {
             int x = chunk_X * 16 + rand.nextInt(16);
-            int y = minHeight + rand.nextInt(heightDiff);
+            int y = minHeight + rand.nextInt(15);
             int z = chunk_Z * 16 + rand.nextInt(16);
             generator.generate(world, rand, x, y, z);
         }

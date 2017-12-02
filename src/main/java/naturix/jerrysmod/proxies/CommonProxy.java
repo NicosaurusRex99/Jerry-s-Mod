@@ -14,19 +14,27 @@
     */
 package naturix.jerrysmod.proxies;
 
+import java.io.File;
+
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModCrafting;
 import naturix.jerrysmod.registry.ModItems;
 import naturix.jerrysmod.worldgen.ModWorldGen;
+import net.minecraftforge.common.config.Configuration;
 
 public class CommonProxy {
 
-    public void preInit(FMLPreInitializationEvent e) {
+	public static Configuration config;
 
+    public void preInit(FMLPreInitializationEvent e) {
+    	File directory = e.getModConfigurationDirectory();
+        config = new Configuration(new File(directory.getPath(), "Jerry's Mod.cfg"));
+        Config.readConfig();
     }
 
     public void init(FMLInitializationEvent e) {
