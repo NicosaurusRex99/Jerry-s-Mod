@@ -17,9 +17,11 @@ package naturix.jerrysmod.proxies;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModCrafting;
 import naturix.jerrysmod.registry.ModItems;
+import naturix.jerrysmod.worldgen.ModWorldGen;
 
 public class CommonProxy {
 
@@ -31,6 +33,7 @@ public class CommonProxy {
     	ModItems.init();
     	ModBlocks.init();
     	ModCrafting.init();
+    	GameRegistry.registerWorldGenerator(new ModWorldGen(), 0);
     }
 
     public void postInit(FMLPostInitializationEvent e) {
