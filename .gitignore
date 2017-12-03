@@ -14,6 +14,7 @@ LICENSE-new.txt
 build.gradle
 build/tmp/deobfMcSRG/deobfed.jar
 build
+run
 *.log
 CREDITS-fml.txt
 eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/MDKExample/.location
