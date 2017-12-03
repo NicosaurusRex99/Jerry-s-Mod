@@ -46,7 +46,7 @@ public class ModCrafting {
 		GameRegistry.addRecipe(new ItemStack(ModItems.slimeSword, 1), new Object[] {" W "," W "," Q ", 'W', ModItems.slimeGem, 'Q', Items.stick});
 		GameRegistry.addRecipe(new ItemStack(ModItems.slimePickaxe, 1), new Object[] {"WWW"," Q "," Q ", 'W', ModItems.slimeGem, 'Q', Items.stick});
 		GameRegistry.addRecipe(new ItemStack(ModItems.slimeHoe, 1), new Object[] {"WW "," Q "," Q ", 'W', ModItems.slimeGem, 'Q', Items.stick});
-		GameRegistry.addRecipe(new ItemStack(ModItems.captainOfLight, 1), new Object[] {" W"," Q ","Q  ", 'W', ModItems.slimeGem, 'Q', ModItems.jerryGem});
+		GameRegistry.addRecipe(new ItemStack(ModItems.captainOfLight, 1), new Object[] {"  W"," Q "," Q ", 'W', ModItems.jerryGem, 'Q', ModItems.slimeStick});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.slimeStick), new Object[] {Items.stick, Items.slime_ball});
 	}
