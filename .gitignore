@@ -13,7 +13,7 @@ LICENSE-new.txt
 *.bat
 build.gradle
 build/tmp/deobfMcSRG/deobfed.jar
-build/tmp/deobfMcSRG/transformed.json
+build
 *.log
 CREDITS-fml.txt
 eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/MDKExample/.location
@@ -44,3 +44,4 @@ MinecraftForge-License.txt
 Paulscode IBXM Library License.txt
 Paulscode SoundSystem CodecIBXM License.txt
 README.txt
+.settings/org.eclipse.jdt.core.prefs
