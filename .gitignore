@@ -1,45 +1,46 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
 
-# idea
-out
-*.ipr
-*.iws
-*.iml
-.idea
-
-# gradle
-build
-.gradle
-
-# other
-eclipse
-run
 UpdateForge.bat
-src/main/resources/mcmod.info
-src/main/resources/mcmod.info
-setupEclipse.bat
-setupCleanCache.bat
-README.txt
-Paulscode SoundSystem CodecIBXM License.txt
-Paulscode IBXM Library License.txt
 MinecraftForge-Credits.txt
 LICENSE-new.txt
-gradlew.bat
-gradlew
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
-gradle.properties
-forge-1.12.2-14.23.0.2540-changelog.txt
-forge-1.12.2-14.23.0.2512-changelog.txt
-CREDITS-fml.txt
+.classpath
+.gradle/2.14/taskArtifacts/cache.properties
+.gradle/2.14/taskArtifacts/cache.properties.lock
+.gradle/2.14/taskArtifacts/fileHashes.bin
+.gradle/2.14/taskArtifacts/fileSnapshots.bin
+*.bin
+.gradle/gradle.log
+.project
+*.bat
 build.gradle
-Build Mod.bat
+build/tmp/deobfMcSRG/deobfed.jar
+build/tmp/deobfMcSRG/transformed.json
+*.log
+CREDITS-fml.txt
+eclipse/.metadata/.plugins/org.eclipse.core.resources/.projects/MDKExample/.location
+build/tmp/decompileMc/forge-1.12.2-14.23.1.2559-srgBin.jar
+eclipse/.metadata/.plugins/org.eclipse.core.resources/.root/0.tree
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.core.resources.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.epp.usagedata.gathering.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs
+eclipse/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.prefs
+eclipse/.metadata/.plugins/org.eclipse.debug.core/.launches/Client.launch
+eclipse/.metadata/.plugins/org.eclipse.debug.core/.launches/Server.launch
+eclipse/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+forge-1.12.2-14.23.0.2512-changelog.txt
+forge-1.12.2-14.23.0.2540-changelog.txt
+forge-1.12.2-14.23.1.2559-changelog.txt
 forge-1.7.10-10.13.4.1614-1.7.10-changelog.txt
+gradle.properties
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties
+gradlew
+Jerrys Mod_Client.launch
+Jerrys Mod_Server.launch
 LICENSE-fml.txt
 MinecraftForge-License.txt
+Paulscode IBXM Library License.txt
+Paulscode SoundSystem CodecIBXM License.txt
+README.txt
