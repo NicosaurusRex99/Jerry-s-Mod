@@ -1,3 +1,0 @@
-Fix Tame Slime
-Fix Slime Tamer
-Add slime gem and Jerry gem to loot tables
