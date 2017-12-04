@@ -2,13 +2,13 @@
 {
   "modid": "jerrysmod",
   "name": "Jerry's Mod",
-  "description": "He was a noble slime.",
+  "description": "Made in honor of Jerry the noble slime!",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
-  "updateUrl": "",
-  "authorList": ["Sniper_Mine, Hawaii_Beach and NicosaurusRex99"],
-  "credits": "",
+  "url": "https://minecraft.curseforge.com/projects/jerrys-mod",
+  "updateUrl": "https://minecraft.curseforge.com/projects/jerrys-mod/files",
+  "authorList": ["Sniper_mine, Hawaii_Beach and NicosaurusRex99"],
+  "credits": "Thanks to sniper mine and hawaii beach for letting me do this!",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

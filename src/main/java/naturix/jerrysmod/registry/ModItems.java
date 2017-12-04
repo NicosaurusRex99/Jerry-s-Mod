@@ -60,7 +60,7 @@ public final class ModItems {
 	    
 	    
 	    public static ArmorMaterial SLIME_ARMOR = EnumHelper.addArmorMaterial("SLIME_ARMOR", 15, new int[]{18, 51, 21, 30}, 9);
-	    public static ArmorMaterial JERRY_ARMOR = EnumHelper.addArmorMaterial("JERRY_ARMOR", 15, new int[]{40, 1658961, 3564, 230}, 59);
+	    public static ArmorMaterial JERRY_ARMOR = EnumHelper.addArmorMaterial("JERRY_ARMOR", 15, new int[]{506013, 1658961, 341564, 454230}, 59);
 	    public static ToolMaterial SLIME = EnumHelper.addToolMaterial("SLIME", 3, 1000, 15.0F, 4.0F, 30);
 	    public static ToolMaterial JERRY = EnumHelper.addToolMaterial("JERRY", 5, 10000, 150.0F, 40.0F, 300);
 	    
