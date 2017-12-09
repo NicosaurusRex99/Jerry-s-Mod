@@ -3,33 +3,35 @@ MinecraftForge-Credits.txt
 LICENSE-new.txt
 
 # Directories
-
 .gradle/
+gradle/
 .idea/
 eclipse/
 build/
+.settings/
+bin/
 
-*.bin
-.classpath
-.project
-*.bat
-build.gradle
-
-run
-*.log
-*.iml
-CREDITS-fml.txt
-
-
+# Forge changelogs
 forge-1.12.2-14.23.0.2512-changelog.txt
 forge-1.12.2-14.23.0.2540-changelog.txt
 forge-1.12.2-14.23.1.2559-changelog.txt
 forge-1.12.2-14.23.0.2512-changelog.txt
 forge-1.7.10-10.13.4.1614-1.7.10-changelog.txt
+
+# Gradle
 gradle.properties
-gradle/wrapper/gradle-wrapper.jar
-gradle/wrapper/gradle-wrapper.properties
 gradlew
+
+# Misc
+*.bin
+.classpath
+.project
+*.bat
+build.gradle
+run
+*.log
+*.iml
+CREDITS-fml.txt
 Jerrys Mod_Client.launch
 Jerrys Mod_Server.launch
 LICENSE-fml.txt
@@ -37,5 +39,3 @@ MinecraftForge-License.txt
 Paulscode IBXM Library License.txt
 Paulscode SoundSystem CodecIBXM License.txt
 README.txt
-.settings/org.eclipse.jdt.core.prefs
-/bin/
