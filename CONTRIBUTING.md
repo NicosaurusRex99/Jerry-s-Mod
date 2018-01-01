@@ -3,6 +3,6 @@ Feel free to post a suggestion to help the mod in the issues section using the f
 ## TITLE
 Suggesetion
 ## BODY
-Code
-## SOURCE
 What you want changed
+## SOURCE
+Code
