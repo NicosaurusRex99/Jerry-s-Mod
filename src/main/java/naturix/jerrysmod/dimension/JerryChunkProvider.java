@@ -37,13 +37,14 @@ import javax.swing.text.html.parser.Entity;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import naturix.jerrysmod.dimension.NormalTerrainGenerator;
+import naturix.jerrysmod.registries.ModBiomes;
 
 
 public class JerryChunkProvider implements IChunkGenerator {
 
     private final World worldObj;
     private Random random;
-    private Biome[] biomesForGeneration;
+    private Biome[] biomesForGeneration = {ModBiomes.SlimeBiome};
 
     private List<Biome.SpawnListEntry> mobs = Lists.newArrayList();
 

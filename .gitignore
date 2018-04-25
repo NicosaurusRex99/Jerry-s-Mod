@@ -1,41 +1,28 @@
-UpdateForge.bat
-MinecraftForge-Credits.txt
-LICENSE-new.txt
-
-# Directories
-.gradle/
-gradle/
-.idea/
-eclipse/
-build/
-.settings/
-bin/
-
-# Forge changelogs
-forge-1.12.2-14.23.0.2512-changelog.txt
-forge-1.12.2-14.23.0.2540-changelog.txt
-forge-1.12.2-14.23.1.2559-changelog.txt
-forge-1.12.2-14.23.0.2512-changelog.txt
-forge-1.7.10-10.13.4.1614-1.7.10-changelog.txt
-
-# Gradle
-gradle.properties
-gradlew
-
-# Misc
-*.bin
+# eclipse
+bin
+*.launch
+.settings
+.metadata
 .classpath
 .project
-*.bat
-build.gradle
-run
-*.log
+
+# idea
+out
+*.ipr
+*.iws
 *.iml
-CREDITS-fml.txt
-Jerrys Mod_Client.launch
-Jerrys Mod_Server.launch
-LICENSE-fml.txt
-MinecraftForge-License.txt
-Paulscode IBXM Library License.txt
-Paulscode SoundSystem CodecIBXM License.txt
-README.txt
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+*.txt
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
+gradlew.bat
+gradlew
+gradle.properties

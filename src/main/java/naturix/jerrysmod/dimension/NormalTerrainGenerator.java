@@ -17,6 +17,7 @@ package naturix.jerrysmod.dimension;
 import java.util.Random;
 
 import naturix.jerrysmod.Config;
+import naturix.jerrysmod.registries.ModBiomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -47,7 +48,7 @@ public class NormalTerrainGenerator {
     private final float[] biomeWeights;
     private double[] depthBuffer = new double[Config.maxDimensionHeight];
 
-    private Biome[] biomesForGeneration;
+    private Biome[] biomesForGeneration = {ModBiomes.SlimeBiome};
 
     public NormalTerrainGenerator() {
         this.heightMap = new double[825];

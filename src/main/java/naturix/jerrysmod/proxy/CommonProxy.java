@@ -17,7 +17,6 @@ package naturix.jerrysmod.proxy;
 import java.io.File;
 
 import naturix.jerrysmod.Config;
-import naturix.jerrysmod.FurnaceRecipe;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.armor.JerryBoots;
 import naturix.jerrysmod.armor.JerryChestplate;
@@ -56,6 +55,7 @@ import naturix.jerrysmod.items.SlimeTamer;
 import naturix.jerrysmod.registries.ModBlocks;
 import naturix.jerrysmod.registries.ModDimensions;
 import naturix.jerrysmod.registries.ModItems;
+import naturix.jerrysmod.registries.ModRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -85,7 +85,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 	    public void init(FMLInitializationEvent e)
 	    {
-	    	FurnaceRecipe.init();
+	    	ModRecipes.init();
 	    	JerrysMod.logger.info("Jerry's Mod Initialized");
 	        ModItems.initOreDict();
 	        ModBlocks.initOreDict();

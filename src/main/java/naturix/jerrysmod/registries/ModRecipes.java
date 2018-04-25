@@ -12,14 +12,12 @@
     You should have received a copy Of the GNU General Public License
     along with this program.  If Not, see <http://www.gnu.org/licenses/>.
     */
-package naturix.jerrysmod;
+package naturix.jerrysmod.registries;
 
-import naturix.jerrysmod.registries.ModBlocks;
-import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class FurnaceRecipe {
+public class ModRecipes {
 	
 	public static void init() 
 {
