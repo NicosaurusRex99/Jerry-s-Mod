@@ -46,8 +46,8 @@ tile.jerrysmod.jerryblock.name=§aJerry Block
 
 tile.jerrysmod.oliveplanks.name=Olive Plank
 tile.jerrysmod.olivelog.name=Olive Log
-tile.jerrysmod.olivesapling.name=Olive Sapling
-tile.jerrysmod.oliveleaves.name=Olive Leaves
+tile.olivesapling.name=Olive Sapling
+tile.oliveleaves.name=Olive Leaves
 tile.jerrysmod.olivestairs.name=Olive Stairs
 
 tile.jerrysmod.fire.name=Fire

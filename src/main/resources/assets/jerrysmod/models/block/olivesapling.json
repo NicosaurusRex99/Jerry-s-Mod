@@ -1,6 +1,8 @@
 {
     "textures": {
-        "0": "jerrysmod:blocks/olivesapling"
+        "0": "jerrysmod:blocks/olivesapling",
+		"particle": "jerrysmod:blocks/olivesapling"
+
     },
     "elements": [
         {

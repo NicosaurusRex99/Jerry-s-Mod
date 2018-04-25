@@ -12,7 +12,7 @@
     You should have received a copy Of the GNU General Public License
     along with this program.  If Not, see <http://www.gnu.org/licenses/>.
     */
-package naturix.jerrysmod.armor;
+package naturix.jerrysmod.items.armor;
 
 import naturix.jerrysmod.JerrysMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,32 +25,32 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class JerryChestplate extends ItemArmor 
+public class SlimeHelmet extends ItemArmor 
 {
-	public JerryChestplate()
+
+	public SlimeHelmet()
 	{
-		
-		super(JerrysMod.JerryArmorMaterial, 0, EntityEquipmentSlot.CHEST);
-		ItemBase.registerItem("JerryChestplate", this);
+		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.HEAD);
+		ItemBase.registerItem("SlimeHelmet", this);
 	}
 
 	@Override
 	public EnumRarity getRarity(ItemStack stack)
 	{
-		return EnumRarity.EPIC;
+		return EnumRarity.RARE;
 	}
 	
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type)
 	{
-		return "jerrysmod:textures/models/armor/jerryarmor_layer_1.png";
+		return "jerrysmod:textures/models/armor/slimearmor_layer_1.png";
 	}
 
 
 	@Override
 	public int getMaxDamage()
 	{
-		return 16000001;
+		return 5500001;
 	}
 
 

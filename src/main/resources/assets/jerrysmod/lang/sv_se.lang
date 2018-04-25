@@ -49,8 +49,8 @@ tile.jerrysmod.slimeportal.name=Slemportal
 
 tile.jerrysmod.oliveplanks.name=Olivplankor
 tile.jerrysmod.olivelog.name=Olivträ
-tile.jerrysmod.olivesapling.name=Olivplanta
-tile.jerrysmod.oliveleaves.name=Olivlöv
+tile.olivesapling.name=Olivplanta
+tile.oliveleaves.name=Olivlöv
 tile.jerrysmod.olivestairs.name=Olivtrappa
 
 itemGroup.Jerry's Mod=Jerrys modd

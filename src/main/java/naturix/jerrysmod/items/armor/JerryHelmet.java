@@ -12,7 +12,7 @@
     You should have received a copy Of the GNU General Public License
     along with this program.  If Not, see <http://www.gnu.org/licenses/>.
     */
-package naturix.jerrysmod.armor;
+package naturix.jerrysmod.items.armor;
 
 import naturix.jerrysmod.JerrysMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

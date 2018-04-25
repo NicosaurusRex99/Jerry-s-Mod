@@ -6,6 +6,7 @@
 	"east": "jerrysmod:blocks/slimegrass",
 	"west": "jerrysmod:blocks/slimegrass",
 	"up": "jerrysmod:blocks/slimegrass_top",
-    "down": "minecraft:blocks/dirt"
+    "down": "minecraft:blocks/dirt",
+	"particle": "jerrysmod:blocks/slimegrass_top"
   }
 }

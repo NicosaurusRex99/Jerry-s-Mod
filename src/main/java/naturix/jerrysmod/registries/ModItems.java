@@ -14,33 +14,8 @@
     */
 package naturix.jerrysmod.registries;
 
-import naturix.jerrysmod.armor.JerryBoots;
-import naturix.jerrysmod.armor.JerryChestplate;
-import naturix.jerrysmod.armor.JerryHelmet;
-import naturix.jerrysmod.armor.JerryLeggings;
-import naturix.jerrysmod.armor.SlimeBoots;
-import naturix.jerrysmod.armor.SlimeChestplate;
-import naturix.jerrysmod.armor.SlimeHelmet;
-import naturix.jerrysmod.armor.SlimeLeggings;
-import naturix.jerrysmod.items.CaptainOfLight;
-import naturix.jerrysmod.items.Grapes;
-import naturix.jerrysmod.items.JerryAxe;
-import naturix.jerrysmod.items.JerryGem;
-import naturix.jerrysmod.items.JerryHoe;
-import naturix.jerrysmod.items.JerryPickaxe;
-import naturix.jerrysmod.items.JerryShovel;
-import naturix.jerrysmod.items.JerrySword;
-import naturix.jerrysmod.items.Olive;
-import naturix.jerrysmod.items.Phone;
-import naturix.jerrysmod.items.SlimeAxe;
-import naturix.jerrysmod.items.SlimeGem;
-import naturix.jerrysmod.items.SlimeHoe;
-import naturix.jerrysmod.items.SlimePickaxe;
-import naturix.jerrysmod.items.SlimeShard;
-import naturix.jerrysmod.items.SlimeShovel;
-import naturix.jerrysmod.items.SlimeStick;
-import naturix.jerrysmod.items.SlimeSword;
-import naturix.jerrysmod.items.SlimeTamer;
+import naturix.jerrysmod.items.*;
+import naturix.jerrysmod.items.armor.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
