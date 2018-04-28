@@ -35,6 +35,7 @@ public class Config {
 	public static int TreeHeight;
 	public static int SlimeBiomeWeight;
 	public static int AbsorbsionStrength;
+	public static boolean colDayTime;
 	
 
 	
@@ -69,7 +70,7 @@ public class Config {
 	        TreeHeight = cfg.getInt("OliveHeight", CATEGORY_GENERAL, 5, 1, 256, "Height of olive trees");
 	        SlimeBiomeWeight = cfg.getInt("WeightOfSlimeBiome", CATEGORY_GENERAL, 3, 1, 256, "Changes how frequent slime biomes spawn");
 	        AbsorbsionStrength = cfg.getInt("AbsorbsionStrength", CATEGORY_GENERAL, 2, 1, 10, "Changes the strength of absorbsion given from the slime tamer");
+	        colDayTime = cfg.getBoolean("colDayTime", CATEGORY_GENERAL, true, "set to false to disable the new effects");
 	        
-	 
 	 }
 }

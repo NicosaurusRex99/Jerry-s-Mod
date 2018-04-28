@@ -14,23 +14,29 @@
     */
 package naturix.jerrysmod.items;
 
+import naturix.jerrysmod.Config;
 import naturix.jerrysmod.JerrysMod;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.command.CommandResultStats;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class CaptainOfLight extends Item {
 	private BlockPos blockPos;
+	private EntityPlayer player;
     public CaptainOfLight() {
         setRegistryName("captainoflight");        // The unique name (within your mod) that identifies this item
         setUnlocalizedName(JerrysMod.MODID + ".captainoflight");     // Used for localization (en_US.lang)
@@ -58,9 +64,13 @@ public class CaptainOfLight extends Item {
 		
 		if (true) {
 			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
+			if(Config.colDayTime == true) {
+				if (world.isDaytime() == false) {
+					world.setWorldTime(((world.getWorldTime() / 24000) * 24000 + 1000));
+				}
+				}
 		}
 
 		return ar;
 	}
-
 }
