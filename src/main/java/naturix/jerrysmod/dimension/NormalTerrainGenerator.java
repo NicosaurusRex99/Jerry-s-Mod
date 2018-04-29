@@ -87,6 +87,8 @@ public class NormalTerrainGenerator {
         this.mainPerlinNoise = ctx.getPerlin();
         this.surfaceNoise = ctx.getHeight();
         this.depthNoise = ctx.getDepth();
+        this.setBiomesForGeneration(biomesForGeneration);
+        
     }
 
 

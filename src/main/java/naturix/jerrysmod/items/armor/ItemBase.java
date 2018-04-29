@@ -38,7 +38,7 @@ public class ItemBase extends Item
 		item.setUnlocalizedName(name);
 		item.setMaxStackSize(1);
 
-		ForgeRegistries.ITEMS.register(item);
+		//ForgeRegistries.ITEMS.register(item);
 		
 		JerrysItemList.add(item);
 	}

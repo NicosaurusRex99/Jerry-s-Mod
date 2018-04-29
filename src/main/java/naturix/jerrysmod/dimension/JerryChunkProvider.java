@@ -36,6 +36,8 @@ import javax.swing.text.html.parser.Entity;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+
+import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.dimension.NormalTerrainGenerator;
 import naturix.jerrysmod.registries.ModBiomes;
 
@@ -92,7 +94,6 @@ public class JerryChunkProvider implements IChunkGenerator {
         int j = z * 16;
         BlockPos blockpos = new BlockPos(i, 0, j);
         Biome biome = this.worldObj.getBiome(blockpos.add(16, 0, 16));
-
         // Add biome decorations (like flowers, grass, trees, ...)
         biome.decorate(this.worldObj, this.random, blockpos);
 
@@ -113,7 +114,7 @@ public class JerryChunkProvider implements IChunkGenerator {
 //        return biome.getSpawnableList(creatureType);
 
         if (creatureType == EnumCreatureType.MONSTER){
-            return mobs;
+        	return mobs;
         }
         return ImmutableList.of();
 
@@ -122,7 +123,8 @@ public class JerryChunkProvider implements IChunkGenerator {
     @Nullable
     @Override
     public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
-        return null;
+        JerrysMod.logger.info(structureName + " is located at " + position);
+    	return null;
     }
 
     @Override

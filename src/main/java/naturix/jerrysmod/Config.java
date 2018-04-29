@@ -68,7 +68,7 @@ public class Config {
 	        treeChances = cfg.getInt("treeChances", CATEGORY_GENERAL, 12, -4000, 4000, "how frequent trees spawn");
 	        OLIVE_GEN_CHANCE = cfg.getInt("OliveGenChance", CATEGORY_GENERAL, 80, 1, 100, "Generation of olive trees");
 	        TreeHeight = cfg.getInt("OliveHeight", CATEGORY_GENERAL, 5, 1, 256, "Height of olive trees");
-	        SlimeBiomeWeight = cfg.getInt("WeightOfSlimeBiome", CATEGORY_GENERAL, 3, 1, 256, "Changes how frequent slime biomes spawn");
+	        SlimeBiomeWeight = cfg.getInt("WeightOfSlimeBiome", CATEGORY_GENERAL, 5000, 1, 5000, "Changes how frequent slime biomes spawn");
 	        AbsorbsionStrength = cfg.getInt("AbsorbsionStrength", CATEGORY_GENERAL, 2, 1, 10, "Changes the strength of absorbsion given from the slime tamer");
 	        colDayTime = cfg.getBoolean("colDayTime", CATEGORY_GENERAL, true, "set to false to disable the new effects");
 	        

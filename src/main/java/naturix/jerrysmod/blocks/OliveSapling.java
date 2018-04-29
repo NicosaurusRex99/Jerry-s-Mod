@@ -17,14 +17,13 @@ package naturix.jerrysmod.blocks;
 import java.util.Random;
 
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.registries.ModBlocks;
 import naturix.jerrysmod.tree.OliveTest2;
-import naturix.jerrysmod.world.WorldGen;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
@@ -148,5 +147,17 @@ public class OliveSapling  extends BlockBush implements IGrowable
     @SideOnly(Side.CLIENT)
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
+    }
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        IBlockState soil = worldIn.getBlockState(pos.down());
+        return super.canPlaceBlockAt(worldIn, pos) && soil.getBlock().canSustainPlant(soil, worldIn, pos.down(), net.minecraft.util.EnumFacing.UP, this);
+    }
+
+    @Override
+    protected boolean canSustainBush(IBlockState state)
+    {
+        return state.getBlock() == Blocks.GRASS || state.getBlock() == Blocks.DIRT || state.getBlock() == ModBlocks.slimegrass;
     }
 }
