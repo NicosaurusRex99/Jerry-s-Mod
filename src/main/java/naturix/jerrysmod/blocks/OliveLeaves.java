@@ -14,12 +14,15 @@
     */
 package naturix.jerrysmod.blocks;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.items.Olive;
 import naturix.jerrysmod.registries.ModBlocks;
+import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHugeMushroom.EnumType;
 import net.minecraft.block.BlockLeaves;
@@ -46,6 +49,7 @@ public class OliveLeaves extends BlockLeaves
 {
 	
     private String name = "oliveleaves";
+	private Item drop;
 	public OliveLeaves()
     {
     	this.setUnlocalizedName(name);
@@ -67,10 +71,17 @@ public class OliveLeaves extends BlockLeaves
     /**
      * Get the Item that this Block should drop when harvested.
      */
+    
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return Item.getItemFromBlock(ModBlocks.olivesapling);
+    	if(rand.nextInt(2) != 1) {
+    		drop = ModItems.olive;
+    	}
+    	if(rand.nextInt(2) == 1) {
+    		drop = Item.getItemFromBlock(ModBlocks.olivesapling);
+    		}
+		return drop;
     }
 
     /**
