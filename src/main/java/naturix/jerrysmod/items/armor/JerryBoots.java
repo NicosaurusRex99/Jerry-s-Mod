@@ -15,22 +15,31 @@
 package naturix.jerrysmod.items.armor;
 
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.registries.ModItems;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class JerryBoots extends ItemArmor 
 {
+	private ItemStack itemStack;
+	private EntityPlayer player;
+	private World world;
+
 	public JerryBoots()
 	{
 		super(JerrysMod.SlimeArmorMaterial, 0, EntityEquipmentSlot.FEET);
 		ItemBase.registerItem("JerryBoots", this);
+		this.onArmorTick(world, player, itemStack);
 	}
 
 	@Override
@@ -44,7 +53,6 @@ public class JerryBoots extends ItemArmor
 	{
 		return "jerrysmod:textures/models/armor/jerryboots.png";
 	}
-
 
 	@Override
 	public int getMaxDamage()
@@ -63,4 +71,5 @@ public class JerryBoots extends ItemArmor
     public void initModel() {
         ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
     }
+	
 }

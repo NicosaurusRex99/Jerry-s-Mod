@@ -86,9 +86,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    public void init(FMLInitializationEvent e)
 	    {
 	    	ModRecipes.init();
-	    	JerrysMod.logger.info("Jerry's Mod Initialized");
 	        ModItems.initOreDict();
 	        ModBlocks.initOreDict();
+	        JerrysMod.logger.info("Jerry's Mod Initialized");
 	    }
 	    
 	    public void postInit(FMLPostInitializationEvent e) 

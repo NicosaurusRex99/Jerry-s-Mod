@@ -1,19 +1,22 @@
 {
-	"type": "minecraft:crafting_shaped",
-	"pattern": [
-		"  X",
-		" # ",
-		"#  "
-	],
-	"key": {
-		"X": {
-			"item": "jerrysmod:slimegem"
-		},
-		"#": {
-			"item": "minecraft:stick"
-		}
-	},
-	"result": {
-		"item": "jerrysmod:slimetamer"
-	}
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " Z ",
+    "CXC",
+    " X "
+  ],
+    "key": {
+    "C": {
+        "item": "minecraft:gold_ingot"
+    },
+    "X": {
+        "item": "minecraft:stick"
+    },
+    "Z": {
+        "item": "minecraft:slime_ball"
+    }
+  },
+  "result": {
+    "item": "jerrysmod:slimetamer"
+  }
 }

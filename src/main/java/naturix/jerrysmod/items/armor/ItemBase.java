@@ -18,8 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import naturix.jerrysmod.JerrysMod;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 
 public class ItemBase extends Item
 {
@@ -30,6 +33,7 @@ public class ItemBase extends Item
 		registerItem(name, this);
 		
 	}
+
 
 	public static void registerItem(String name, Item item)
 	{
