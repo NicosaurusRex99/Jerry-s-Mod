@@ -35,13 +35,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-@Mod(modid = JerrysMod.MODID, version = JerrysMod.VERSION, name = JerrysMod.NAME)
+@Mod(modid = JerrysMod.MODID, version = JerrysMod.VERSION, name = JerrysMod.NAME, updateJSON = JerrysMod.UPDATE_URL)
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
     public static final String VERSION = "1.12.2.4";
     public static final String NAME = "Jerry's Mod";
-    
+
+    public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/Jerry-s-Mod/1.12.2/Jerrys%20Mod%20Updates.json";
 
     @SidedProxy(clientSide = "naturix.jerrysmod.proxy.ClientProxy", serverSide = "naturix.jerrysmod.proxy.ServerProxy")
     public static CommonProxy proxy;
