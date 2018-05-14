@@ -1,0 +1,13 @@
+{
+	"homepage": "https://minecraft.curseforge.com/projects/jerrys-mod/files",
+	"1.12.2": {
+		"1.12.2.4": "Bug Fixes",
+		"1.12.2.3": "Slime Update",
+		"1.12.2.2": "Bugfix Update",
+		"1.12.2.1": "Rewrote for 1.12.2"
+	},
+	"promos": {
+		"1.12.2-latest": "1.12.2.5",
+		"1.12.2-recommended": "1.12.2.5"
+	}
+}
