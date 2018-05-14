@@ -65,11 +65,9 @@ public class CaptainOfLight extends Item {
 		if (true) {
 			world.spawnEntity(new EntityLightningBolt(world, i, j, k, false));
 			if(Config.colDayTime == true) {
-				//if (world.getWorldTime() >= 12000) {
-					world.setWorldTime(((world.getWorldTime() / 24000) * 24000 + 1000));
-				//}
-				}
-		}
+				world.setWorldTime(0);
+				world.getWorldInfo().setRaining(!world.getWorldInfo().isRaining());
+		}}
 
 		return ar;
 	}
