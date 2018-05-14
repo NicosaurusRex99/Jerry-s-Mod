@@ -23,6 +23,7 @@ import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.items.Olive;
 import naturix.jerrysmod.registries.ModBlocks;
 import naturix.jerrysmod.registries.ModItems;
+import net.java.games.input.Keyboard;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHugeMushroom.EnumType;
 import net.minecraft.block.BlockLeaves;
@@ -30,9 +31,12 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -42,6 +46,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.settings.KeyBindingMap;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -50,6 +55,7 @@ public class OliveLeaves extends BlockLeaves
 	
     private String name = "oliveleaves";
 	private Item drop;
+	private boolean jump;
 	public OliveLeaves()
     {
     	this.setUnlocalizedName(name);
@@ -180,6 +186,22 @@ public class OliveLeaves extends BlockLeaves
 	public net.minecraft.block.BlockPlanks.EnumType getWoodType(int meta) {
 		return net.minecraft.block.BlockPlanks.EnumType.BIRCH;
 	}
-
+	public void onLanded(World worldIn, Entity entityIn)
+    {
+		if(entityIn.isSneaking() == true) {
+			jump = false;
+		}
+		if(entityIn.isSneaking() == false) {
+			jump = true;
+		}
+		if(jump == true) {
+        entityIn.motionY = 2.0D;
+        entityIn.playSound(SoundEvents.BLOCK_SLIME_FALL, 1f, 1f);
+    }
+    }
+	public void onFallenUpon(World worldIn, BlockPos pos, Entity entityIn, float fallDistance)
+    {
+		entityIn.fallDistance = 0;
+    }
 	
 }
