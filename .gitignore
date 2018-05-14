@@ -21,8 +21,7 @@ build
 eclipse
 run
 *.txt
-gradle/wrapper/gradle-wrapper.properties
-gradle/wrapper/gradle-wrapper.jar
 gradlew.bat
 gradlew
-gradle.properties
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
