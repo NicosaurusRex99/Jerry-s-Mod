@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 import naturix.jerrysmod.Config;
+import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.items.Phone;
 import naturix.jerrysmod.registries.ModBiomes;
 import naturix.jerrysmod.registries.ModDimensions;
@@ -38,6 +39,7 @@ import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
@@ -77,6 +79,7 @@ import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 import net.minecraft.world.gen.layer.IntCache;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -94,7 +97,8 @@ public class JMPortal {
 	public static Phone block;
 
 	static {
-		portal = (BlockTutorialPortal) (new BlockTutorialPortal().setUnlocalizedName("jerrysmod:portal"));
+		portal = (BlockTutorialPortal) (new BlockTutorialPortal().setUnlocalizedName("portal"));
+		
 	}
 
 	public JMPortal() {
@@ -105,12 +109,13 @@ public class JMPortal {
 
 	public void preInit(FMLPreInitializationEvent event) {
 
-		portal.setRegistryName("jerrysmoddim_portal");
+		portal.setRegistryName("portal");
+		portal.setUnlocalizedName("portal");
 		ForgeRegistries.BLOCKS.register(portal);
 		ForgeRegistries.ITEMS.register(new ItemBlock(portal).setRegistryName(portal.getRegistryName()));
 
 		DimensionManager.registerDimension(DIMID, dtype);
-
+		
 	}
 
 	public static class WorldProviderMod extends WorldProvider {
@@ -609,7 +614,6 @@ public class JMPortal {
 			this.setHardness(-1.0F);
 			this.setLightLevel(0.75F);
 		}
-
 		@javax.annotation.Nullable
 		public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, World worldIn, BlockPos pos) {
 			return NULL_AABB;

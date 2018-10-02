@@ -25,6 +25,7 @@ import naturix.jerrysmod.blocks.OliveSapling;
 import naturix.jerrysmod.blocks.SlimeGrass;
 import naturix.jerrysmod.blocks.SlimeOre;
 import naturix.jerrysmod.blocks.SlimeStone;
+import naturix.jerrysmod.compat.ProjectECompat;
 import naturix.jerrysmod.items.CaptainOfLight;
 import naturix.jerrysmod.items.Grapes;
 import naturix.jerrysmod.items.JerryAxe;
@@ -61,6 +62,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -97,6 +99,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	            config.save();
 	            JerrysMod.logger.info("Jerry's Mod config loaded");
 	    }
+	    	if(Loader.isModLoaded("projecte")) {
+	    		ProjectECompat.init();
+	    	}
 	    }
 		@EventHandler
 		public void serverLoad(FMLServerStartingEvent event) 
@@ -154,4 +159,5 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 	    	JerrysMod.logger.info("Jerry's mod Items have just been loaded"); 
 	   
 	    }
+
 }

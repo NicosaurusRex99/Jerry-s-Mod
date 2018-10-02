@@ -1,7 +1,8 @@
 {
-  "phone": {
-    "category": "block",
-    "subtitle": "jerrysmod.subtitle.phone",
-    "sounds": [ "jerrysmod:phone" ]
-  }
+ "phone": { 
+        "category": "player", 
+        "sounds": ["jerrysmod:phone"], 
+        "subtitle": "jerrysmod.subtitle.phone" ,
+        "stream": true
+    }
 }

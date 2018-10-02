@@ -14,9 +14,12 @@
     */
 package naturix.jerrysmod.items;
 
+import java.util.Random;
+
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.blocks.JMPortal;
 import naturix.jerrysmod.helpers.JerryHelpers;
+import naturix.jerrysmod.registries.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,6 +40,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class Phone extends Item {
 
+	private Random rand;
 	public Phone() {
 		super();
 		setRegistryName("phone");
@@ -88,8 +92,8 @@ public class Phone extends Item {
 		}
 		Block i1 = JMPortal.getBlock(par3World, par4, par5, par6);
 		if (i1 == Blocks.AIR) {
-			par3World.playSound(par2EntityPlayer, new BlockPos(par4, par5, par6), SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,
-					itemRand.nextFloat() * 0.4F + 0.8F);
+			//par3World.playSound(par2EntityPlayer, new BlockPos(par4, par5, par6), ModSounds.getRandomPhone(rand), SoundCategory.BLOCKS, 1.0F,
+				//	itemRand.nextFloat() * 0.4F + 0.8F);
 			JerryHelpers.tryToCreatePortal(par3World, par4, par5, par6);
 		}
 		par1ItemStack.damageItem(1, par2EntityPlayer);
