@@ -1,7 +1,7 @@
 {
 	"homepage": "https://minecraft.curseforge.com/projects/jerrys-mod/files",
 	"1.12.2": {
-		"1.12.2.4": "Dimension Fixes",
+		"1.12.2.4": "Dimension Fixes/Added ProjectE support",
 		"1.12.2.3": "Slime Update",
 		"1.12.2.2": "Bugfix Update",
 		"1.12.2.1": "Rewrote for 1.12.2"
