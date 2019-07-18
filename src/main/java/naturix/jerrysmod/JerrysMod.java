@@ -1,94 +1,73 @@
-/*
-    Jerry's Mod - A Minecraft Mod
-    Copyright (C) 2016-2017 Hawaii_Beach
-    This program Is free software: you can redistribute it And/Or modify
-    it under the terms Of the GNU General Public License As published by
-    the Free Software Foundation, either version 3 Of the License, Or
-    (at your option) any later version.
-    This program Is distributed In the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty Of
-    MERCHANTABILITY Or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License For more details.
-    You should have received a copy Of the GNU General Public License
-    along with this program.  If Not, see <http://www.gnu.org/licenses/>.
-    */
 package naturix.jerrysmod;
 
-import naturix.jerrysmod.command.DimensionTp;
-import naturix.jerrysmod.proxy.CommonProxy;
-import naturix.jerrysmod.registries.ModItems;
-import naturix.jerrysmod.world.WorldGen;
-import naturix.jerrysmod.world.WorldGenTreesJM;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.SoundEvents;
+import naturix.jerrysmod.proxy.ClientProxy;
+import naturix.jerrysmod.proxy.IProxy;
+import naturix.jerrysmod.proxy.ServerProxy;
+import naturix.jerrysmod.registry.ModItems;
+import naturix.jerrysmod.registry.ModSetup;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-@Mod(modid = JerrysMod.MODID, version = JerrysMod.VERSION, name = JerrysMod.NAME, updateJSON = JerrysMod.UPDATE_URL)
+import java.util.stream.Collectors;
+
+// The value here should match an entry in the META-INF/mods.toml file
+@Mod(JerrysMod.MODID)
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
-    public static final String VERSION = "1.12.2.4";
-    public static final String NAME = "Jerry's Mod";
-    public static final String UPDATE_URL = "https://raw.githubusercontent.com/NicosaurusRex99/Jerry-s-Mod/1.12.2/Jerrys%20Mod%20Updates.json";
+    public static final String MODNAME = "Jerry's Mod";
+    private static final Logger LOGGER = LogManager.getLogger();
+    public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+    public static ModSetup setup = new ModSetup();
 
-    @SidedProxy(clientSide = "naturix.jerrysmod.proxy.ClientProxy", serverSide = "naturix.jerrysmod.proxy.ServerProxy")
-    public static CommonProxy proxy;
-
-    @Mod.Instance
-    public static JerrysMod instance;
- 
-
-    public static org.apache.logging.log4j.Logger logger;
-    
-    public static final ItemArmor.ArmorMaterial SlimeArmorMaterial = EnumHelper.addArmorMaterial("Slime", MODID + ":slime", 15, new int[]{18, 51, 21, 30}, 9, SoundEvents.ENTITY_SLIME_SQUISH, 0.0F);
-    public static final Item.ToolMaterial SlimeToolMaterial = EnumHelper.addToolMaterial("Slime", 74, 4096, 40, 124, 42);
-    public static final ItemArmor.ArmorMaterial JerryArmorMaterial = EnumHelper.addArmorMaterial("Jerry", MODID + "jerry", 15, new int[]{54, 111, 75, 60}, 9, SoundEvents.ENTITY_SLIME_JUMP, 0.5F);
-    public static final Item.ToolMaterial JerryToolMaterial = EnumHelper.addToolMaterial("Jerry", 99, 6142, 321, 844, 50);
-    
-    @Mod.EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-    	logger = event.getModLog();
-        proxy.preInit(event);
-        GameRegistry.registerWorldGenerator(new WorldGen(), 3);
-        GameRegistry.registerWorldGenerator(new WorldGenTreesJM(), Config.OLIVE_GEN_CHANCE);
-        
+    public JerrysMod() {
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent e) {
-        proxy.init(e);
+    private void setup(final FMLCommonSetupEvent event) {
+        setup.init();
+        proxy.init();
+
+//        ModOreFeature.setupOreGenerator();
     }
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent e) {
-        proxy.postInit(e);
-    }
-    @Mod.EventHandler
-    public void serverLoad(FMLServerStartingEvent event) {
-        event.registerServerCommand(new DimensionTp());
-    }
-    
-    public static final CreativeTabs JerrysMod = new CreativeTabs("Jerry's Mod")
-    {
-
-        @SideOnly(Side.CLIENT)
-        public ItemStack getTabIconItem()
-        {
-            return new ItemStack(ModItems.jerrysword);
+    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
+    // Event bus for receiving Registry Events)
+    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class RegistryEvents {
+        @SubscribeEvent
+        public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
+//            event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
         }
-		
-    };
+
+        @SubscribeEvent
+        public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
+            event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
+//            event.getRegistry().register(new BlockItem(ModBlocks.ruby_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("ruby_ore"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.braunite_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("braunite_ore"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.opal_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("opal_ore"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.amethyst, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("amethyst"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.meteorite_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("meteorite_ore"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.braunite_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("braunite_block"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.opal_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("opal_block"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.ruby_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("ruby_block"));
+//            event.getRegistry().register(new BlockItem(ModBlocks.bomb, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("bomb"));
+        }
+    }
 }
