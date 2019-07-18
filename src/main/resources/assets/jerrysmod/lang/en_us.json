@@ -1,0 +1,19 @@
+{
+    "item.jerrysmod.slime_gem": "Slime Gem",
+	"item.jerrysmod.jerry_gem": "Jerry Gem",
+	"item.jerrysmod.slime_chunk": "Slime Chunk",
+	"item.jerrysmod.slime_drop": "Slime Drop",
+	"item.jerrysmod.slime_head": "Slime Head",
+	"item.jerrysmod.slime_shard": "Slime Shard",
+	"item.jerrysmod.slime_helmet": "Slime Helmet",
+	"item.jerrysmod.slime_chestplate": "Slime Chestplate",
+	"item.jerrysmod.slime_leggings": "Slime Leggings",
+	"item.jerrysmod.slime_boots": "Slime Boots",
+	"item.jerrysmod.jerry_helmet": "Jerry Helmet",
+	"item.jerrysmod.jerry_chestplate": "Jerry Chestplate",
+	"item.jerrysmod.jerry_leggings": "Jerry Leggings",
+	"item.jerrysmod.jerry_boots": "Jerry Boots",
+
+    "_comment": "Creative Tabs",
+    "itemGroup.jerrysmod": "Jerry's Mod"
+}

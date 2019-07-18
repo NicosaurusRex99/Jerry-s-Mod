@@ -1,8 +1,0 @@
-{
- "phone": { 
-        "category": "player", 
-        "sounds": ["jerrysmod:phone"], 
-        "subtitle": "jerrysmod.subtitle.phone" ,
-        "stream": true
-    }
-}
