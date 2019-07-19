@@ -1,10 +1,11 @@
 package naturix.jerrysmod.registry;
 
-import naturix.jerrysmod.objects.items.ArmorBase;
-import naturix.jerrysmod.objects.items.ItemBase;
-import naturix.jerrysmod.objects.items.SwordBase;
+import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.objects.items.*;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.Foods;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvents;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ModItems {
+
     public static final List<Item> ITEMS = new ArrayList<Item>();
 
     public static Item slimeGem = new ItemBase("slime_gem");
@@ -21,6 +23,10 @@ public class ModItems {
     public static Item slimeDrop = new ItemBase("slime_drop");
     public static Item slimeHead = new ItemBase("slime_head");
     public static Item slimeShard = new ItemBase("slime_shard");
+    public static Item slimeStick = new ItemBase("slime_stick");
+    public static Item captainOfLight = new ItemBase("captain_of_light",new Item.Properties().maxStackSize(1).group(JerrysMod.setup.itemGroup));
+    public static final Item grapes = new ItemBase("grapes",(new Item.Properties()).group(JerrysMod.setup.itemGroup).food(FoodBase.GRAPES));
+    public static final Item olives = new ItemBase("olives",(new Item.Properties()).group(JerrysMod.setup.itemGroup).food(FoodBase.OLIVES));
 
     public static ModMaterials slimeHelmetMat = new ModMaterials("slime", 5500001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, Ingredient.fromStacks(new ItemStack(slimeGem)));
     public static ModMaterials slimeChestplateMat = new ModMaterials("slime", 8000001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F, Ingredient.fromStacks(new ItemStack(slimeGem)));
@@ -42,7 +48,14 @@ public class ModItems {
     public static Item jerryLeggings = new ArmorBase("jerry_leggings", jerryLeggingsMat, EquipmentSlotType.LEGS);
     public static Item jerryBoots = new ArmorBase("jerry_boots", jerryBootsMat, EquipmentSlotType.FEET);
 
-    public static Item slimeSword = new SwordBase("slime_sword", ModTier.SLIMESWORD, 128, ModTier.SLIMESWORD.getEfficiency());
-    public static Item jerrySword = new SwordBase("jerry_sword", ModTier.JERRYSWORD, 848, ModTier.JERRYSWORD.getEfficiency());
-
+    public static Item slimeSword = new SwordBase("slime_sword", ModTier.SLIMESWORD, 128/2, ModTier.SLIMESWORD.getEfficiency());
+    public static Item jerrySword = new SwordBase("jerry_sword", ModTier.JERRYSWORD, 848/2, ModTier.JERRYSWORD.getEfficiency());
+    public static Item slimeAxe = new AxeBase("slime_axe", ModTier.SLIMEAXE, ModTier.SLIMEAXE.getAttackDamage()/2, ModTier.SLIMEAXE.getEfficiency());
+    public static Item jerryAxe = new AxeBase("jerry_axe", ModTier.JERRYAXE, ModTier.JERRYAXE.getAttackDamage()/2, ModTier.JERRYAXE.getEfficiency());
+    public static Item slimePickaxe = new PickaxeBase("slime_pickaxe", ModTier.SLIMEPICKAXE, 126/2);
+    public static Item jerryPickaxe = new PickaxeBase("jerry_pickaxe", ModTier.JERRYPICKAXE, 846/2);
+    public static Item slimeShovel = new ShovelBase("slime_shovel", ModTier.SLIMESHOVEL, 126/2, ModTier.SLIMESHOVEL.getEfficiency());
+    public static Item jerryShovel = new ShovelBase("jerry_shovel", ModTier.JERRYSHOVEL, 846/2, ModTier.JERRYSHOVEL.getEfficiency());
+    public static Item slimeHoe = new HoeBase("slime_hoe", ModTier.SLIMEHOE, ModTier.SLIMEHOE.getEfficiency());
+    public static Item jerryHoe = new HoeBase("jerry_hoe", ModTier.JERRYHOE, ModTier.JERRYHOE.getEfficiency());
 }
