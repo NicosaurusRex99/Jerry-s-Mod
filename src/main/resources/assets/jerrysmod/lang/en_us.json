@@ -27,6 +27,12 @@
 	"item.jerrysmod.captain_of_light": "Captain of Light",
 	"item.jerrysmod.olives": "Olives",
 	"item.jerrysmod.grapes": "Grapes",
+	
+	"block.jerrysmod.slime_ore": "Slime Ore",
+	"block.jerrysmod.slime_log": "Olive Log",
+	"block.jerrysmod.slime_leaves": "Olive Leaves",
+	"block.jerrysmod.slime_sapling": "Olive Sapling",
+	"block.jerrysmod.olive_planks": "Olive Planks",
 
     "_comment": "Creative Tabs",
     "itemGroup.jerrysmod": "Jerry's Mod"

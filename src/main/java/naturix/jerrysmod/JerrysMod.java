@@ -3,11 +3,18 @@ package naturix.jerrysmod;
 import naturix.jerrysmod.proxy.ClientProxy;
 import naturix.jerrysmod.proxy.IProxy;
 import naturix.jerrysmod.proxy.ServerProxy;
+import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModItems;
 import naturix.jerrysmod.registry.ModSetup;
+import naturix.jerrysmod.world.ModOreFeature;
+import naturix.jerrysmod.world.OliveTreeFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -20,6 +27,8 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,6 +44,7 @@ public class JerrysMod
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
     public static ModSetup setup = new ModSetup();
 
+    public static final Feature<NoFeatureConfig> olive_tree = null;
     public JerrysMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -44,7 +54,7 @@ public class JerrysMod
         setup.init();
         proxy.init();
 
-//        ModOreFeature.setupOreGenerator();
+        ModOreFeature.setupOreGenerator();
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
@@ -53,21 +63,28 @@ public class JerrysMod
     public static class RegistryEvents {
         @SubscribeEvent
         public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-//            event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+            event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
         }
 
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
-//            event.getRegistry().register(new BlockItem(ModBlocks.ruby_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("ruby_ore"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.braunite_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("braunite_ore"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.opal_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("opal_ore"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.amethyst, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("amethyst"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.meteorite_ore, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("meteorite_ore"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.braunite_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("braunite_block"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.opal_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("opal_block"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.ruby_block, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("ruby_block"));
-//            event.getRegistry().register(new BlockItem(ModBlocks.bomb, new Item.Properties().group(Ruby.setup.itemGroup)).setRegistryName("bomb"));
+            event.getRegistry().register(new BlockItem(ModBlocks.slime_ore, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_ore"));
+            event.getRegistry().register(new BlockItem(ModBlocks.slime_log, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_log"));
+            event.getRegistry().register(new BlockItem(ModBlocks.slime_leaves, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_leaves"));
+            event.getRegistry().register(new BlockItem(ModBlocks.slime_sapling, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_sapling"));
+            event.getRegistry().register(new BlockItem(ModBlocks.olive_planks, new Item.Properties().group(setup.itemGroup)).setRegistryName("olive_planks"));
+        }
+        @SubscribeEvent
+        public static void registerFeatures(final RegistryEvent.Register<Feature<?>> event) {
+            IForgeRegistry<Feature<?>> r = event.getRegistry();
+
+            register(r, new OliveTreeFeature(NoFeatureConfig::deserialize), "olive_tree");
+        }
+        private static <V extends R, R extends IForgeRegistryEntry<R>> V register(IForgeRegistry<R> registry, V value, String name) {
+            value.setRegistryName(new ResourceLocation(JerrysMod.MODID, name));
+            registry.register(value);
+            return value;
         }
     }
 }

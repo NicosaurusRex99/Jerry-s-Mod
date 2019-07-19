@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "jerrysmod:blocks/slime_leaves"
+    }
+}
