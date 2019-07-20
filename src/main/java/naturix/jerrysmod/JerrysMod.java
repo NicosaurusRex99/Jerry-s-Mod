@@ -7,6 +7,7 @@ import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModItems;
 import naturix.jerrysmod.registry.ModSetup;
 import naturix.jerrysmod.world.ModOreFeature;
+import naturix.jerrysmod.world.OliveTree;
 import naturix.jerrysmod.world.OliveTreeFeature;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -55,6 +56,7 @@ public class JerrysMod
         proxy.init();
 
         ModOreFeature.setupOreGenerator();
+
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
@@ -75,16 +77,6 @@ public class JerrysMod
             event.getRegistry().register(new BlockItem(ModBlocks.slime_sapling, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_sapling"));
             event.getRegistry().register(new BlockItem(ModBlocks.olive_planks, new Item.Properties().group(setup.itemGroup)).setRegistryName("olive_planks"));
         }
-        @SubscribeEvent
-        public static void registerFeatures(final RegistryEvent.Register<Feature<?>> event) {
-            IForgeRegistry<Feature<?>> r = event.getRegistry();
 
-            register(r, new OliveTreeFeature(NoFeatureConfig::deserialize), "olive_tree");
-        }
-        private static <V extends R, R extends IForgeRegistryEntry<R>> V register(IForgeRegistry<R> registry, V value, String name) {
-            value.setRegistryName(new ResourceLocation(JerrysMod.MODID, name));
-            registry.register(value);
-            return value;
-        }
     }
 }

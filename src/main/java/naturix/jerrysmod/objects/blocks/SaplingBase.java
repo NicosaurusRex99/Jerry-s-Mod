@@ -13,7 +13,6 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -36,9 +35,6 @@ public class SaplingBase extends SaplingBlock implements IGrowable
         ModBlocks.BLOCKS.add(this);
     }
 
-    public Tree getTree() {
-        return tree;
-    }
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
