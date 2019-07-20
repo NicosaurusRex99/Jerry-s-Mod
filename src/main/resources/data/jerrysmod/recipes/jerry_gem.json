@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "jerrysmod",
+    "pattern": [
+        "MMM",
+		"MYM",
+		"MMM"
+    ],
+    "key": {
+        "Y": { "item": "minecraft:diamond_block" },
+        "M": { "item": "jerrysmod:slime_gem" }
+    },
+    "result": {
+        "item": "jerrysmod:jerry_gem"
+    }
+}

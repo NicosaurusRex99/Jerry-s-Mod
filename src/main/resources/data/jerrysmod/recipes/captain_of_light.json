@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "jerrysmod",
+    "pattern": [
+        "  X",
+		" C ",
+		"C  "
+    ],
+    "key": {
+        "C": { "item": "jerrysmod:slime_stick" },
+        "X": { "item": "jerrysmod:jerry_gem" }
+    },
+    "result": {
+        "item": "jerrysmod:captain_of_light"
+    }
+}
