@@ -41,7 +41,7 @@ public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
     public static final String MODNAME = "Jerry's Mod";
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
     public static ModSetup setup = new ModSetup();
 

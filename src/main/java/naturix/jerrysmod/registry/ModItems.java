@@ -22,7 +22,7 @@ public class ModItems {
     public static Item slimeHead = new ItemBase("slime_head");
     public static Item slimeShard = new ItemBase("slime_shard");
     public static Item slimeStick = new ItemBase("slime_stick");
-    public static Item captainOfLight = new ItemBase("captain_of_light",new Item.Properties().maxStackSize(1).group(JerrysMod.setup.itemGroup));
+    public static Item captainOfLight = new CaptainOfLight("captain_of_light");
     public static final Item grapes = new ItemBase("grapes",(new Item.Properties()).group(JerrysMod.setup.itemGroup).food(FoodBase.GRAPES));
     public static final Item olives = new ItemBase("olives",(new Item.Properties()).group(JerrysMod.setup.itemGroup).food(FoodBase.OLIVES));
 
