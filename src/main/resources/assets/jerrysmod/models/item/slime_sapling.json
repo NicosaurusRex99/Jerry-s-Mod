@@ -1,3 +1,6 @@
 {
-  "parent": "jerrysmod:block/slime_sapling"
+    "parent": "item/handheld",
+    "textures": {
+        "layer0": "jerrysmod:blocks/slime_sapling"
+    }
 }

@@ -71,12 +71,7 @@ public class JerrysMod
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
             event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
-            event.getRegistry().register(new BlockItem(ModBlocks.slime_ore, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_ore"));
-            event.getRegistry().register(new BlockItem(ModBlocks.slime_log, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_log"));
-            event.getRegistry().register(new BlockItem(ModBlocks.slime_leaves, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_leaves"));
-            event.getRegistry().register(new BlockItem(ModBlocks.slime_sapling, new Item.Properties().group(setup.itemGroup)).setRegistryName("slime_sapling"));
-            event.getRegistry().register(new BlockItem(ModBlocks.olive_planks, new Item.Properties().group(setup.itemGroup)).setRegistryName("olive_planks"));
-        }
+            }
 
     }
 }
