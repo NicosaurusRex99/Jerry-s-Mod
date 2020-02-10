@@ -18,6 +18,7 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.ChunkGenerator;
 
 import java.util.Random;
 
@@ -49,69 +50,4 @@ public class SaplingBase extends SaplingBlock implements IGrowable
         return SHAPE;
     }
 
-    @Override
-    public void tick(BlockState state, World worldIn, BlockPos pos, Random random)
-    {
-        super.tick(state, worldIn, pos, random);
-        if (!worldIn.isAreaLoaded(pos, 1)) return; // Forge: prevent loading unloaded chunks when checking neighbor's light
-        if (worldIn.getLight(pos.up()) >= 9 && random.nextInt(7) == 0) {
-            this.grow(worldIn, pos, state, random);
-        }
-
-    }
-
-    @Override
-    public void grow(IWorld worldIn, BlockPos pos, BlockState state, Random rand)
-    {
-        if (state.get(STAGE) == 0)
-        {
-            worldIn.setBlockState(pos, state.cycle(STAGE), 4);
-        }
-        else
-        {
-            if (!net.minecraftforge.event.ForgeEventFactory.saplingGrowTree(worldIn, rand, pos)) return;
-            this.tree.spawn(worldIn, pos, state, rand);
-        }
-
-    }
-
-    /**
-     * Whether this IGrowable can grow
-     */
-    @Override
-    public boolean canGrow(IBlockReader worldIn, BlockPos pos, BlockState state, boolean isClient)
-    {
-        return true;
-    }
-
-    @Override
-    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, BlockState state)
-    {
-        return (double)worldIn.rand.nextFloat() < 0.45D;
-    }
-
-    @Override
-    public void grow(World worldIn, Random rand, BlockPos pos, BlockState state)
-    {
-        this.grow(worldIn, pos, state, rand);
-    }
-
-
-    @Override
-    public void fillStateContainer(StateContainer.Builder<Block, BlockState> builder)
-    {
-        builder.add(STAGE);
-    }
-
-    @Override
-    public int getFlammability(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-        return Blocks.OAK_SAPLING.getFlammability(state, world, pos, face);
-    }
-
-    @Override
-    public int getFireSpreadSpeed(BlockState state, IBlockReader world, BlockPos pos, Direction face)
-    {
-        return Blocks.OAK_SAPLING.getFireSpreadSpeed(state,world, pos, face);
-    }
 }

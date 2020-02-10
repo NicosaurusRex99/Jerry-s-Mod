@@ -38,7 +38,7 @@ public class CaptainOfLight extends ItemBase {
 
         @Nonnull
         public static BlockRayTraceResult rayTraceEyes(LivingEntity entity,double length){
-            Vec3d startPos = new Vec3d(entity.posX, entity.posY + entity.getEyeHeight(), entity.posZ);
+            Vec3d startPos = new Vec3d(entity.getPosition().getX(), entity.getPosition().getY() + entity.getEyeHeight(), entity.getPosition().getZ());
             Vec3d endPos = startPos.add(new Vec3d(entity.getLookVec().x * length, entity.getLookVec().y * length, entity.getLookVec().z * length));
             RayTraceContext context = new RayTraceContext(startPos, endPos, RayTraceContext.BlockMode.COLLIDER,
                     RayTraceContext.FluidMode.NONE, entity);

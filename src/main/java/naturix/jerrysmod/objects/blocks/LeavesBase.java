@@ -6,13 +6,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IShearable;
 
-public class LeavesBase extends LeavesBlock {
+public class LeavesBase extends LeavesBlock implements IShearable {
 
-    Item.Properties properties;
     public LeavesBase(String name){
         super(Block.Properties
                 .create(Material.LEAVES)
