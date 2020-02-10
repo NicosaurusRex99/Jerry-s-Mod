@@ -40,7 +40,7 @@ public class JerrysMod
     private void setup(final FMLCommonSetupEvent event) {
         setup.init();
         proxy.init();
-
+        LOGGER.info("Hey guys, Austin Evans here");
         ModOreFeature.setupOreGenerator();
 
     }

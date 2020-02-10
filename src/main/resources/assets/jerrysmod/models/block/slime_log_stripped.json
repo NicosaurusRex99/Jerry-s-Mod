@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "jerrysmod:blocks/slime_log_top_stripped",
+        "side": "jerrysmod:blocks/slime_log_stripped"
+    }
+}

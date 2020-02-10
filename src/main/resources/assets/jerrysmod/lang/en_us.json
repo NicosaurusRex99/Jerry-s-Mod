@@ -30,9 +30,11 @@
 	
 	"block.jerrysmod.slime_ore": "Slime Ore",
 	"block.jerrysmod.slime_log": "Olive Log",
+	"block.jerrysmod.slime_log_stripped": "Stripped Olive Log",
 	"block.jerrysmod.slime_leaves": "Olive Leaves",
 	"block.jerrysmod.slime_sapling": "Olive Sapling",
 	"block.jerrysmod.olive_planks": "Olive Planks",
+	"block.jerrysmod.olive_stairs": "Olive Stairs",
 
     "_comment": "Creative Tabs",
     "itemGroup.jerrysmod": "Jerry's Mod"
