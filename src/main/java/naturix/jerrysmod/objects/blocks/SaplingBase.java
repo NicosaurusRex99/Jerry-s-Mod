@@ -5,6 +5,7 @@ import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModItems;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialColor;
 import net.minecraft.block.trees.Tree;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -24,30 +25,15 @@ import java.util.Random;
 
 public class SaplingBase extends SaplingBlock implements IGrowable
 {
-    public static final IntegerProperty STAGE = BlockStateProperties.STAGE_0_1;
-    public static final VoxelShape SHAPE = Block.makeCuboidShape(2.0D, 0.0D, 2.0D, 14.0D, 12.0D, 14.0D);
-    public final Tree tree;
-
     public SaplingBase(String name, Tree tree)
     {
-        super(tree, Block.Properties
-                .create(Material.PLANTS)
-                .tickRandomly()
-                .hardnessAndResistance(0.2f, 0.1f));
-        this.tree = tree;
+        super(tree, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0,0).sound(SoundType.PLANT));
         this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
         this.setRegistryName(name);
         ModBlocks.BLOCKS.add(this);
         BlockItem itemBlock = new BlockItem(this, new Item.Properties().group(JerrysMod.setup.itemGroup));
         itemBlock.setRegistryName(name);
         ModItems.ITEMS.add(itemBlock);
-    }
-
-
-    @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext selectionContext)
-    {
-        return SHAPE;
     }
 
 }

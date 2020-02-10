@@ -2,6 +2,8 @@ package naturix.jerrysmod.registry;
 
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.objects.blocks.BlockBase;
+import naturix.jerrysmod.objects.blocks.LeavesBase;
+import naturix.jerrysmod.objects.blocks.LogBase;
 import naturix.jerrysmod.objects.blocks.SaplingBase;
 import naturix.jerrysmod.world.SlimeTree;
 import net.minecraft.block.Block;
@@ -23,18 +25,7 @@ public class ModBlocks {
 
     public static BlockBase slime_ore = new BlockBase("slime_ore", 2, ToolType.PICKAXE);
     public static BlockBase olive_planks = new BlockBase("olive_planks", 1, ToolType.AXE);
-    public static Block slime_log = registerBlock(new LogBlock(MaterialColor.EMERALD, Block.Properties.create(Material.WOOD, MaterialColor.GREEN_TERRACOTTA).hardnessAndResistance(2.0F).sound(SoundType.WOOD)), "slime_log");
-    public static Block slime_leaves = registerBlock(new LeavesBlock(Block.Properties.create(Material.LEAVES, MaterialColor.EMERALD).hardnessAndResistance(0.2F).tickRandomly().sound(SoundType.PLANT)), "slime_leaves");
+    public static Block slime_log = new LogBase(MaterialColor.EMERALD, Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(2.0F).sound(SoundType.WOOD), "slime_log");
+    public static Block slime_leaves = new LeavesBase(Block.Properties.create(Material.LEAVES, MaterialColor.LIME).hardnessAndResistance(1, 1).sound(SoundType.PLANT), "slime_leaves");
     public static Block slime_sapling = new SaplingBase("slime_sapling", new SlimeTree());
-
-
-    public static Block registerBlock(Block block, String name)
-    {
-        BlockItem itemBlock = new BlockItem(block, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        block.setRegistryName(JerrysMod.MODID, name);
-        itemBlock.setRegistryName(JerrysMod.MODID, name);
-        ForgeRegistries.BLOCKS.register(block);
-        ForgeRegistries.ITEMS.register(itemBlock);
-        return block;
-    }
 }
