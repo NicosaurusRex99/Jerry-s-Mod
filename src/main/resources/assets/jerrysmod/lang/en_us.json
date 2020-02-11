@@ -35,6 +35,7 @@
 	"block.jerrysmod.slime_sapling": "Olive Sapling",
 	"block.jerrysmod.olive_planks": "Olive Planks",
 	"block.jerrysmod.olive_stairs": "Olive Stairs",
+	"block.jerrysmod.olive_button": "Olive Button",
 
     "_comment": "Creative Tabs",
     "itemGroup.jerrysmod": "Jerry's Mod"

@@ -11,6 +11,8 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -27,4 +29,5 @@ public class ModBlocks {
     public static Block slime_leaves = new LeavesBase(Block.Properties.create(Material.LEAVES, MaterialColor.LIME).hardnessAndResistance(1, 1).sound(SoundType.PLANT), "slime_leaves");
     public static Block slime_sapling = new SaplingBase("slime_sapling", new SlimeTree());
     public static Block olive_stairs = new StairsBase("olive_stairs", olive_planks.getDefaultState(), Block.Properties.from(ModBlocks.olive_planks));
+    public static Block olive_button = new ButtonBase("olive_button", Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(1,1).sound(SoundType.WOOD), true, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF);
 }

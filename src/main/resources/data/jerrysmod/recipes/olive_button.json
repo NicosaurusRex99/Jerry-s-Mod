@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "jerrysmod:olive_planks"
+    }
+  ],
+  "result": {
+    "item": "jerrysmod:olive_button",
+    "count": 1
+  }
+}

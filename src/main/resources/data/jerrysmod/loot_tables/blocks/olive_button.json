@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "jerrysmod:olive_log"
+          "name": "jerrysmod:olive_button"
         }
       ],
       "conditions": [
