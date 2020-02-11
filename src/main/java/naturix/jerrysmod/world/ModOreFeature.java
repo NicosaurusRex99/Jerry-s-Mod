@@ -26,23 +26,19 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import static net.minecraft.world.gen.feature.OreFeatureConfig.FillerBlockType.NATURAL_STONE;
 public class ModOreFeature
 {
-    public static final TreeFeatureConfig SLIME_TREE = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(ModBlocks.slime_log.getDefaultState()), new SimpleBlockStateProvider(ModBlocks.slime_leaves.getDefaultState()), new BlobFoliagePlacer(2, 0))).func_225569_d_(5).func_227354_b_(2).func_227360_i_(3).func_227352_a_().setSapling((net.minecraftforge.common.IPlantable) ModBlocks.slime_sapling).func_225568_b_();
+    public static final TreeFeatureConfig SLIME_TREE = (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(ModBlocks.slime_log.getDefaultState()), new SimpleBlockStateProvider(ModBlocks.slime_leaves.getDefaultState()), new BlobFoliagePlacer(2, 0))).baseHeight(5).foliageHeight(2).trunkHeight(3).ignoreVines().setSapling((net.minecraftforge.common.IPlantable) ModBlocks.slime_sapling).build();
 
     public static void setupOreGenerator()
         {
             for(Biome biome : ForgeRegistries.BIOMES)
             {
-                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.func_225566_b_(new OreFeatureConfig(NATURAL_STONE, ModBlocks.slime_ore.getDefaultState(), 4)).func_227228_a_(Placement.COUNT_RANGE.func_227446_a_(new CountRangeConfig(1, 1, 1, 15))));
+                biome.addFeature(GenerationStage.Decoration.UNDERGROUND_ORES, Feature.ORE.withConfiguration(new OreFeatureConfig(NATURAL_STONE, ModBlocks.slime_ore.getDefaultState(), 4)).withPlacement(Placement.COUNT_RANGE.configure(new CountRangeConfig(1, 1, 1, 15))));
             if(biome.getCategory() == Biome.Category.SWAMP){
-                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.NORMAL_TREE.func_225566_b_(ModOreFeature.SLIME_TREE));
+                biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.NORMAL_TREE.withConfiguration(ModOreFeature.SLIME_TREE));
             }
         }
     }
-    public static <T extends BaseTreeFeatureConfig> T getConfiguredForUndergroundTreeConfig(T treeConfig)
-    {
-        treeConfig.func_227373_a_();
-        return treeConfig;
-    }
+
     public static <T extends IForgeRegistryEntry<T>> T register(IForgeRegistry<T> registry, T entry, String registryKey)
     {
         entry.setRegistryName(new ResourceLocation(JerrysMod.MODID, registryKey.toLowerCase().replace(' ', '_')));

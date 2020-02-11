@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "jerrysmod:block/olive_slab" },
+    "type=top": { "model": "jerrysmod:block/olive_slab_top" },
+    "type=double": { "model": "jerrysmod:block/olive_planks" }
+  }
+}

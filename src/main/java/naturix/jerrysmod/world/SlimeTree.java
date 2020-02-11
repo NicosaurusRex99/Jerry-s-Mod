@@ -13,7 +13,7 @@ public class SlimeTree extends Tree {
 
     @Nullable
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> func_225546_b_(Random random, boolean beehive) {
-        return Feature.NORMAL_TREE.func_225566_b_(ModOreFeature.SLIME_TREE);
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean beehive) {
+        return Feature.NORMAL_TREE.withConfiguration(ModOreFeature.SLIME_TREE);
     }
 }
