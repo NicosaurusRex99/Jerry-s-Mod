@@ -8,6 +8,8 @@ import naturix.jerrysmod.registry.ModItems;
 import naturix.jerrysmod.registry.ModSetup;
 import naturix.jerrysmod.world.ModOreFeature;
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.Item;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -16,6 +18,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
@@ -34,6 +37,7 @@ public class JerrysMod
     public static final Feature<NoFeatureConfig> olive_tree = null;
     public JerrysMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -44,7 +48,9 @@ public class JerrysMod
         ModOreFeature.setupOreGenerator();
 
     }
-
+    private void setupClient(FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.slime_sapling, RenderType.cutout());
+    }
     @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
         @SubscribeEvent
