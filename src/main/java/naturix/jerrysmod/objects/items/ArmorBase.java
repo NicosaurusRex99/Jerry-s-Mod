@@ -11,8 +11,7 @@ public class ArmorBase extends ArmorItem {
     public IArmorMaterial mat;
     public ArmorBase(String name, IArmorMaterial materialIn, EquipmentSlotType slot) {
         super(materialIn, slot, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        setRegistryName(name);
-        ModItems.ITEMS.add(this);
+        setRegistryName(JerrysMod.MODID, name);
         this.mat = materialIn;
     }
 

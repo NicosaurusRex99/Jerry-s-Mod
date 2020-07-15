@@ -8,10 +8,9 @@ import net.minecraft.item.PickaxeItem;
 
 public class PickaxeBase extends PickaxeItem {
 
-    public PickaxeBase(String name, IItemTier tier, int attackDamageIn)
+    public PickaxeBase(String name, IItemTier tier)
     {
-        super(tier, attackDamageIn, tier.getEfficiency(), new Item.Properties().group(JerrysMod.setup.itemGroup));
-        setRegistryName(name);
-        ModItems.ITEMS.add(this);
+        super(tier, (int)tier.getAttackDamage()/3, -2.1F, new Item.Properties().group(JerrysMod.setup.itemGroup));
+        setRegistryName(JerrysMod.MODID, name);
     }
 }

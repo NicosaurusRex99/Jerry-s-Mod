@@ -5,17 +5,20 @@ import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.SlabBlock;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundEvent;
+import net.minecraftforge.common.ToolType;
 
 public class SlabBase extends SlabBlock {
-    public SlabBase(String name, Block.Properties props){
-        super(props);
-        setRegistryName(name);
-        ModBlocks.BLOCKS.add(this);
-        BlockItem itemBlock = new BlockItem(this, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        itemBlock.setRegistryName(name);
-        ModItems.ITEMS.add(itemBlock);
+    public SlabBase(String name){
+        super(Block.Properties
+                .create(Material.ROCK)
+                .hardnessAndResistance(1.0f, 1.0f)
+                .harvestTool(ToolType.AXE)
+                .func_235861_h_()
+        );
+        setRegistryName(JerrysMod.MODID, name);
     }
 }

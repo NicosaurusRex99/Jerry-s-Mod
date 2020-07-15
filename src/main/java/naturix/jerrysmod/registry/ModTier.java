@@ -5,17 +5,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.crafting.Ingredient;
 
 public enum ModTier implements IItemTier
-{
-    SLIMESWORD(1, 600001, 74F, 128F, 8, ModItems.slimeGem),
-    SLIMESHOVEL(1, 600001, 74F, 6.5F, 8, ModItems.slimeGem),
-    SLIMEPICKAXE(5, 600001, 74F, 7F, 12, ModItems.slimeGem),
-    SLIMEHOE(1, 600001, 74F, 2F, 3, ModItems.slimeGem),
-    SLIMEAXE(1, 600001, 74F, 10F, 15, ModItems.slimeGem),
-    JERRYSWORD(2, 13000001, 99, 858F, 8, ModItems.jerryGem),
-    JERRYSHOVEL(2, 13000001, 99, 16.5F, 8, ModItems.jerryGem),
-    JERRYPICKAXE(6, 13000001, 99, 136F, 12, ModItems.jerryGem),
-    JERRYHOE(2, 600001, 99, 6F, 3, ModItems.jerryGem),
-    JERRYAXE(2, 600001, 99, 13F, 15, ModItems.jerryGem);
+{;
+//    SLIMESWORD(1, 600001, 74F, 128F, 8, ModItems.slimeGem),
+//    SLIMESHOVEL(1, 600001, 74F, 6.5F, 8, ModItems.slimeGem),
+//    SLIMEPICKAXE(5, 600001, 74F, 7F, 12, ModItems.slimeGem),
+//    SLIMEHOE(1, 600001, 74F, 2F, 3, ModItems.slimeGem),
+//    SLIMEAXE(1, 600001, 74F, 10F, 15, ModItems.slimeGem),
+//    JERRYSWORD(2, 13000001, 99, 858F, 8, ModItems.jerryGem),
+//    JERRYSHOVEL(2, 13000001, 99, 16.5F, 8, ModItems.jerryGem),
+//    JERRYPICKAXE(6, 13000001, 99, 136F, 12, ModItems.jerryGem),
+//    JERRYHOE(2, 600001, 99, 6F, 3, ModItems.jerryGem),
+//    JERRYAXE(2, 600001, 99, 13F, 15, ModItems.jerryGem);
 
     private final int harvestLevel;
     private final int maxUses;

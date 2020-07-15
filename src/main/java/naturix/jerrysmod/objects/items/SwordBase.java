@@ -8,10 +8,9 @@ import net.minecraft.item.SwordItem;
 
 public class SwordBase extends SwordItem {
 
-    public SwordBase(String name, IItemTier tier, int attackDamageIn, float attackSpeedIn)
+    public SwordBase(String name, IItemTier tier)
     {
-        super(tier, attackDamageIn, attackSpeedIn, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        setRegistryName(name);
-        ModItems.ITEMS.add(this);
+        super(tier, (int)tier.getAttackDamage(), -2.8F, new Item.Properties().group(JerrysMod.setup.itemGroup));
+        setRegistryName(JerrysMod.MODID, name);
     }
 }

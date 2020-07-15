@@ -29,11 +29,7 @@ public class SaplingBase extends SaplingBlock implements IGrowable
     {
         super(tree, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0,0).sound(SoundType.PLANT));
         this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
-        this.setRegistryName(name);
-        ModBlocks.BLOCKS.add(this);
-        BlockItem itemBlock = new BlockItem(this, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        itemBlock.setRegistryName(name);
-        ModItems.ITEMS.add(itemBlock);
+        this.setRegistryName(JerrysMod.MODID, name);
     }
 
 }

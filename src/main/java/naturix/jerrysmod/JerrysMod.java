@@ -30,41 +30,20 @@ public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
     public static final String MODNAME = "Jerry's Mod";
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger logger = LogManager.getLogger();
     public static IProxy proxy = DistExecutor.runForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
     public static ModSetup setup = new ModSetup();
 
-    public static final Feature<NoFeatureConfig> olive_tree = null;
     public JerrysMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
         setup.init();
         proxy.init();
-        LOGGER.info("Hey guys, Austin Evans here");
         ModOreFeature.setupOreGenerator();
 
     }
-    private void setupClient(FMLClientSetupEvent event) {
-        RenderTypeLookup.setRenderLayer(ModBlocks.slime_sapling, RenderType.cutout());
-    }
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-            event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
-        }
 
-        @SubscribeEvent
-        public static void onItemsRegistry(final RegistryEvent.Register<Item> event) {
-            event.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
-            }
-        @SubscribeEvent
-        public static void onRegisterFeatures(final RegistryEvent.Register<Feature<?>> event) {
-        ModOreFeature.registerFeatures(event);
-        }
-        }
 }

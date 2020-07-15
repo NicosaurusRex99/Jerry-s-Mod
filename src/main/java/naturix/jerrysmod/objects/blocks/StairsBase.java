@@ -9,13 +9,11 @@ import net.minecraft.block.StairsBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 
+import static naturix.jerrysmod.JerrysMod.MODID;
+
 public class StairsBase extends StairsBlock {
     public StairsBase(String name, BlockState state, Block.Properties props){
         super(state, props);
-        setRegistryName(name);
-        ModBlocks.BLOCKS.add(this);
-        BlockItem itemBlock = new BlockItem(this, new Item.Properties().group(JerrysMod.setup.itemGroup));
-        itemBlock.setRegistryName(name);
-        ModItems.ITEMS.add(itemBlock);
+        setRegistryName(JerrysMod.MODID, name);
     }
 }

@@ -8,14 +8,10 @@ public class ItemBase extends Item {
 
     public ItemBase(String name) {
         super(new Item.Properties().group(JerrysMod.setup.itemGroup));
-        setRegistryName(name);
-        ModItems.ITEMS.add(this);
+        setRegistryName(JerrysMod.MODID, name);
     }
     public ItemBase(String name, Item.Properties props) {
         super(props);
-        setRegistryName(name);
-        ModItems.ITEMS.add(this);
+        setRegistryName(JerrysMod.MODID, name);
     }
-
-
 }
