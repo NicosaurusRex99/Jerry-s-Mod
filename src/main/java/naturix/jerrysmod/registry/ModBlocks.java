@@ -2,13 +2,14 @@ package naturix.jerrysmod.registry;
 
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.objects.blocks.*;
+import naturix.jerrysmod.world.SlimeTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.trees.BirchTree;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.world.gen.feature.TreeFeature;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -55,7 +56,7 @@ public class ModBlocks {
         register(e, new LogBase("slime_log", Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(2.0F).sound(SoundType.WOOD).func_235861_h_()));
         register(e, new LogBase("slime_log_stripped", Block.Properties.create(Material.WOOD, MaterialColor.LIME).hardnessAndResistance(2.0F).sound(SoundType.WOOD).func_235861_h_()));
         register(e, new LeavesBase("slime_leaves", Block.Properties.create(Material.LEAVES, MaterialColor.LIME).func_235861_h_().hardnessAndResistance(1, 1).sound(SoundType.PLANT)));
-        register(e, new SaplingBase("slime_sapling", new BirchTree()));
+        register(e, new SaplingBase("slime_sapling", new SlimeTree()));
         register(e, new StairsBase("olive_stairs", Blocks.OAK_PLANKS.getDefaultState(), Block.Properties.create(Material.WOOD, MaterialColor.LIME).func_235861_h_().hardnessAndResistance(1, 1).sound(SoundType.WOOD)));
         register(e, new ButtonBase("olive_button"));
         register(e, new SlabBase("olive_slab"));

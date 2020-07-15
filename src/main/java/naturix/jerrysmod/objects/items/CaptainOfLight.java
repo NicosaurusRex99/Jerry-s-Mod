@@ -1,7 +1,18 @@
 package naturix.jerrysmod.objects.items;
 
 import naturix.jerrysmod.JerrysMod;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.IFormattableTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.Style;
+import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class CaptainOfLight extends ItemBase {
 
@@ -31,4 +42,10 @@ public class CaptainOfLight extends ItemBase {
 //                    RayTraceContext.FluidMode.NONE, entity);
 //            return entity.world.rayTraceBlocks(context);
 //        }
+
+
+    @OnlyIn(Dist.CLIENT)
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    tooltip.add(ITextComponent.func_241827_a_("This item does not work yet. It will soon hopefully"));
+    }
     }

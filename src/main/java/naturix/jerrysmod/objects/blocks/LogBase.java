@@ -1,6 +1,7 @@
 package naturix.jerrysmod.objects.blocks;
 
 import naturix.jerrysmod.JerrysMod;
+import naturix.jerrysmod.registry.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RotatedPillarBlock;
@@ -16,7 +17,6 @@ import net.minecraft.world.World;
 
 public class LogBase extends RotatedPillarBlock {
 
-    Item.Properties properties;
     public LogBase(String name, Block.Properties props){
         super(props);
         setRegistryName(JerrysMod.MODID, name);
@@ -31,8 +31,7 @@ public class LogBase extends RotatedPillarBlock {
             if (itemStack.getItem() instanceof AxeItem)
             {
                 BlockState sourceState = world.getBlockState(pos);
-                //TODO - Fix stripped log
-//                world.setBlockState(pos, ModBlocks.slime_log_stripped.getDefaultState(), 3);
+                world.setBlockState(pos, ModBlocks.slimeLogStripped.getDefaultState(), 3);
                 itemStack.damageItem(1, player, (p_220040_1_) -> p_220040_1_.sendBreakAnimation(hand));
                 return ActionResultType.PASS;
             }

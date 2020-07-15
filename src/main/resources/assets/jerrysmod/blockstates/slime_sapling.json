@@ -1,5 +1,7 @@
 {
     "variants": {
-        "": { "model": "jerrysmod:block/slime_sapling" }
+        "": {
+            "model": "jerrysmod:block/slime_sapling"
+        }
     }
 }

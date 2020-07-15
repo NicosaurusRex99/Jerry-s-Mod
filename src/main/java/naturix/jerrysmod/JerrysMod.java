@@ -36,6 +36,7 @@ public class JerrysMod
 
     public JerrysMod() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::client);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -44,6 +45,11 @@ public class JerrysMod
         proxy.init();
         ModOreFeature.setupOreGenerator();
 
+    }
+
+    private void client(final FMLClientSetupEvent event) {
+        RenderTypeLookup.setRenderLayer(ModBlocks.slimeSapling, RenderType.getCutoutMipped());
+        RenderTypeLookup.setRenderLayer(ModBlocks.slimeLeaves, RenderType.getCutoutMipped());
     }
 
 }

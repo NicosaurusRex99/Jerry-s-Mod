@@ -10,10 +10,7 @@ public class ModSetup {
     public ItemGroup itemGroup = new ItemGroup(JerrysMod.MODID) {
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(
-//                    ModItems.slimeShard
-                    Blocks.DIAMOND_BLOCK
-            );
+            return new ItemStack(ModItems.slimeHead);
         }
     };
 

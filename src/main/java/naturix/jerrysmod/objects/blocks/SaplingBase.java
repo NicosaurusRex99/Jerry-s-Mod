@@ -3,6 +3,7 @@ package naturix.jerrysmod.objects.blocks;
 import naturix.jerrysmod.JerrysMod;
 import naturix.jerrysmod.registry.ModBlocks;
 import naturix.jerrysmod.registry.ModItems;
+import naturix.jerrysmod.world.SlimeTree;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -20,16 +21,19 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.ChunkGenerator;
+import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class SaplingBase extends SaplingBlock implements IGrowable
-{
-    public SaplingBase(String name, Tree tree)
-    {
-        super(tree, Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0,0).sound(SoundType.PLANT));
-        this.setDefaultState(this.stateContainer.getBaseState().with(STAGE, Integer.valueOf(0)));
-        this.setRegistryName(JerrysMod.MODID, name);
+public class SaplingBase extends SaplingBlock {
+
+    public SaplingBase(String name, Tree tree) {
+        super(tree, Properties.create(Material.PLANTS)
+                        .doesNotBlockMovement()
+                        .tickRandomly()
+                        .zeroHardnessAndResistance()
+                        .sound(SoundType.PLANT));
+    setRegistryName(JerrysMod.MODID, name);
     }
-
 }
