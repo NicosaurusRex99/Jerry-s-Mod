@@ -1,6 +1,7 @@
 {
 	"homepage": "https://minecraft.curseforge.com/projects/jerrys-mod/files",
 	"1.16.1": {
+		"1.16.1.1": "Fixed Captain of Light",
 		"1.16.1.0": "Ported"
 	},
   "1.15.2": {
@@ -22,8 +23,8 @@
 		"1.12.2.1": "Rewrote for 1.12.2"
 	},
 	"promos": {
-		"1.16.1-latest": "1.16.1.0",
-		"1.16.1-recommended": "1.16.1.0",
+		"1.16.1-latest": "1.16.1.1",
+		"1.16.1-recommended": "1.16.1.1",
 		"1.15.2-latest": "1.15.2.1",
 		"1.15.2-recommended": "1.15.2.1",
 		"1.14.3-latest": "1.14.3.0",
