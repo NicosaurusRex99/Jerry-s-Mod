@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:slime_shard"
+              "name": "jerrysmod:slime_shard"
             }
           ]
         }

@@ -4,9 +4,9 @@ plugins {
     id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-version = '2.0'
+version = 'v0.2.1'
 group = 'nicusha.jerrysmod'
-archivesBaseName = 'jerrysmod'
+archivesBaseName = '[1.19.2] Jerrys Mod'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 

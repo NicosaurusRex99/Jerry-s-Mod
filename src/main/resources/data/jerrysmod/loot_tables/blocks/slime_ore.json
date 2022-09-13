@@ -24,7 +24,7 @@
                   }
                 }
               ],
-              "name": "jerrysmod:deepslate_slime_ore"
+              "name": "jerrysmod:slime_ore"
             },
             {
               "type": "minecraft:item",
@@ -38,7 +38,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "minecraft:slime_shard"
+              "name": "jerrysmod:slime_shard"
             }
           ]
         }
