@@ -1,0 +1,23 @@
+{
+  "display": {
+    "icon": {
+      "item": "jerrysmod:jerry_gem"
+    },
+    "title": {
+      "translate": "jerrysmod.advancement.root"
+    },
+    "description": {
+      "translate": "jerrysmod.advancement.root.desc"
+    },
+    "background": "jerrysmod:textures/blocks/deepslate_slime_ore.png",
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "divinerpg": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "dimension": "overworld"
+      }
+    }
+  }
+}

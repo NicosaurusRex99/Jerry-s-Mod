@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#is_overworld",
+  "features": [
+    "jerrysmod:slime_ore",
+    "jerrysmod:deepslate_slime_ore"
+  ],
+  "step": "underground_ores"
+}

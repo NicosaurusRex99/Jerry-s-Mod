@@ -1,34 +1,29 @@
-modLoader="javafml" #mandatory
-loaderVersion="[26,)" #mandatory (26 is current forge version)
-issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues" #optional
-[[mods]] #mandatory
-modId="jerrysmod" #mandatory
-version="${file.jarVersion}" #mandatory
-displayName="Jerry's Mod" #mandatory
-updateJSONURL="https://raw.githubusercontent.com/NicosaurusRex99/Jerry-s-Mod/master/jerrys_mod_updates.json" #optional
-displayURL="https://www.curseforge.com/minecraft/mc-mods/jerrys-mod" #optional
-logoFile="logo.png" #optional
-credits="Thanks to sniper mine and hawaii beach for letting me do this!" #optional
-authors="Sniper_mine, Hawaii_Beach and NicosaurusRex99" #optional
+modLoader="javafml"
+loaderVersion="[43,)"
+license="GNU GENERAL PUBLIC LICENSE"
+issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues"
+[[mods]]
+modId="jerrysmod"
+version="${file.jarVersion}"
+displayName="Jerry's Mod"
+updateJSONURL="https://raw.githubusercontent.com/NicosaurusRex99/Nicusha-mod-assets/main/jerry_update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/jerrys-mod"
+logoFile="logo.png"
+credits="Thanks to sniper mine and hawaii beach for letting me do this!"
+authors="Sniper_mine, Hawaii_Beach and NicosaurusRex99"
 description='''
 Made in honor of Jerry the noble slime!
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.examplemod]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[27,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
-    ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
-    side="BOTH"
-# Here's another dependency
-[[dependencies.examplemod]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.14.4]"
-    ordering="NONE"
-    side="BOTH"
+
+[[dependencies.jerrysmod]]
+modId="forge"
+mandatory=true
+versionRange="[43,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.jerrysmod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.19.2,1.20)"
+ordering="NONE"
+side="BOTH"

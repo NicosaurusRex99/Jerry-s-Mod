@@ -27,8 +27,9 @@
 	"item.jerrysmod.captain_of_light": "Captain of Light",
 	"item.jerrysmod.olives": "Olives",
 	"item.jerrysmod.grapes": "Grapes",
-	
+
 	"block.jerrysmod.slime_ore": "Slime Ore",
+	"block.jerrysmod.deepslate_slime_ore": "Deepslate Slime Ore",
 	"block.jerrysmod.slime_log": "Olive Log",
 	"block.jerrysmod.slime_log_stripped": "Stripped Olive Log",
 	"block.jerrysmod.slime_leaves": "Olive Leaves",
@@ -44,5 +45,10 @@
 	"block.jerrysmod.olive_door": "Olive Door",
 
     "_comment": "Creative Tabs",
-    "itemGroup.jerrysmod": "Jerry's Mod"
+    "itemGroup.jerrysmod": "Jerry's Mod",
+
+	"jerrysmod.advancement.root": "Jerry's Mod",
+	"jerrysmod.advancement.root.desc": "Jerry lives on!",
+	"jerrysmod.advancement.captain_of_light": "Jerry's Fury",
+	"jerrysmod.advancement.captain_of_light.desc": "Use the Captain of Light"
 }
