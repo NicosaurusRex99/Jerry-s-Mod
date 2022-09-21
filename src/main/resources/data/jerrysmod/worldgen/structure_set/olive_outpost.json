@@ -1,0 +1,15 @@
+{
+  "structures": [
+    {
+      "structure": "jerrysmod:olive_outpost",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 234551234,
+    "spread_type": "linear",
+    "spacing": 50,
+    "separation": 25
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "jerrysmod:stripped_olive_log",
+    "jerrysmod:olive_log",
+    "jerrysmod:olive_planks",
+    "jerrysmod:olive_stairs",
+    "jerrysmod:olive_button",
+    "jerrysmod:olive_slab",
+    "jerrysmod:olive_fence",
+    "jerrysmod:olive_fence_gate",
+    "jerrysmod:olive_trap_door",
+    "jerrysmod:olive_door",
+    "jerrysmod:olive_pressure_plate"
+  ]
+}

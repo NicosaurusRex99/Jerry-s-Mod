@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "jerrysmod:block/slime_grass"
+      },
+      {
+        "model": "jerrysmod:block/slime_grass",
+        "y": 90
+      },
+      {
+        "model": "jerrysmod:block/slime_grass",
+        "y": 180
+      },
+      {
+        "model": "jerrysmod:block/slime_grass",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "jerrysmod:block/slime_grass"
+    }
+  }
+}

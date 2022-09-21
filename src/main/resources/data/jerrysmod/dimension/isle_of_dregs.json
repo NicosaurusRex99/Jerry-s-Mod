@@ -1,0 +1,11 @@
+{
+  "type": "jerrysmod:isle_of_dregs",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "jerrysmod:dregs",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "jerrysmod:dregs"
+    }
+  }
+}

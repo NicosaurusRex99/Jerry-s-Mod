@@ -32,11 +32,11 @@ public class ItemRegistry {
 //            slime_chunk = registerItem("slime_chunk", () -> new ItemMod()),
 //            slime_drop = registerItem("slime_drop", () -> new ItemMod()),
 //            slime_head = registerItem("slime_head", () -> new ItemMod()),
-            slime_stick = registerItem("slime_stick", () -> new ItemMod()),
+            slime_stick = registerItem("olive_stick", () -> new ItemMod()),
             slime_shard = registerItem("slime_shard", () -> new ItemMod()),
             captain_of_light = registerItem("captain_of_light", () -> new ItemCaptainOfLight()),
-//            grapes = registerItem("grapes", () -> new ItemMod(new Item.Properties().tab(TabRegistry.jerrysmod).food(FoodStats.GRAPES))),
-//            oilves = registerItem("olives", () -> new ItemMod(new Item.Properties().tab(TabRegistry.jerrysmod).food(FoodStats.OLIVES))),
+            grapes = registerItem("grapes", () -> new ItemMod(new Item.Properties().tab(TabRegistry.jerrysmod).food(FoodStats.GRAPES))),
+            oilves = registerItem("olives", () -> new ItemMod(new Item.Properties().tab(TabRegistry.jerrysmod).food(FoodStats.OLIVES))),
             slime_helmet = registerItem("slime_helmet", () -> new ItemModArmor(slime_helmet_material, EquipmentSlot.HEAD)),
             slime_chestplate = registerItem("slime_chestplate", () -> new ItemModArmor(slime_chestplate_material, EquipmentSlot.CHEST)),
             slime_leggings = registerItem("slime_leggings", () -> new ItemModArmor(slime_leggings_material, EquipmentSlot.LEGS)),
@@ -54,7 +54,8 @@ public class ItemRegistry {
             slime_hoe = registerItem("slime_hoe", () -> new ItemModHoe(ModToolTier.slime_hoe)),
             jerry_hoe = registerItem("jerry_hoe", () -> new ItemModHoe(ModToolTier.jerry_hoe)),
             slime_shovel = registerItem("slime_shovel", () -> new ItemModShovel(ModToolTier.slime_shovel)),
-            jerry_shovel = registerItem("jerry_shovel", () -> new ItemModShovel(ModToolTier.jerry_shovel));
+            jerry_shovel = registerItem("jerry_shovel", () -> new ItemModShovel(ModToolTier.jerry_shovel)),
+            lighter = registerItem("lighter", () -> new ItemPortalLighter());
 
 
     private static <T extends Item> RegistryObject<T> registerItem(String registryId, Supplier<T> item) {

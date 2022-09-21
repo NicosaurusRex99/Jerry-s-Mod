@@ -1,7 +1,0 @@
-{
-  "parent": "block/door_bottom_rh",
-  "textures": {
-    "bottom": "jerrysmod:blocks/olive_door_bottom",
-    "top": "jerrysmod:blocks/olive_door_top"
-  }
-}

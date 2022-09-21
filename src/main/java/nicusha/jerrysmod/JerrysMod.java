@@ -1,7 +1,9 @@
 package nicusha.jerrysmod;
 
+import com.google.common.collect.ImmutableMap;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -24,6 +26,7 @@ public class JerrysMod
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockRegistry.BLOCK_ITEMS.register(bus);
+        PointOfInterestRegistry.POI.register(bus);
 
 
         bus.addListener(this::common);
@@ -32,5 +35,9 @@ public class JerrysMod
     private void common(final FMLCommonSetupEvent event) {
         tabs.init();
         ModIntegration.initCommon(event);
+
+        event.enqueueWork(() -> {
+            AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES) .put(BlockRegistry.olive_log.get(), BlockRegistry.stripped_olive_log.get()).build();
+        });
     }
 }

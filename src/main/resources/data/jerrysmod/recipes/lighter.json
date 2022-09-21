@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " # ",
+    "LCL",
+    "LLL"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:flint_and_steel"
+    },
+    "L": {
+      "item": "minecraft:lime_terracotta"
+    },
+    "C": {
+      "item": "minecraft:coal"
+    }
+  },
+  "result": {
+    "item": "jerrysmod:lighter",
+    "count": 1
+  }
+}
