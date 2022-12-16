@@ -2,9 +2,9 @@
   "textures": {
     "particle": "block/dirt",
     "bottom": "block/dirt",
-    "top": "jerrysmod:blocks/slime_grass_top",
-    "side": "jerrysmod:blocks/slime_grass",
-    "overlay": "jerrysmod:blocks/slime_grass"
+    "top": "jerrysmod:block/slime_grass_top",
+    "side": "jerrysmod:block/slime_grass",
+    "overlay": "jerrysmod:block/slime_grass"
   },
   "elements": [
     {   "from": [ 0, 0, 0 ],

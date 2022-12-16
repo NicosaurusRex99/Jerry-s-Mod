@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "jerrysmod:items/jerry_chestplate"
+        "layer0": "jerrysmod:item/jerry_chestplate"
     }
 }

@@ -15,7 +15,7 @@ import nicusha.jerrysmod.registry.*;
 public class ItemPortalLighter extends ItemMod {
 
     public ItemPortalLighter(){
-        super(new Properties().tab(TabRegistry.jerrysmod).stacksTo(1));
+        super(new Properties().stacksTo(1));
     }
 
     @Override

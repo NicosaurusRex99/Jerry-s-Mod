@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "jerrysmod:blocks/deepslate_slime_ore"
+    "all": "jerrysmod:block/deepslate_slime_ore"
   }
 }

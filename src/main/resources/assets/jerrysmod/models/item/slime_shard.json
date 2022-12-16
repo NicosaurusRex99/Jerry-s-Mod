@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "jerrysmod:items/slime_shard"
+        "layer0": "jerrysmod:item/slime_shard"
     }
 }

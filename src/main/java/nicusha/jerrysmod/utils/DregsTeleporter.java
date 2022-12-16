@@ -194,7 +194,7 @@ public class DregsTeleporter implements ITeleporter {
                     vector3d = new Vec3(0.5D, 0.0D, 0.0D);
                 }
 
-                return PortalShape.createPortalInfo(destWorld, result, axis, vector3d, entity.getDimensions(entity.getPose()), entity.getDeltaMovement(), entity.yRot, entity.xRot);
+                return PortalShape.createPortalInfo(destWorld, result, axis, vector3d, entity, entity.getDeltaMovement(), entity.yRot, entity.xRot);
             }).orElse(null);
         }
     }

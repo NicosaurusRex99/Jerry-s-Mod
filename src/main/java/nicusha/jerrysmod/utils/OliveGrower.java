@@ -1,6 +1,7 @@
 package nicusha.jerrysmod.utils;
 
 import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -13,16 +14,16 @@ import org.jetbrains.annotations.Nullable;
 
 public class OliveGrower extends AbstractTreeGrower {
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE_TREE =  ResourceKey.create(Registry.CONFIGURED_FEATURE_REGISTRY, new ResourceLocation(JerrysMod.MODID, "olive_tree"));
+    public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE_TREE =  ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(JerrysMod.MODID, "olive_tree"));
     @Nullable
     @Override
-    protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean b) {
-        return null;
+    protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource random, boolean b) {
+        return OLIVE_TREE;
     }
 
     @Override
     public boolean growTree(ServerLevel level, ChunkGenerator chunkGenerator, BlockPos pos, BlockState state, RandomSource random) {
-        Holder<? extends ConfiguredFeature<?, ?>> holder = level.registryAccess().registryOrThrow(Registry.CONFIGURED_FEATURE_REGISTRY).getHolderOrThrow(OLIVE_TREE);
+        Holder<? extends ConfiguredFeature<?, ?>> holder = level.registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE).getHolderOrThrow(OLIVE_TREE);
 
         if (holder == null) {
             return false;

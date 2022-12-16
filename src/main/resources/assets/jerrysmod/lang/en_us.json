@@ -49,7 +49,7 @@
 	"block.jerrysmod.dregs_portal": "Isle of Dregs Portal",
 
     "_comment": "Creative Tabs",
-    "itemGroup.jerrysmod": "Jerry's Mod",
+    "itemGroup.jerry": "Jerry's Mod",
 
 	"jerrysmod.advancement.root": "Jerry's Mod",
 	"jerrysmod.advancement.root.desc": "Jerry lives on!",

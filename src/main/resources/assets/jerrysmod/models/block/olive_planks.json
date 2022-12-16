@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "jerrysmod:blocks/olive_planks"
+        "all": "jerrysmod:block/olive_planks"
     }
 }

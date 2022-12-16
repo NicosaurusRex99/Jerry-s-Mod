@@ -1,6 +1,6 @@
 {
   "parent": "block/pressure_plate_down",
   "textures": {
-    "texture": "jerrysmod:blocks/olive_planks"
+    "texture": "jerrysmod:block/olive_planks"
   }
 }

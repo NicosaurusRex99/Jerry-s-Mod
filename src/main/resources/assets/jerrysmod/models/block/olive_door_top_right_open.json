@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/door_top_right_open",
   "textures": {
-    "bottom": "jerrysmod:blocks/olive_door_bottom",
-    "top": "jerrysmod:blocks/olive_door_top"
+    "bottom": "jerrysmod:block/olive_door_bottom",
+    "top": "jerrysmod:block/olive_door_top"
   }
 }

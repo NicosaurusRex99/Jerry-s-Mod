@@ -2,8 +2,8 @@
   "parent": "block/block",
   "render_type": "cutout_mipped",
   "textures": {
-    "particle": "jerrysmod:blocks/isle_of_dregs_portal",
-    "portal": "jerrysmod:blocks/isle_of_dregs_portal"
+    "particle": "jerrysmod:block/isle_of_dregs_portal",
+    "portal": "jerrysmod:block/isle_of_dregs_portal"
   },
   "elements": [
     {

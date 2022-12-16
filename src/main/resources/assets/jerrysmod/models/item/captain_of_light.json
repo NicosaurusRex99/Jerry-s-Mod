@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "jerrysmod:items/captain_of_light"
+        "layer0": "jerrysmod:item/captain_of_light"
     }
 }

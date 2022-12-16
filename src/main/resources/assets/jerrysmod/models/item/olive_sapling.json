@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "jerrysmod:blocks/olive_sapling"
+        "layer0": "jerrysmod:block/olive_sapling"
     }
 }

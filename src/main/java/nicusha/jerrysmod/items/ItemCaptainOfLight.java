@@ -1,7 +1,6 @@
 package nicusha.jerrysmod.items;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.ServerAdvancementManager;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
@@ -10,12 +9,11 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import nicusha.jerrysmod.JerrysMod;
-import nicusha.jerrysmod.registry.TabRegistry;
 
 public class ItemCaptainOfLight extends ItemMod {
 
     public ItemCaptainOfLight() {
-        super(new Item.Properties().stacksTo(1).tab(TabRegistry.jerrysmod));
+        super(new Item.Properties().stacksTo(1));
     }
 
     @Override

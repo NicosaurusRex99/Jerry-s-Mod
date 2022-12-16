@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "jerrysmod:items/slime_hoe"
+        "layer0": "jerrysmod:item/slime_hoe"
     }
 }

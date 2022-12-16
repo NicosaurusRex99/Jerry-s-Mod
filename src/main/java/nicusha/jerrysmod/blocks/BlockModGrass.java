@@ -1,6 +1,7 @@
 package nicusha.jerrysmod.blocks;
 
 import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
@@ -15,7 +16,7 @@ import net.minecraft.world.level.lighting.LayerLightEngine;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.common.IPlantable;
 
-import java.util.List;
+import java.util.*;
 
 public class BlockModGrass extends GrassBlock {
     public BlockModGrass() {
@@ -38,6 +39,7 @@ public class BlockModGrass extends GrassBlock {
     public void performBonemeal(ServerLevel level, RandomSource random, BlockPos pos, BlockState state) {
         BlockPos blockpos = pos.above();
         BlockState blockstate = this.defaultBlockState();
+        Optional<Holder.Reference<PlacedFeature>> optional = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE).getHolder(VegetationPlacements.GRASS_BONEMEAL);
 
         label46:
         for(int i = 0; i < 128; ++i) {
@@ -65,13 +67,16 @@ public class BlockModGrass extends GrassBlock {
 
                     holder = ((RandomPatchConfiguration)list.get(0).config()).feature();
                 } else {
-                    holder = VegetationPlacements.GRASS_BONEMEAL;
+                    if (!optional.isPresent()) {
+                        continue;
+                    }
+
+                    holder = optional.get();
                 }
 
                 holder.value().place(level, level.getChunkSource().getGenerator(), random, blockpos1);
             }
         }
-
     }
     private static boolean canBeGrass(BlockState state, LevelReader level, BlockPos pos) {
         BlockPos blockpos = pos.above();

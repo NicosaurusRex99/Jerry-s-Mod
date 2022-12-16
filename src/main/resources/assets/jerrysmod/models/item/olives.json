@@ -1,6 +1,6 @@
 {
     "parent": "item/handheld",
     "textures": {
-        "layer0": "jerrysmod:items/olives"
+        "layer0": "jerrysmod:item/olives"
     }
 }

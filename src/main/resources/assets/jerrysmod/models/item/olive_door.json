@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "jerrysmod:items/olive_door"
+    "layer0": "jerrysmod:item/olive_door"
   }
 }
