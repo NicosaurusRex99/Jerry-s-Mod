@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#forge:stone/slime"
+    "jerrysmod:slime_gem"
   ]
 }
