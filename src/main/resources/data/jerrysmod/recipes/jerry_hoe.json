@@ -8,7 +8,7 @@
     ],
     "key": {
         "Y": { "item": "minecraft:stick" },
-        "M": { "item": "jerrysmod:jerry_gem" }
+        "M": { "tag": "forge:gems/jerry" }
     },
     "result": {
         "item": "jerrysmod:jerry_hoe"

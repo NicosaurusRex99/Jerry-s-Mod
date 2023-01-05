@@ -3,12 +3,16 @@
     "group": "jerrysmod",
     "pattern": [
         "  X",
-		" C ",
-		"C  "
+        " C ",
+        "C  "
     ],
     "key": {
-        "C": { "item": "jerrysmod:olive_stick" },
-        "X": { "item": "jerrysmod:jerry_gem" }
+        "C": {
+            "item": "jerrysmod:olive_stick"
+        },
+        "X": {
+            "tag": "forge:gems/jerry"
+        }
     },
     "result": {
         "item": "jerrysmod:captain_of_light"

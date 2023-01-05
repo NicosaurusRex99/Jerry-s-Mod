@@ -8,7 +8,7 @@
     ],
     "key": {
         "Y": { "item": "minecraft:stick" },
-        "M": { "item": "jerrysmod:slime_gem" }
+        "M": { "tag": "forge:gems/slime" }
     },
     "result": {
         "item": "jerrysmod:slime_pickaxe"

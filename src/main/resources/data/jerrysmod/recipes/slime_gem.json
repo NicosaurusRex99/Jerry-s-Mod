@@ -7,7 +7,7 @@
 		"MMM"
     ],
     "key": {
-        "M": { "item": "minecraft:diamond_block" },
+        "M": { "tag": "forge:storage_blocks/diamond" },
         "Y": { "item": "jerrysmod:slime_shard" }
     },
     "result": {
