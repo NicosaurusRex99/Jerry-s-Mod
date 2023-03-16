@@ -5,7 +5,7 @@ import net.minecraft.world.item.*;
 
 public class ItemModArmor extends ArmorItem {
 
-    public ItemModArmor(ArmorMaterial material, EquipmentSlot slot) {
+    public ItemModArmor(ArmorMaterial material, ArmorItem.Type slot) {
         super(material, slot, new Properties());
     }
 }

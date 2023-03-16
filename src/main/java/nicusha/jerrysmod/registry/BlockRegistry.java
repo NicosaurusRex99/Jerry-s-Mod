@@ -9,6 +9,7 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.*;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
@@ -45,13 +46,13 @@ public class BlockRegistry {
                 }
             }),
             olive_stairs = registerBlock("olive_stairs", () -> new StairBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).defaultBlockState(), BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_button = registerBlock("olive_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), 30, true, SoundEvents.BAMBOO_WOOD_BUTTON_CLICK_OFF, SoundEvents.BAMBOO_WOOD_BUTTON_CLICK_ON)),
+            olive_button = registerBlock("olive_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO, 30, true)),
             olive_slab = registerBlock("olive_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_pressure_plate = registerBlock("olive_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), SoundEvents.BAMBOO_WOOD_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BAMBOO_WOOD_PRESSURE_PLATE_CLICK_ON)),
+            olive_pressure_plate = registerBlock("olive_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
             olive_fence = registerBlock("olive_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_fence_gate = registerBlock("olive_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), SoundEvents.BAMBOO_WOOD_DOOR_CLOSE, SoundEvents.BAMBOO_WOOD_DOOR_OPEN)),
-            olive_trap_door = registerBlock("olive_trap_door", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), SoundEvents.BAMBOO_WOOD_TRAPDOOR_CLOSE, SoundEvents.BAMBOO_WOOD_TRAPDOOR_OPEN)),
-            olive_door = registerBlock("olive_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), SoundEvents.BAMBOO_WOOD_DOOR_CLOSE, SoundEvents.BAMBOO_WOOD_DOOR_OPEN)),
+            olive_fence_gate = registerBlock("olive_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), WoodType.BAMBOO)),
+            olive_trap_door = registerBlock("olive_trap_door", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
+            olive_door = registerBlock("olive_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
             dregs_portal = registerBlock("dregs_portal", () -> new DregsPortal());
 
 
