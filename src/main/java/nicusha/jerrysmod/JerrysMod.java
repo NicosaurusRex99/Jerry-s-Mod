@@ -2,12 +2,12 @@ package nicusha.jerrysmod;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.logging.LogUtils;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -17,6 +17,7 @@ import nicusha.jerrysmod.registry.*;
 import org.slf4j.Logger;
 
 @Mod(JerrysMod.MODID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = JerrysMod.MODID)
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
@@ -25,12 +26,12 @@ public class JerrysMod
     public JerrysMod()
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        bus.addListener(JerrysMod::registerTab);
 
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockRegistry.BLOCK_ITEMS.register(bus);
         PointOfInterestRegistry.POI.register(bus);
+        TAB.register(bus);
 
 
         bus.addListener(this::common);
@@ -43,23 +44,18 @@ public class JerrysMod
             AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES) .put(BlockRegistry.olive_log.get(), BlockRegistry.stripped_olive_log.get()).build();
         });
     }
+    public static final DeferredRegister<CreativeModeTab> TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final ResourceLocation TAB = new ResourceLocation(JerrysMod.MODID, "jerry");
-
-    private static ItemStack makeIcon() {
-        return new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(JerrysMod.MODID, "slime_gem")));
-    }
-
-
-    public static void registerTab(CreativeModeTabEvent.Register event){
-        event.registerCreativeModeTab(TAB, builder -> builder.title(Component.translatable("itemGroup.jerry")).icon(JerrysMod::makeIcon).displayItems((flags, output) -> {
-            for(RegistryObject<Item> item : ItemRegistry.ITEMS.getEntries()){
-                output.accept(item.get());
+    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = TAB.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.jerry")).icon(() -> new ItemStack(ItemRegistry.slime_gem.get())).build());
+    @SubscribeEvent
+    public static void creativeTab(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == CREATIVE_TAB.get()) {
+            for (var regObj : ItemRegistry.ITEMS.getEntries()) {
+                event.accept(regObj.get());
             }
-            for(RegistryObject<Item> item : BlockRegistry.BLOCK_ITEMS.getEntries()){
-                output.accept(item.get());
+            for (var regObj : BlockRegistry.BLOCK_ITEMS.getEntries()) {
+                event.accept(regObj.get());
             }
-        }));
-
+        }
     }
 }

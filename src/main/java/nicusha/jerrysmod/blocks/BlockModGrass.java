@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.lighting.LayerLightEngine;
+import net.minecraft.world.level.lighting.LightEngine;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.common.IPlantable;
 
@@ -20,7 +20,7 @@ import java.util.*;
 
 public class BlockModGrass extends GrassBlock {
     public BlockModGrass() {
-        super(Block.Properties.of(Material.DIRT, MaterialColor.COLOR_LIGHT_GREEN).randomTicks().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.GRASS));
+        super(Block.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).randomTicks().requiresCorrectToolForDrops().strength(2.0F, 3.0F).sound(SoundType.GRASS));
     }
 
     @Override
@@ -86,7 +86,7 @@ public class BlockModGrass extends GrassBlock {
         } else if (blockstate.getFluidState().getAmount() == 8) {
             return false;
         } else {
-            int i = LayerLightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));
+            int i = LightEngine.getLightBlockInto(level, state, pos, blockstate, blockpos, Direction.UP, blockstate.getLightBlock(level, blockpos));
             return i < level.getMaxLightLevel();
         }
     }

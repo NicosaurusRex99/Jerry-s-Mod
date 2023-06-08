@@ -10,7 +10,6 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.shapes.*;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,7 +26,7 @@ public class DregsPortal extends Block {
     protected static final VoxelShape Z_AXIS_AABB = Block.box(6.0D, 0.0D, 0.0D, 10.0D, 16.0D, 16.0D);
 
     public DregsPortal() {
-        super(BlockBehaviour.Properties.of(Material.PORTAL)
+        super(BlockBehaviour.Properties.of()
                 .strength(-1F)
                 .noCollission()
                 .lightLevel((state) -> 11)
@@ -56,17 +55,17 @@ public class DregsPortal extends Block {
 
     @Override
     public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
-        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level.isClientSide){
+        if (!entity.isPassenger() && !entity.isVehicle() && entity.canChangeDimensions() && !entity.level().isClientSide){
             if(entity.isOnPortalCooldown()) {
                 entity.setPortalCooldown();
             }
             if(!entity.isOnPortalCooldown() && entity instanceof LivingEntity) {
-                entity.level.getProfiler().push(world.dimension().location().getPath());
+                entity.level().getProfiler().push(world.dimension().location().getPath());
                 if (this == BlockRegistry.dregs_portal.get()) {
                     ResourceKey<Level> key = world.dimension() == PointOfInterestRegistry.DREGS ? Level.OVERWORLD : PointOfInterestRegistry.DREGS;
                     entity.changeDimension(world.getServer().getLevel(key), new DregsTeleporter(world.getServer().getLevel(key), BlockRegistry.dregs_portal.get(), Blocks.SLIME_BLOCK, true, PointOfInterestRegistry.DREGS_PORTAL.getKey()));
                 }
-                entity.level.getProfiler().pop();
+                entity.level().getProfiler().pop();
             }
         }
 

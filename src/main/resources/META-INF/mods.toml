@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[46,)"
 license="GNU GENERAL PUBLIC LICENSE"
 issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues"
 [[mods]]
@@ -18,12 +18,12 @@ Made in honor of Jerry the noble slime!
 [[dependencies.jerrysmod]]
 modId="forge"
 mandatory=true
-versionRange="[44,)"
+versionRange="[46,)"
 ordering="NONE"
 side="BOTH"
 [[dependencies.jerrysmod]]
 modId="minecraft"
 mandatory=true
-versionRange="[1.19.4,1.20)"
+versionRange="[1.20,)"
 ordering="NONE"
 side="BOTH"
