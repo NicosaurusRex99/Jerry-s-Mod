@@ -1,8 +1,13 @@
 package nicusha.jerrysmod.integration;
 
+import jeresources.api.*;
+import jeresources.compatibility.api.JERAPI;
+import net.minecraft.resources.ResourceLocation;
+import nicusha.jerrysmod.JerrysMod;
+
 public class JERCompat {
     public static void init() {
-//        IJERAPI jerApi = JERAPI.getInstance();
+        IJERAPI jerApi = JERAPI.getInstance();
 //
 //        IWorldGenRegistry worldGenRegistry = jerApi.getWorldGenRegistry();
 //        if (worldGenRegistry != null) {
@@ -10,10 +15,10 @@ public class JERCompat {
 //            worldGenRegistry.register(new ItemStack(BlockRegistry.deepslate_slime_ore.get()), new DistributionSquare(5, 3, -64, 0));
 //        }
 //
-//        IDungeonRegistry dungeonRegistry = jerApi.getDungeonRegistry();
-//        if (dungeonRegistry != null) {
-//            //Arcana
-//            dungeonRegistry.registerChest("Olive Outpost Chest", new ResourceLocation(JerrysMod.MODID, "chests/olive_outpost"));
-//        }
+        IDungeonRegistry dungeonRegistry = jerApi.getDungeonRegistry();
+        if (dungeonRegistry != null) {
+            //Arcana
+            dungeonRegistry.registerChest("Olive Outpost Chest", new ResourceLocation(JerrysMod.MODID, "chests/olive_outpost"));
+        }
     }
 }
