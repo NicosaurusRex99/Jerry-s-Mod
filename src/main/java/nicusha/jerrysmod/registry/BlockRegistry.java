@@ -1,29 +1,31 @@
 package nicusha.jerrysmod.registry;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.*;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.features.TreeFeatures;
+import net.minecraft.resources.*;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.grower.OakTreeGrower;
+import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.*;
 import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.material.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.*;
 import nicusha.jerrysmod.JerrysMod;
 import nicusha.jerrysmod.blocks.*;
-import nicusha.jerrysmod.utils.OliveGrower;
+import nicusha.jerrysmod.utils.JerryTreeGrower;
 
+import java.util.Optional;
 import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = JerrysMod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BlockRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, JerrysMod.MODID);
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, JerrysMod.MODID);
-
     public static final RegistryObject<Block> slime_ore = registerBlock("slime_ore", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).requiresCorrectToolForDrops().strength(2.0F, 3.0F))),
             deepslate_slime_ore = registerBlock("deepslate_slime_ore", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).requiresCorrectToolForDrops())),
             slime_stone = registerBlock("slime_stone", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).strength(2.0F, 3.0F).requiresCorrectToolForDrops())),
@@ -38,21 +40,21 @@ public class BlockRegistry {
                     entity.setDeltaMovement(entity.getDeltaMovement().add(0, 0.8, 0));
                 }
             }),
-            olive_sapling = registerBlock("olive_sapling", () -> new SaplingBlock(new OliveGrower(), BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)){
+            olive_sapling = registerBlock("olive_sapling", () -> new SaplingBlock(JerryTreeGrower.OLIVE, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GREEN).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)){
                 @Override
                 public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
                     BlockState soil = worldIn.getBlockState(pos.below());
                     return super.canSurvive(state, worldIn, pos) || soil.getBlock() == ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "slime_grass"));
                 }
             }),
-            olive_stairs = registerBlock("olive_stairs", () -> new StairBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).defaultBlockState(), BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_button = registerBlock("olive_button", () -> new ButtonBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO, 30, true)),
-            olive_slab = registerBlock("olive_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_pressure_plate = registerBlock("olive_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
-            olive_fence = registerBlock("olive_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))))),
-            olive_fence_gate = registerBlock("olive_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), WoodType.BAMBOO)),
-            olive_trap_door = registerBlock("olive_trap_door", () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
-            olive_door = registerBlock("olive_door", () -> new DoorBlock(BlockBehaviour.Properties.copy(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks"))), BlockSetType.BAMBOO)),
+            olive_stairs = registerBlock("olive_stairs", () -> new StairBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).defaultBlockState(), ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_button = registerBlock("olive_button", () -> new ButtonBlock(BlockSetType.BAMBOO, 30, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_slab = registerBlock("olive_slab", () -> new SlabBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_pressure_plate = registerBlock("olive_pressure_plate", () -> new PressurePlateBlock(BlockSetType.BAMBOO, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_fence = registerBlock("olive_fence", () -> new FenceBlock(ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_fence_gate = registerBlock("olive_fence_gate", () -> new FenceGateBlock(WoodType.BAMBOO, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_trap_door = registerBlock("olive_trap_door", () -> new TrapDoorBlock(BlockSetType.BAMBOO, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
+            olive_door = registerBlock("olive_door", () -> new DoorBlock(BlockSetType.BAMBOO, ForgeRegistries.BLOCKS.getValue(new ResourceLocation(JerrysMod.MODID, "olive_planks")).properties())),
             dregs_portal = registerBlock("dregs_portal", () -> new DregsPortal());
 
 

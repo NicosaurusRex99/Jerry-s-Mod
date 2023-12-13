@@ -39,8 +39,8 @@ public class ItemCaptainOfLight extends ItemMod {
                 });
             }
             if(player instanceof ServerPlayer){
-                if(!((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().getAdvancement(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).isDone()) {
-                    ((ServerPlayer) player).getAdvancements().award(((ServerPlayer) player).server.getAdvancements().getAdvancement(new ResourceLocation(JerrysMod.MODID, "captain_of_light")), ((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().getAdvancement(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).getRemainingCriteria().iterator().next());
+                if(!((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).isDone()) {
+                    ((ServerPlayer) player).getAdvancements().award(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light")), ((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).getRemainingCriteria().iterator().next());
                 }
             }
         }

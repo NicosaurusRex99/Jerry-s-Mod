@@ -1,29 +1,15 @@
 modLoader="javafml"
-loaderVersion="[46,)"
-license="GNU GENERAL PUBLIC LICENSE"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues"
+
 [[mods]]
-modId="jerrysmod"
-version="${file.jarVersion}"
-displayName="Jerry's Mod"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 updateJSONURL="https://raw.githubusercontent.com/NicosaurusRex99/Nicusha-mod-assets/main/jerry_update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/jerrys-mod"
 logoFile="logo.png"
 credits="Thanks to sniper mine and hawaii beach for letting me do this!"
-authors="Sniper_mine, Hawaii_Beach and NicosaurusRex99"
-description='''
-Made in honor of Jerry the noble slime!
-'''
-
-[[dependencies.jerrysmod]]
-modId="forge"
-mandatory=true
-versionRange="[46,)"
-ordering="NONE"
-side="BOTH"
-[[dependencies.jerrysmod]]
-modId="minecraft"
-mandatory=true
-versionRange="[1.20,)"
-ordering="NONE"
-side="BOTH"
+authors="${mod_authors}"
+description='''${mod_description}'''

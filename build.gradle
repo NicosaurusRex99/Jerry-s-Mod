@@ -1,85 +1,52 @@
 plugins {
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
 }
 
-version = '0.1.0'
-group = 'nicusha.jerrysmod'
-archivesBaseName = 'Jerrys Mod'
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
 
-    mappings channel: 'official', version: '1.20.1'
-
+    mappings channel: mapping_channel, version: mapping_version
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    copyIdeResources = true
 
     runs {
-        client {
+        configureEach {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
 
             property 'forge.logging.console.level', 'debug'
+        }
 
-            property 'forge.enabledGameTestNamespaces', 'jerrysmod'
-
-            mods {
-                jerrysmod {
-                    source sourceSets.main
-                }
-            }
+        client {
+            property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'jerrysmod'
-
-            mods {
-                jerrysmod {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', mod_id
+            args '--nogui'
         }
 
         gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'jerrysmod'
-
-            mods {
-                jerrysmod {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         data {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run-data')
 
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', 'jerrysmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                jerrysmod {
-                    source sourceSets.main
-                }
-            }
+            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
@@ -87,45 +54,49 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url = "https://minecraft.curseforge.com/api/maven/"}
-    maven { url = "https://dvs1.progwml6.com/files/maven/"}
-    maven { url = "https://modmaven.dev"}
-    maven { url = "https://www.cursemaven.com"}
-    maven { url 'https://maven.blamejared.com'}
-    maven { url "https://maven.shedaniel.me" }
-    maven { url = uri("https://maven.architectury.dev/") }
-}
-dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
-    compileOnly fg.deobf("mezz.jei:jei-1.20.1-common-api:15.2.0.23") //Just Enough Items
-    compileOnly fg.deobf("mezz.jei:jei-1.20.1-forge-api:15.2.0.23") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-common:15.2.0.23") //Just Enough Items
-    runtimeOnly fg.deobf("mezz.jei:jei-1.20.1-forge:15.2.0.23") //Just Enough Items
-    compileOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4631691") //Just Enough Resources
-    runtimeOnly fg.deobf("curse.maven:just-enough-resources-jer-240630:4631691") //Just Enough Resources
-    compileOnly fg.deobf("curse.maven:projecte-226410:4860859") //ProjectE
-    runtimeOnly fg.deobf("curse.maven:projecte-226410:4860859") //ProjectE
+
 }
 
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "Jerry's Mod",
-                "Specification-Vendor"    : "Nicusha",
-                "Specification-Version"   : "0.1.0",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "Nicusha",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
+dependencies {
+    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
+            forge_version: forge_version, forge_version_range: forge_version_range,
+            loader_version_range: loader_version_range,
+            mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors: mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
+
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
     }
 }
 
-jar.finalizedBy('reobfJar')
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+                'Specification-Title'     : mod_id,
+                'Specification-Vendor'    : mod_authors,
+                'Specification-Version'   : '1',
+                'Implementation-Title'    : project.name,
+                'Implementation-Version'  : project.jar.archiveVersion,
+                'Implementation-Vendor'   : mod_authors
+        ])
+    }
+
+    finalizedBy 'reobfJar'
+}
+
+
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
+        register('mavenJava', MavenPublication) {
             artifact jar
         }
     }
@@ -138,4 +109,14 @@ publishing {
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
+}
+
+eclipse {
+    synchronizationTasks 'genEclipseRuns'
+}
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
 }

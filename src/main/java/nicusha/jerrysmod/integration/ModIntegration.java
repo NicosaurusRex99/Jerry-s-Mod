@@ -9,7 +9,7 @@ public class ModIntegration {
             JERCompat.init();
         }
         if(ModList.get().isLoaded("projecte")){
-            ProjectECompat.init();
+//            ProjectECompat.init();
         }
     }
 }
