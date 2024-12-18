@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "#c:rods",
+    "X": "#jerrysmod:jerry_gem"
+  },
+  "pattern": [
+    "X",
+    "X",
+    "C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jerrysmod:jerry_sword"
+  }
+}

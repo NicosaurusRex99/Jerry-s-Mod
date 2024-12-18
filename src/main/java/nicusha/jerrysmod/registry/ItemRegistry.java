@@ -1,64 +1,104 @@
 package nicusha.jerrysmod.registry;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.registries.*;
-import nicusha.jerrysmod.JerrysMod;
+import net.minecraft.world.item.equipment.ArmorMaterial;
+import net.minecraft.world.item.equipment.ArmorType;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import nicusha.jerrysmod.items.*;
+import nicusha.jerrysmod.items.materials.JerryArmourMaterials;
+import nicusha.jerrysmod.items.materials.JerryToolMaterials;
 import nicusha.jerrysmod.utils.*;
-
-import java.util.function.Supplier;
 
 import static nicusha.jerrysmod.JerrysMod.MODID;
 
 public class ItemRegistry {
-    public static ModArmorMaterials slime_helmet_material = new ModArmorMaterials("slime", 5500001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ARMOR_EQUIP_IRON, 3.1F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "slime_gem")))));
-    public static ModArmorMaterials slime_chestplate_material = new ModArmorMaterials("slime", 8000001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ARMOR_EQUIP_IRON, 5.4F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "slime_gem")))));
-    public static ModArmorMaterials slime_leggings_material = new ModArmorMaterials("slime", 7500001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ARMOR_EQUIP_IRON, 3.8F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "slime_gem")))));
-    public static ModArmorMaterials slime_boots_material = new ModArmorMaterials("slime", 6500001, new int[]{18, 51, 21, 30}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.9F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "slime_gem")))));
 
-    public static ModArmorMaterials jerry_helmet_material = new ModArmorMaterials("jerry", 11000001, new int[]{506013, 1658961, 341564, 454230}, 59, SoundEvents.ARMOR_EQUIP_IRON, 3.1F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "jerry_gem")))));
-    public static ModArmorMaterials jerry_chestplate_material = new ModArmorMaterials("jerry", 160000001, new int[]{506013, 1658961, 341564, 454230}, 59, SoundEvents.ARMOR_EQUIP_IRON, 5.4F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "jerry_gem")))));
-    public static ModArmorMaterials jerry_leggings_material = new ModArmorMaterials("jerry", 15000001, new int[]{506013, 1658961, 341564, 454230}, 59, SoundEvents.ARMOR_EQUIP_IRON, 3.8F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "jerry_gem")))));
-    public static ModArmorMaterials jerry_boots_material = new ModArmorMaterials("jerry", 13000001, new int[]{506013, 1658961, 341564, 454230}, 59, SoundEvents.ARMOR_EQUIP_IRON, 2.9F, Ingredient.of(new ItemStack(ForgeRegistries.ITEMS.getValue(new ResourceLocation(MODID, "jerry_gem")))));
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredItem<Item> slime_gem = createItem("slime_gem", false);
+    public static final DeferredItem<Item> jerry_gem = createItem("jerry_gem", false);
+    public static final DeferredItem<Item> slime_stick = createItem("slime_stick", false);
+    public static final DeferredItem<Item> slime_shard = createItem("slime_shard", false);
+    public static final DeferredItem<Item> captain_of_light = ITEMS.register("captain_of_light", ItemCaptainOfLight::new);
+    public static final DeferredItem<Item> grapes = createItem("grapes", false, FoodStats.GRAPES);
+    public static final DeferredItem<Item> olives = createItem("olives", false, FoodStats.OLIVES);
 
-    public static final RegistryObject<Item> slime_gem = registerItem("slime_gem", () -> new ItemMod()),
-            jerry_gem = registerItem("jerry_gem", () -> new ItemMod()),
-//            slime_chunk = registerItem("slime_chunk", () -> new ItemMod()),
-//            slime_drop = registerItem("slime_drop", () -> new ItemMod()),
-//            slime_head = registerItem("slime_head", () -> new ItemMod()),
-            slime_stick = registerItem("olive_stick", () -> new ItemMod()),
-            slime_shard = registerItem("slime_shard", () -> new ItemMod()),
-            captain_of_light = registerItem("captain_of_light", () -> new ItemCaptainOfLight()),
-            grapes = registerItem("grapes", () -> new ItemMod(new Item.Properties().food(FoodStats.GRAPES))),
-            oilves = registerItem("olives", () -> new ItemMod(new Item.Properties().food(FoodStats.OLIVES))),
-            slime_helmet = registerItem("slime_helmet", () -> new ItemModArmor(slime_helmet_material, ArmorItem.Type.HELMET)),
-            slime_chestplate = registerItem("slime_chestplate", () -> new ItemModArmor(slime_chestplate_material, ArmorItem.Type.CHESTPLATE)),
-            slime_leggings = registerItem("slime_leggings", () -> new ItemModArmor(slime_leggings_material, ArmorItem.Type.LEGGINGS)),
-            slime_boots = registerItem("slime_boots", () -> new ItemModArmor(slime_boots_material, ArmorItem.Type.BOOTS)),
-            jerry_helmet = registerItem("jerry_helmet", () -> new ItemModArmor(jerry_helmet_material, ArmorItem.Type.HELMET)),
-            jerry_chestplate = registerItem("jerry_chestplate", () -> new ItemModArmor(jerry_chestplate_material, ArmorItem.Type.CHESTPLATE)),
-            jerry_leggings = registerItem("jerry_leggings", () -> new ItemModArmor(jerry_leggings_material, ArmorItem.Type.LEGGINGS)),
-            jerry_boots = registerItem("jerry_boots", () -> new ItemModArmor(jerry_boots_material, ArmorItem.Type.BOOTS)),
-            slime_sword = registerItem("slime_sword", () -> new ItemModSword(ModToolTier.slime_sword)),
-            jerry_sword = registerItem("jerry_sword", () -> new ItemModSword(ModToolTier.jerry_sword)),
-            slime_axe = registerItem("slime_axe", () -> new ItemModAxe(ModToolTier.slime_axe)),
-            jerry_axe = registerItem("jerry_axe", () -> new ItemModAxe(ModToolTier.jerry_axe)),
-            slime_pickaxe = registerItem("slime_pickaxe", () -> new ItemModPickaxe(ModToolTier.slime_pickaxe)),
-            jerry_pickaxe = registerItem("jerry_pickaxe", () -> new ItemModPickaxe(ModToolTier.jerry_pickaxe)),
-            slime_hoe = registerItem("slime_hoe", () -> new ItemModHoe(ModToolTier.slime_hoe)),
-            jerry_hoe = registerItem("jerry_hoe", () -> new ItemModHoe(ModToolTier.jerry_hoe)),
-            slime_shovel = registerItem("slime_shovel", () -> new ItemModShovel(ModToolTier.slime_shovel)),
-            jerry_shovel = registerItem("jerry_shovel", () -> new ItemModShovel(ModToolTier.jerry_shovel)),
-            lighter = registerItem("lighter", () -> new ItemPortalLighter());
+    public static final DeferredItem<Item> slime_helmet = createArmorItem("slime_helmet", JerryArmourMaterials.SLIME, ArmorType.HELMET, false, 1);
+    public static final DeferredItem<Item> slime_chestplate = createArmorItem("slime_chestplate", JerryArmourMaterials.SLIME, ArmorType.CHESTPLATE, false, 1);
+    public static final DeferredItem<Item> slime_leggings = createArmorItem("slime_leggings", JerryArmourMaterials.SLIME, ArmorType.LEGGINGS, false, 1);
+    public static final DeferredItem<Item> slime_boots = createArmorItem("slime_boots", JerryArmourMaterials.SLIME, ArmorType.BOOTS, false, 1);
 
+    public static final DeferredItem<Item> jerry_helmet = createArmorItem("jerry_helmet", JerryArmourMaterials.JERRY, ArmorType.HELMET, false, 1);
+    public static final DeferredItem<Item> jerry_chestplate = createArmorItem("jerry_chestplate", JerryArmourMaterials.JERRY, ArmorType.CHESTPLATE, false, 1);
+    public static final DeferredItem<Item> jerry_leggings = createArmorItem("jerry_leggings", JerryArmourMaterials.JERRY, ArmorType.LEGGINGS, false, 1);
+    public static final DeferredItem<Item> jerry_boots = createArmorItem("jerry_boots", JerryArmourMaterials.JERRY, ArmorType.BOOTS, false, 1);
 
-    private static <T extends Item> RegistryObject<T> registerItem(String registryId, Supplier<T> item) {
-        return ITEMS.register(registryId, item);
+    public static final DeferredItem<Item> slime_sword = createSwordItem("slime_sword", JerryToolMaterials.SLIME_SWORD, false);
+    public static final DeferredItem<Item> jerry_sword = createSwordItem("jerry_sword", JerryToolMaterials.JERRY_SWORD, false);
+    public static final DeferredItem<Item> slime_axe = createAxeItem("slime_axe", JerryToolMaterials.SLIME_AXE, false);
+    public static final DeferredItem<Item> jerry_axe = createAxeItem("jerry_axe", JerryToolMaterials.JERRY_AXE, false);
+    public static final DeferredItem<Item> slime_pickaxe = createPickaxeItem("slime_pickaxe", JerryToolMaterials.SLIME_PICKAXE, false);
+    public static final DeferredItem<Item> jerry_pickaxe = createPickaxeItem("jerry_pickaxe", JerryToolMaterials.JERRY_PICKAXE, false);
+    public static final DeferredItem<Item> slime_hoe = createHoeItem("slime_hoe", JerryToolMaterials.SLIME_HOE, false);
+    public static final DeferredItem<Item> jerry_hoe = createHoeItem("jerry_hoe", JerryToolMaterials.JERRY_HOE, false);
+    public static final DeferredItem<Item> slime_shovel = createShovelItem("slime_shovel", JerryToolMaterials.SLIME_SHOVEL, false);
+    public static final DeferredItem<Item> jerry_shovel = createShovelItem("jerry_shovel", JerryToolMaterials.JERRY_SHOVEL, false);
+    public static final DeferredItem<Item> lighter = ITEMS.register("lighter", ItemPortalLighter::new);
+
+    private static DeferredItem<Item> createItem(String name, boolean isFireProof) {
+        return ITEMS.register(name, () -> {
+            Item.Properties properties = new Item.Properties();
+            if (isFireProof) {
+                properties = properties.fireResistant();
+            }
+            return new Item(properties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MODID, name))));
+        });
+    }
+
+    private static DeferredItem<Item> createItem(String name, boolean isFireProof, FoodProperties food) {
+        return ITEMS.register(name, () -> {
+            Item.Properties properties = new Item.Properties().food(food);
+            if (isFireProof) {
+                properties = properties.fireResistant();
+            }
+            return new Item(properties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MODID, name))));
+        });
+    }
+
+    private static DeferredItem<Item> createSwordItem(String name, ToolMaterial material, boolean isFireProof) {
+        return ITEMS.register(name, () -> new SwordItem(material, material.attackDamageBonus(), material.speed(), createProperties(name, isFireProof)));
+    }
+
+    private static DeferredItem<Item> createPickaxeItem(String name, ToolMaterial material, boolean isFireProof) {
+        return ITEMS.register(name, () -> new PickaxeItem(material, material.attackDamageBonus(), material.speed(), createProperties(name, isFireProof)));
+    }
+
+    private static DeferredItem<Item> createAxeItem(String name, ToolMaterial material, boolean isFireProof) {
+        return ITEMS.register(name, () -> new AxeItem(material, material.attackDamageBonus(), material.speed(), createProperties(name, isFireProof)));
+    }
+
+    private static DeferredItem<Item> createShovelItem(String name, ToolMaterial material, boolean isFireProof) {
+        return ITEMS.register(name, () -> new ShovelItem(material, material.attackDamageBonus(), material.speed(), createProperties(name, isFireProof)));
+    }
+
+    private static DeferredItem<Item> createHoeItem(String name, ToolMaterial material, boolean isFireProof) {
+        return ITEMS.register(name, () -> new HoeItem(material, material.attackDamageBonus(), material.speed(), createProperties(name, isFireProof)));
+    }
+
+    private static DeferredItem<Item> createArmorItem(String name, ArmorMaterial material, ArmorType armorType, boolean isFireProof, int durability) {
+        return ITEMS.register(name, () -> new ArmorItem(material, armorType, createProperties(name, isFireProof).stacksTo(1).durability(durability)));
+    }
+
+    private static Item.Properties createProperties(String name, boolean isFireProof) {
+        Item.Properties properties = new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MODID, name)));
+        if (isFireProof) {
+            properties = properties.fireResistant();
+        }
+        return properties;
     }
 }

@@ -1,5 +1,7 @@
 package nicusha.jerrysmod.items;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
@@ -10,14 +12,14 @@ import net.minecraft.world.level.*;
 import net.minecraft.world.phys.*;
 import nicusha.jerrysmod.JerrysMod;
 
-public class ItemCaptainOfLight extends ItemMod {
+public class ItemCaptainOfLight extends Item {
 
     public ItemCaptainOfLight() {
-        super(new Item.Properties().stacksTo(1));
+        super(new Item.Properties().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))));
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+    public InteractionResult use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         int blockReachDistance = 128;
         Vec3 vec3d = player.getEyePosition(1);
@@ -34,17 +36,15 @@ public class ItemCaptainOfLight extends ItemMod {
             world.addFreshEntity(bolt2);
             world.addFreshEntity(bolt3);
             if (!player.isCreative()) {
-                stack.hurtAndBreak(1, player, (p_220009_1_) -> {
-                    p_220009_1_.broadcastBreakEvent(player.getUsedItemHand());
-                });
+                stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             }
             if(player instanceof ServerPlayer){
-                if(!((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).isDone()) {
-                    ((ServerPlayer) player).getAdvancements().award(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light")), ((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(new ResourceLocation(JerrysMod.MODID, "captain_of_light"))).getRemainingCriteria().iterator().next());
+                if(!((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))).isDone()) {
+                    ((ServerPlayer) player).getAdvancements().award(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light")), ((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))).getRemainingCriteria().iterator().next());
                 }
             }
         }
 
-        return new InteractionResultHolder<ItemStack>(InteractionResult.SUCCESS, stack);
+        return InteractionResult.SUCCESS;
     }
 }

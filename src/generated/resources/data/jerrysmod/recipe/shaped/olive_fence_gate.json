@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "#c:rods",
+    "X": "jerrysmod:olive_planks"
+  },
+  "pattern": [
+    "SXS",
+    "SXS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "jerrysmod:olive_fence_gate"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "X": "jerrysmod:stripped_olive_log"
+  },
+  "pattern": [
+    "X"
+  ],
+  "result": {
+    "count": 4,
+    "id": "jerrysmod:olive_planks"
+  }
+}

@@ -1,7 +1,8 @@
 package nicusha.jerrysmod.integration;
 
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class ModIntegration {
     public static void initCommon(FMLCommonSetupEvent e){

@@ -1,7 +1,0 @@
-{
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "jerrysmod:block/olive_log_top",
-        "side": "jerrysmod:block/olive_log"
-    }
-}

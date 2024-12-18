@@ -6,31 +6,30 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
-import net.minecraftforge.eventbus.api.*;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.*;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import nicusha.jerrysmod.integration.ModIntegration;
 import nicusha.jerrysmod.registry.*;
 import org.slf4j.Logger;
 
 @Mod(JerrysMod.MODID)
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, modid = JerrysMod.MODID)
+@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = JerrysMod.MODID)
 public class JerrysMod
 {
     public static final String MODID = "jerrysmod";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
-    public JerrysMod()
+    public JerrysMod(IEventBus bus)
     {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
         BlockRegistry.BLOCKS.register(bus);
         ItemRegistry.ITEMS.register(bus);
         BlockRegistry.BLOCK_ITEMS.register(bus);
-        PointOfInterestRegistry.POI.register(bus);
         TAB.register(bus);
 
 
@@ -46,7 +45,8 @@ public class JerrysMod
     }
     public static final DeferredRegister<CreativeModeTab> TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = TAB.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.jerry")).icon(() -> new ItemStack(ItemRegistry.slime_gem.get())).build());
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = TAB.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.jerry")).icon(() -> new ItemStack(ItemRegistry.slime_gem.get())).build());
+
     @SubscribeEvent
     public static void creativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == CREATIVE_TAB.get()) {

@@ -19,7 +19,9 @@
     "value": {
       "min_inclusive": 0,
       "max_inclusive": 8
-    }
+    },
+    "min_inclusive": 0,
+    "max_inclusive": 8
   },
   "monster_spawn_block_light_limit": 8
 }

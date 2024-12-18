@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "jerrysmod:jerry"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "jerrysmod:jerry"
+      }
+    ]
+  }
+}
