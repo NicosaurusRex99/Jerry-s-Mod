@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues"
 
 [[mods]]
 modId="jerrysmod"
-version="0.1.1"
+version="0.1.2"
 displayName="Jerry's Mod"
 updateJSONURL="https://raw.githubusercontent.com/NicosaurusRex99/Nicusha-mod-assets/main/jerry_update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/jerrys-mod"

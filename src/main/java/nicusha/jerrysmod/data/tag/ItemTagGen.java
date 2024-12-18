@@ -27,6 +27,7 @@ public class ItemTagGen extends ItemTagsProvider {
     public static final TagKey<Item> ORES = create("c","ores");
     public static final TagKey<Item> STONE = create("c","stone/slime");
     public static final TagKey<Item> STONES = create("c","stone");
+    public static final TagKey<Item> RODS = create("c","rods");
     public static final TagKey<Item> AXE = create("minecraft","mineable/axe");
     public static final TagKey<Item> PICKAXE = create("minecraft","mineable/pickaxe");
     public static final TagKey<Item> SHOVEL = create("minecraft","mineable/shovel");
@@ -106,6 +107,7 @@ public class ItemTagGen extends ItemTagsProvider {
         tag(ORES).addTag(SLIME_ORE);
         tag(STONE).add(BlockRegistry.slime_stone.asItem());
         tag(STONES).addTag(STONE);
+        tag(RODS).add(ItemRegistry.slime_stick.get());
         tag(AXE).add(BlockRegistry.stripped_olive_log.asItem(), BlockRegistry.olive_log.asItem(), BlockRegistry.olive_planks.asItem(), BlockRegistry.olive_stairs.asItem(), BlockRegistry.olive_button.asItem(), BlockRegistry.olive_slab.asItem(), BlockRegistry.olive_fence.asItem(), BlockRegistry.olive_fence_gate.asItem(), BlockRegistry.olive_trap_door.asItem(), BlockRegistry.olive_door.asItem(), BlockRegistry.olive_pressure_plate.asItem());
         tag(PICKAXE).add(BlockRegistry.slime_ore.asItem(), BlockRegistry.slime_stone.asItem(), BlockRegistry.deepslate_slime_ore.asItem());
         tag(SHOVEL).add(BlockRegistry.slime_grass.asItem());
