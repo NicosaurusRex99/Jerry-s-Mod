@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "jerrysmod:jerry_gem"
+      "id": "jerrysmod:jerry_gem"
     },
     "title": {
       "translate": "jerrysmod.advancement.root"

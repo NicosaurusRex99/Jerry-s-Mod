@@ -5,11 +5,11 @@ issueTrackerURL="https://github.com/NicosaurusRex99/Jerry-s-Mod/issues"
 
 [[mods]]
 modId="jerrysmod"
-version="0.1.2"
+version="0.1.3"
 displayName="Jerry's Mod"
 updateJSONURL="https://raw.githubusercontent.com/NicosaurusRex99/Nicusha-mod-assets/main/jerry_update.json"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/jerrys-mod"
 logoFile="logo.png"
-credits="Thanks to sniper mine and hawaii beach for letting me do this!"
+credits=""
 authors="Sniper_mine, Hawaii_Beach and NicosaurusRex99"
 description='''Made in honor of Jerry the noble slime!'''

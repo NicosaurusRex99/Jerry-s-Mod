@@ -29,20 +29,28 @@ public class ItemCaptainOfLight extends Item {
 
         if (world.getBlockState(pos.getBlockPos()) != null) {
             LightningBolt bolt1 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt2 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt3 = new LightningBolt(EntityType.LIGHTNING_BOLT, world);
-            bolt1.moveTo(pos.getLocation());
-            bolt2.moveTo(pos.getLocation());
-            bolt3.moveTo(pos.getLocation());
+            bolt1.move(MoverType.SELF, pos.getLocation());
+            bolt2.move(MoverType.SELF, pos.getLocation());
+            bolt3.move(MoverType.SELF, pos.getLocation());
             world.addFreshEntity(bolt1);
             world.addFreshEntity(bolt2);
             world.addFreshEntity(bolt3);
             if (!player.isCreative()) {
                 stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
             }
-            if(player instanceof ServerPlayer){
-                if(!((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))).isDone()) {
-                    ((ServerPlayer) player).getAdvancements().award(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light")), ((ServerPlayer) player).getAdvancements().getOrStartProgress(((ServerPlayer) player).server.getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))).getRemainingCriteria().iterator().next());
+            if (player instanceof ServerPlayer serverPlayer) {
+                var advancement = serverPlayer.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"));
+                if (advancement != null) {
+                    var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
+                    if (!progress.isDone()) {
+                        var remaining = progress.getRemainingCriteria().iterator();
+                        if (remaining.hasNext()) {
+                            serverPlayer.getAdvancements().award(advancement, remaining.next());
+                        }
+                    }
                 }
             }
+
         }
 
         return InteractionResult.SUCCESS;

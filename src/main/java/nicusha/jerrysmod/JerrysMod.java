@@ -1,59 +1,61 @@
 package nicusha.jerrysmod;
 
-import com.google.common.collect.ImmutableMap;
-import com.mojang.logging.LogUtils;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
-import nicusha.jerrysmod.integration.ModIntegration;
-import nicusha.jerrysmod.registry.*;
+import nicusha.jerrysmod.registry.BlockRegistry;
+import nicusha.jerrysmod.registry.ItemRegistry;
 import org.slf4j.Logger;
 
+import com.mojang.logging.LogUtils;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
 @Mod(JerrysMod.MODID)
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = JerrysMod.MODID)
-public class JerrysMod
-{
+public class JerrysMod {
     public static final String MODID = "jerrysmod";
     public static final Logger LOGGER = LogUtils.getLogger();
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public JerrysMod(IEventBus bus)
-    {
-        BlockRegistry.BLOCKS.register(bus);
-        ItemRegistry.ITEMS.register(bus);
-        BlockRegistry.BLOCK_ITEMS.register(bus);
-        TAB.register(bus);
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("tab", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.jerry"))
+            .withTabsBefore(CreativeModeTabs.COMBAT)
+            .icon(() -> ItemRegistry.slime_gem.get().getDefaultInstance())
+            .build());
 
+    public JerrysMod(IEventBus modEventBus, ModContainer modContainer) {
+        modEventBus.addListener(this::commonSetup);
 
-        bus.addListener(this::common);
+        BlockRegistry.BLOCKS.register(modEventBus);
+        ItemRegistry.ITEMS.register(modEventBus);
+        CREATIVE_MODE_TABS.register(modEventBus);
+
+        modEventBus.addListener(this::creativeTab);
     }
 
-    private void common(final FMLCommonSetupEvent event) {
-        ModIntegration.initCommon(event);
-
-        event.enqueueWork(() -> {
-            AxeItem.STRIPPABLES = new ImmutableMap.Builder<Block, Block>().putAll(AxeItem.STRIPPABLES) .put(BlockRegistry.olive_log.get(), BlockRegistry.stripped_olive_log.get()).build();
-        });
+    private void commonSetup(FMLCommonSetupEvent event) {
     }
-    public static final DeferredRegister<CreativeModeTab> TAB = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = TAB.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.jerry")).icon(() -> new ItemStack(ItemRegistry.slime_gem.get())).build());
-
-    @SubscribeEvent
-    public static void creativeTab(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTab() == CREATIVE_TAB.get()) {
+    public void creativeTab(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == TAB.get()) {
             for (var regObj : ItemRegistry.ITEMS.getEntries()) {
-                event.accept(regObj.get());
-            }
-            for (var regObj : BlockRegistry.BLOCK_ITEMS.getEntries()) {
                 event.accept(regObj.get());
             }
         }
