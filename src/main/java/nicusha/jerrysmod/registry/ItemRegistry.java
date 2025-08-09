@@ -52,8 +52,10 @@ public class ItemRegistry {
     }
 
     private static DeferredItem<Item> sword(String id, Tier tier) {
-        return ITEMS.register(id, () -> new SwordItem(tier, new Item.Properties()
-                .attributes(SwordItem.createAttributes(tier, 3, -2.4F))));
+        if (id == "slime_sword") {
+            return ITEMS.register(id, () -> new SwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 40, -2.4F))));
+        }
+        return ITEMS.register(id, () -> new SwordItem(tier, new Item.Properties().attributes(SwordItem.createAttributes(tier, 321, -2.4F))));
     }
 
     private static DeferredItem<Item> pickaxe(String id, Tier tier) {

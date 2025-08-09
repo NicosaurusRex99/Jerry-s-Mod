@@ -24,9 +24,9 @@ import java.util.function.Supplier;
 
 public enum JerryToolMaterials implements Tier {
 
-    SLIME(1, 4096, 40.0F, -1.0F, 42, ()-> Ingredient.of(TagRegistry.slimeRepair()), BlockTags.INCORRECT_FOR_IRON_TOOL),
-    JERRY(2, 6142, 321.0F, -1.0F, 50, ()-> Ingredient.of(TagRegistry.jerryRepair()), BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
-    private final int harvestLevel;
+    SLIME(4096, 1.0F, -1.0F, 42, ()-> Ingredient.of(TagRegistry.slimeRepair()), BlockTags.INCORRECT_FOR_IRON_TOOL),
+    JERRY(6142, 3.0F, -1.0F, 50, ()-> Ingredient.of(TagRegistry.jerryRepair()), BlockTags.INCORRECT_FOR_NETHERITE_TOOL);
+
     private final int maxUses;
     private final float efficiency;
     private final float attackDamage;
@@ -34,9 +34,8 @@ public enum JerryToolMaterials implements Tier {
     private final Supplier<Ingredient> repairMaterial;
     private final TagKey<Block> incorrectBlocksForDrops;
 
-    JerryToolMaterials(int harvestLevel, int maxUses, float efficiency, float attackDamage, int enchantability,
+    JerryToolMaterials(int maxUses, float attackDamage, float efficiency, int enchantability,
                       Supplier<Ingredient> repairMaterial, TagKey<Block> incorrectBlocksForDrops) {
-        this.harvestLevel = harvestLevel;
         this.maxUses = maxUses;
         this.efficiency = efficiency;
         this.attackDamage = attackDamage;
