@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": "#jerrysmod:jerry_gem"
+    "X": {
+      "tag": "jerrysmod:jerry_gem"
+    }
   },
   "pattern": [
     "X X",

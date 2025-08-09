@@ -1,10 +1,8 @@
 package nicusha.jerrysmod.registry;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.core.Holder;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import nicusha.jerrysmod.items.ItemCaptainOfLight;
@@ -18,58 +16,79 @@ public class ItemRegistry {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
     // Resources
-    public static final DeferredItem<Item> slime_gem = registerSimple("slime_gem");
-    public static final DeferredItem<Item> jerry_gem = registerSimple("jerry_gem");
-    public static final DeferredItem<Item> slime_shard = registerSimple("slime_shard");
-    public static final DeferredItem<Item> captain_of_light = ITEMS.registerItem("captain_of_light", p -> new ItemCaptainOfLight());
+    public static final DeferredItem<Item> SLIME_GEM = registerSimple("slime_gem");
+    public static final DeferredItem<Item> JERRY_GEM = registerSimple("jerry_gem");
+    public static final DeferredItem<Item> SLIME_SHARD = registerSimple("slime_shard");
+    public static final DeferredItem<Item> CAPTAIN_OF_LIGHT = ITEMS.register("captain_of_light", () -> new ItemCaptainOfLight());
 
     // Slime Armor
-    public static final DeferredItem<Item> slime_helmet = ITEMS.registerItem("slime_helmet", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.SLIME, ArmorType.HELMET).stacksTo(1).repairable(TagRegistry.slimeRepair())));
-    public static final DeferredItem<Item> slime_chestplate = ITEMS.registerItem("slime_chestplate", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.SLIME, ArmorType.CHESTPLATE).stacksTo(1).repairable(TagRegistry.slimeRepair())));
-    public static final DeferredItem<Item> slime_leggings = ITEMS.registerItem("slime_leggings", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.SLIME, ArmorType.LEGGINGS).stacksTo(1).repairable(TagRegistry.slimeRepair())));
-    public static final DeferredItem<Item> slime_boots = ITEMS.registerItem("slime_boots", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.SLIME, ArmorType.BOOTS).stacksTo(1).repairable(TagRegistry.slimeRepair())));
+    public static final DeferredItem<Item> SLIME_HELMET = armor("slime_helmet", JerryArmourMaterials.SLIME, ArmorItem.Type.HELMET, 0);
+    public static final DeferredItem<Item> SLIME_CHESTPLATE = armor("slime_chestplate", JerryArmourMaterials.SLIME, ArmorItem.Type.CHESTPLATE, 0);
+    public static final DeferredItem<Item> SLIME_LEGGINGS = armor("slime_leggings", JerryArmourMaterials.SLIME, ArmorItem.Type.LEGGINGS, 0);
+    public static final DeferredItem<Item> SLIME_BOOTS = armor("slime_boots", JerryArmourMaterials.SLIME, ArmorItem.Type.BOOTS, 0);
 
     // Jerry Armor
-    public static final DeferredItem<Item> jerry_helmet = ITEMS.registerItem("jerry_helmet", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.JERRY, ArmorType.HELMET).stacksTo(1).repairable(TagRegistry.jerryRepair())));
-    public static final DeferredItem<Item> jerry_chestplate = ITEMS.registerItem("jerry_chestplate", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.JERRY, ArmorType.CHESTPLATE).stacksTo(1).repairable(TagRegistry.jerryRepair())));
-    public static final DeferredItem<Item> jerry_leggings = ITEMS.registerItem("jerry_leggings", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.JERRY, ArmorType.LEGGINGS).stacksTo(1).repairable(TagRegistry.jerryRepair())));
-    public static final DeferredItem<Item> jerry_boots = ITEMS.registerItem("jerry_boots", props ->
-            new Item(props.humanoidArmor(JerryArmourMaterials.JERRY, ArmorType.BOOTS).stacksTo(1).repairable(TagRegistry.jerryRepair())));
+    public static final DeferredItem<Item> JERRY_HELMET = armor("jerry_helmet", JerryArmourMaterials.JERRY, ArmorItem.Type.HELMET, 0);
+    public static final DeferredItem<Item> JERRY_CHESTPLATE = armor("jerry_chestplate", JerryArmourMaterials.JERRY, ArmorItem.Type.CHESTPLATE, 0);
+    public static final DeferredItem<Item> JERRY_LEGGINGS = armor("jerry_leggings", JerryArmourMaterials.JERRY, ArmorItem.Type.LEGGINGS, 0);
+    public static final DeferredItem<Item> JERRY_BOOTS = armor("jerry_boots", JerryArmourMaterials.JERRY, ArmorItem.Type.BOOTS, 0);
 
     // Slime Tools
-    public static final DeferredItem<Item> slime_sword = ITEMS.registerItem("slime_sword", props ->
-            new Item(JerryToolMaterials.SLIME.applySwordProperties(props, 64.0F, 1.0F)));
-    public static final DeferredItem<Item> slime_axe = ITEMS.registerItem("slime_axe", props ->
-            new Item(JerryToolMaterials.SLIME.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_AXE, 124.0F, 0.9F, 1.0F)));
-    public static final DeferredItem<Item> slime_pickaxe = ITEMS.registerItem("slime_pickaxe", props ->
-            new Item(JerryToolMaterials.SLIME.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE, 40.0F, 1.2F, 1.0F)));
-    public static final DeferredItem<Item> slime_hoe = ITEMS.registerItem("slime_hoe", props ->
-            new Item(JerryToolMaterials.SLIME.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_HOE, 0.0F, 4.0F, 1.0F)));
-    public static final DeferredItem<Item> slime_shovel = ITEMS.registerItem("slime_shovel", props ->
-            new Item(JerryToolMaterials.SLIME.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL, 40.0F, 1.0F, 1.0F)));
+    public static final DeferredItem<Item> SLIME_SWORD = sword("slime_sword", JerryToolMaterials.SLIME);
+    public static final DeferredItem<Item> SLIME_AXE = axe("slime_axe", JerryToolMaterials.SLIME);
+    public static final DeferredItem<Item> SLIME_PICKAXE = pickaxe("slime_pickaxe", JerryToolMaterials.SLIME);
+    public static final DeferredItem<Item> SLIME_HOE = hoe("slime_hoe", JerryToolMaterials.SLIME);
+    public static final DeferredItem<Item> SLIME_SHOVEL = shovel("slime_shovel", JerryToolMaterials.SLIME);
 
     // Jerry Tools
-    public static final DeferredItem<Item> jerry_sword = ITEMS.registerItem("jerry_sword", props ->
-            new Item(JerryToolMaterials.JERRY.applySwordProperties(props, 844.0F, 1.0F)));
-    public static final DeferredItem<Item> jerry_axe = ITEMS.registerItem("jerry_axe", props ->
-            new Item(JerryToolMaterials.JERRY.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_AXE, 844.0F, 0.9F, 1.0F)));
-    public static final DeferredItem<Item> jerry_pickaxe = ITEMS.registerItem("jerry_pickaxe", props ->
-            new Item(JerryToolMaterials.JERRY.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE, 321.0F, 1.2F, 1.0F)));
-    public static final DeferredItem<Item> jerry_hoe = ITEMS.registerItem("jerry_hoe", props ->
-            new Item(JerryToolMaterials.JERRY.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_HOE, 0.0F, 4.0F, 1.0F)));
-    public static final DeferredItem<Item> jerry_shovel = ITEMS.registerItem("jerry_shovel", props ->
-            new Item(JerryToolMaterials.JERRY.applyToolProperties(props, net.minecraft.tags.BlockTags.MINEABLE_WITH_SHOVEL, 321.0F, 1.0F, 1.0F)));
+    public static final DeferredItem<Item> JERRY_SWORD = sword("jerry_sword", JerryToolMaterials.JERRY);
+    public static final DeferredItem<Item> JERRY_AXE = axe("jerry_axe", JerryToolMaterials.JERRY);
+    public static final DeferredItem<Item> JERRY_PICKAXE = pickaxe("jerry_pickaxe", JerryToolMaterials.JERRY);
+    public static final DeferredItem<Item> JERRY_HOE = hoe("jerry_hoe", JerryToolMaterials.JERRY);
+    public static final DeferredItem<Item> JERRY_SHOVEL = shovel("jerry_shovel", JerryToolMaterials.JERRY);
 
-    // Helper for simple items
-    private static DeferredItem<Item> registerSimple(String name) {
-        return ITEMS.registerItem(name, props ->
-                new Item(props.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MODID, name)))));
+    private static DeferredItem<Item> registerSimple(String id) {
+        return ITEMS.register(id, () -> new Item(new Item.Properties()));
+    }
+
+    private static DeferredItem<Item> sword(String id, Tier tier) {
+        return ITEMS.register(id, () -> new SwordItem(tier, new Item.Properties()
+                .attributes(SwordItem.createAttributes(tier, 3, -2.4F))));
+    }
+
+    private static DeferredItem<Item> pickaxe(String id, Tier tier) {
+        return ITEMS.register(id, () -> new PickaxeItem(tier, new Item.Properties()
+                .attributes(PickaxeItem.createAttributes(tier, 1, -2.8F))));
+    }
+
+    private static DeferredItem<Item> axe(String id, Tier tier) {
+        return ITEMS.register(id, () -> new AxeItem(tier, new Item.Properties()
+                .attributes(AxeItem.createAttributes(tier, 5, -3.0F))));
+    }
+
+    private static DeferredItem<Item> shovel(String id, Tier tier) {
+        return ITEMS.register(id, () -> new ShovelItem(tier, new Item.Properties()
+                .attributes(ShovelItem.createAttributes(tier, 1.5F, -3.0F))));
+    }
+
+    private static DeferredItem<Item> hoe(String id, Tier tier) {
+        return ITEMS.register(id, () -> new HoeItem(tier, new Item.Properties()
+                .attributes(HoeItem.createAttributes(tier, -1, -2.0F))));
+    }
+
+    private static DeferredItem<Item> armor(String id, Holder<ArmorMaterial> material, ArmorItem.Type slot, int durability) {
+        return ITEMS.register(id, () -> new ArmorItem(material, slot, new Item.Properties()
+                .stacksTo(1).durability(durability)));
+    }
+
+    private static Ingredient getRepairIngredient(Holder<ArmorMaterial> material) {
+        // Replace with your TagRegistry or appropriate Ingredient supplier
+        if (material == JerryArmourMaterials.SLIME) {
+            return Ingredient.of(TagRegistry.slimeRepair());
+        }
+        if (material == JerryArmourMaterials.JERRY) {
+            return Ingredient.of(TagRegistry.jerryRepair());
+        }
+        return Ingredient.EMPTY;
     }
 }

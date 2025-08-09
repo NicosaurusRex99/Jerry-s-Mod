@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": "jerrysmod:slime_shard",
-    "Y": "#c:storage_blocks/diamond"
+    "X": {
+      "item": "jerrysmod:slime_shard"
+    },
+    "Y": {
+      "tag": "c:storage_blocks/diamond"
+    }
   },
   "pattern": [
     "XXX",

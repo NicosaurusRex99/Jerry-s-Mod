@@ -2,8 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "C": "#c:rods",
-    "X": "#jerrysmod:jerry_gem"
+    "C": {
+      "tag": "c:rods"
+    },
+    "X": {
+      "tag": "jerrysmod:jerry_gem"
+    }
   },
   "pattern": [
     "XXX",

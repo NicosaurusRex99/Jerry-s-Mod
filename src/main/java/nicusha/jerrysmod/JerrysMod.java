@@ -1,5 +1,6 @@
 package nicusha.jerrysmod;
 
+import nicusha.jerrysmod.items.material.JerryArmourMaterials;
 import nicusha.jerrysmod.registry.BlockRegistry;
 import nicusha.jerrysmod.registry.ItemRegistry;
 import org.slf4j.Logger;
@@ -37,7 +38,7 @@ public class JerrysMod {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register("tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.jerry"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> ItemRegistry.slime_gem.get().getDefaultInstance())
+            .icon(() -> ItemRegistry.SLIME_GEM.get().getDefaultInstance())
             .build());
 
     public JerrysMod(IEventBus modEventBus, ModContainer modContainer) {
@@ -45,6 +46,7 @@ public class JerrysMod {
 
         BlockRegistry.BLOCKS.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
+        JerryArmourMaterials.ARMOR_MATERIALS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
         modEventBus.addListener(this::creativeTab);

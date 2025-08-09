@@ -1,7 +1,5 @@
 package nicusha.jerrysmod.items;
 
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
@@ -15,11 +13,13 @@ import nicusha.jerrysmod.JerrysMod;
 public class ItemCaptainOfLight extends Item {
 
     public ItemCaptainOfLight() {
-        super(new Item.Properties().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))));
+        super(new Item.Properties().stacksTo(1));
     }
 
+
+
     @Override
-    public InteractionResult use(Level world, Player player, InteractionHand hand) {
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         int blockReachDistance = 128;
         Vec3 vec3d = player.getEyePosition(1);
@@ -53,6 +53,6 @@ public class ItemCaptainOfLight extends Item {
 
         }
 
-        return InteractionResult.SUCCESS;
+        return InteractionResultHolder.success(stack);
     }
 }
