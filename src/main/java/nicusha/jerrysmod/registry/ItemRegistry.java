@@ -2,7 +2,7 @@ package nicusha.jerrysmod.registry;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorType;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -70,6 +70,6 @@ public class ItemRegistry {
     // Helper for simple items
     private static DeferredItem<Item> registerSimple(String name) {
         return ITEMS.registerItem(name, props ->
-                new Item(props.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MODID, name)))));
+                new Item(props.setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(MODID, name)))));
     }
 }

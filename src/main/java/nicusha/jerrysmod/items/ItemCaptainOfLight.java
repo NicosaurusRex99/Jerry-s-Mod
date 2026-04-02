@@ -2,7 +2,7 @@ package nicusha.jerrysmod.items;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.*;
@@ -15,7 +15,7 @@ import nicusha.jerrysmod.JerrysMod;
 public class ItemCaptainOfLight extends Item {
 
     public ItemCaptainOfLight() {
-        super(new Item.Properties().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))));
+        super(new Item.Properties().stacksTo(1).setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"))));
     }
 
     @Override
@@ -36,10 +36,10 @@ public class ItemCaptainOfLight extends Item {
             world.addFreshEntity(bolt2);
             world.addFreshEntity(bolt3);
             if (!player.isCreative()) {
-                stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+                stack.hurtAndBreak(1, player, player.getUsedItemHand());
             }
             if (player instanceof ServerPlayer serverPlayer) {
-                var advancement = serverPlayer.getServer().getAdvancements().get(ResourceLocation.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"));
+                var advancement = serverPlayer.level().getServer().getAdvancements().get(Identifier.fromNamespaceAndPath(JerrysMod.MODID, "captain_of_light"));
                 if (advancement != null) {
                     var progress = serverPlayer.getAdvancements().getOrStartProgress(advancement);
                     if (!progress.isDone()) {

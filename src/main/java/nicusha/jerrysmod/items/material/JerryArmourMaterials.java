@@ -2,7 +2,7 @@ package nicusha.jerrysmod.items.material;
 
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
@@ -24,7 +24,7 @@ public interface JerryArmourMaterials {
             createDefenseMap(30, 21, 51, 18, 0),
             9, SoundEvents.ARMOR_EQUIP_IRON,
             5.4F, 0.0F,
-            ItemTags.create(ResourceLocation.fromNamespaceAndPath(MODID, "slime_repair"))
+            ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "slime_repair"))
     );
 
     ArmorMaterial JERRY = registerArmorMaterial(
@@ -32,11 +32,11 @@ public interface JerryArmourMaterials {
             createDefenseMap(454230, 341564, 1658961, 506013, 0),
             59, SoundEvents.ARMOR_EQUIP_IRON,
             5.4F, 0.0F,
-            ItemTags.create(ResourceLocation.fromNamespaceAndPath(MODID, "jerry_repair"))
+            ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "jerry_repair"))
     );
 
     static ResourceKey<EquipmentAsset> createId(String name) {
-        return ResourceKey.create(EquipmentAssets.ROOT_ID, ResourceLocation.fromNamespaceAndPath(MODID, name));
+        return ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(MODID, name));
     }
 
     static EnumMap<ArmorType, Integer> createDefenseMap(int boots, int leggings, int chestplate, int helmet, int body) {
