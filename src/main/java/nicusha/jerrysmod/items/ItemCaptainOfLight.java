@@ -28,7 +28,7 @@ public class ItemCaptainOfLight extends Item {
         BlockHitResult pos = player.level().clip(new ClipContext(vec3d, vec3d2, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player));
 
         if (world.getBlockState(pos.getBlockPos()) != null) {
-            LightningBolt bolt1 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt2 = new LightningBolt(EntityType.LIGHTNING_BOLT, world), bolt3 = new LightningBolt(EntityType.LIGHTNING_BOLT, world);
+            LightningBolt bolt1 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world), bolt2 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world), bolt3 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world);
             bolt1.move(MoverType.SELF, pos.getLocation());
             bolt2.move(MoverType.SELF, pos.getLocation());
             bolt3.move(MoverType.SELF, pos.getLocation());
