@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_slime_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jerrysmod:slime_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "jerrysmod:slime_shard_from_smelting_slime_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_slime_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jerrysmod:slime_shard_from_smelting_slime_ore"
+    ]
+  }
+}

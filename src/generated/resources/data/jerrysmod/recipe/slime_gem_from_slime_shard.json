@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": "jerrysmod:slime_shard",
+    "Y": "#c:gems/diamond"
+  },
+  "pattern": [
+    "XXX",
+    "XYX",
+    "XXX"
+  ],
+  "result": {
+    "id": "jerrysmod:slime_gem"
+  }
+}

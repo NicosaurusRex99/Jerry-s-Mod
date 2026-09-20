@@ -1,6 +1,6 @@
 {
   "values": [
-    "jerrysmod:jerry_gem",
-    "jerrysmod:slime_gem"
+    "#jerrysmod:jerry_gem",
+    "#jerrysmod:slime_gem"
   ]
 }

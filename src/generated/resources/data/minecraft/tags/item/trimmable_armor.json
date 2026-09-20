@@ -1,12 +1,12 @@
 {
   "values": [
-    "jerrysmod:jerry_boots",
-    "jerrysmod:slime_boots",
-    "jerrysmod:jerry_leggings",
-    "jerrysmod:slime_leggings",
-    "jerrysmod:jerry_chestplate",
-    "jerrysmod:slime_chestplate",
+    "jerrysmod:slime_helmet",
     "jerrysmod:jerry_helmet",
-    "jerrysmod:slime_helmet"
+    "jerrysmod:slime_chestplate",
+    "jerrysmod:jerry_chestplate",
+    "jerrysmod:slime_leggings",
+    "jerrysmod:jerry_leggings",
+    "jerrysmod:slime_boots",
+    "jerrysmod:jerry_boots"
   ]
 }

@@ -29,9 +29,9 @@ public class ItemCaptainOfLight extends Item {
 
         if (world.getBlockState(pos.getBlockPos()) != null) {
             LightningBolt bolt1 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world), bolt2 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world), bolt3 = new LightningBolt(EntityTypes.LIGHTNING_BOLT, world);
-            bolt1.move(MoverType.SELF, pos.getLocation());
-            bolt2.move(MoverType.SELF, pos.getLocation());
-            bolt3.move(MoverType.SELF, pos.getLocation());
+            bolt1.moveOrInterpolateTo(pos.getLocation(), 0, 0);
+            bolt2.moveOrInterpolateTo(pos.getLocation(), 0, 0);
+            bolt3.moveOrInterpolateTo(pos.getLocation(),0 ,0);
             world.addFreshEntity(bolt1);
             world.addFreshEntity(bolt2);
             world.addFreshEntity(bolt3);

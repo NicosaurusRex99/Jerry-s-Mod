@@ -19,21 +19,8 @@ import static nicusha.jerrysmod.JerrysMod.MODID;
 
 public interface JerryArmourMaterials {
 
-    ArmorMaterial SLIME = registerArmorMaterial(
-            "slime", 1,
-            createDefenseMap(30, 21, 51, 18, 0),
-            9, SoundEvents.ARMOR_EQUIP_IRON,
-            5.4F, 0.0F,
-            ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "slime_repair"))
-    );
-
-    ArmorMaterial JERRY = registerArmorMaterial(
-            "jerry", 1,
-            createDefenseMap(454230, 341564, 1658961, 506013, 0),
-            59, SoundEvents.ARMOR_EQUIP_IRON,
-            5.4F, 0.0F,
-            ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "jerry_repair"))
-    );
+    ArmorMaterial SLIME = registerArmorMaterial("slime", 1, createDefenseMap(30, 21, 51, 18, 0), 9, SoundEvents.ARMOR_EQUIP_IRON, 5.4F, 0.0F, ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "slime_repair")));
+    ArmorMaterial JERRY = registerArmorMaterial("jerry", 1, createDefenseMap(454230, 341564, 1658961, 506013, 0), 59, SoundEvents.ARMOR_EQUIP_IRON, 5.4F, 0.0F, ItemTags.create(Identifier.fromNamespaceAndPath(MODID, "jerry_repair")));
 
     static ResourceKey<EquipmentAsset> createId(String name) {
         return ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(MODID, name));

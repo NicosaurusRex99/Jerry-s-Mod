@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": "#c:rods",
+    "X": "#jerrysmod:slime_gem"
+  },
+  "pattern": [
+    "XX",
+    "XC",
+    " C"
+  ],
+  "result": {
+    "id": "jerrysmod:slime_axe"
+  }
+}

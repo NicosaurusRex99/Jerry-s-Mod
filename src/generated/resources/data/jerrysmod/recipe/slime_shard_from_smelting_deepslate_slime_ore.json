@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.8,
+  "ingredient": "jerrysmod:deepslate_slime_ore",
+  "result": {
+    "id": "jerrysmod:slime_shard"
+  }
+}
